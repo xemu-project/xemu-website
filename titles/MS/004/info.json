@@ -1,0 +1,26 @@
+{
+	"display_title": "Halo: Combat Evolved",
+	// "external_links": {
+	// 	"MobyGames": "https://moby",
+	// 	"Wikipedia": "https://wiki",
+	// 	"Redump": "https://redump"
+	// },
+	"compatibility_tests": [
+		// {
+		// 	"tester":      "user123",
+		// 	"date":        "2020-04-01 00:00:00 UTC",
+		// 	"build":       "v0.0.0-43-abc84392",
+		// 	"video":       "https://youtu.be/000000",
+		// 	"platform":    "Windows 10",
+		// 	"cpu":         "Intel Core i7-3924",
+		// 	"gfx_card":    "nVidia GTX 1060",
+		// 	"gfx_driver":  "403.3",
+		// 	"memory":      "64G DDR4 2100",
+		// 	"xbe_hash":    "4832984932483928492384",
+		// 	"xbe_version": "",
+		// 	"xbe_region":  "na",
+		// 	"description": "Works",
+		// 	"rating":      "playable"
+		// }
+	]
+}
