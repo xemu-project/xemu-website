@@ -9,7 +9,7 @@ from datetime import datetime
 from jinja2 import Environment, FileSystemLoader
 
 cover_path_url_base = 'https://raw.githubusercontent.com/mborgerson/xemu-website/master/'
-web_root = 'https://mborgerson.github.io/xemu-website/'
+web_root = '/'
 
 titles = {}
 bad_titles = []
