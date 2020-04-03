@@ -1,0 +1,276 @@
+{% extends "template_base.html" %}
+{% block header_extension %}
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap" rel="stylesheet">
+<style type="text/css">
+/* https://www.gungorbudak.com/blog/2018/12/12/bootstrap-4-search-box-with-search-icon/ */
+.has-search .form-control {
+    padding-left: 2.375rem;
+}
+.has-search .form-control-feedback {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 2.375rem;
+    text-align: center;
+    pointer-events: none;
+    color: #aaa;
+}
+
+{% for key in title_status_colors %}
+.text-color-{{ key }} {
+  color: {{ title_status_colors[key] }};
+}
+.fill-color-{{ key }} {
+  background-color: {{ title_status_colors[key] }};
+  color: #fff;
+  font-weight: bold;
+}
+{% endfor %}
+
+.title-card a {
+  color: #fff;
+  font-weight: bolder;
+  text-decoration: none;
+}
+.title-card-container {
+  width: 8rem;
+  background-color: #373737;
+}
+.title-card-image-container {
+  background-image:url('{{ cover_path_url_base }}/cover_front_default.png');
+  background-size: 8rem 11rem;
+  background-repeat: no-repeat;
+  width: 100%;
+  min-height: 11rem;
+}
+
+.coming-soon-contents {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 3;
+  opacity: 0.25;
+}
+.coming-soon-overlay {
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  padding: 15% 0;
+  font-size: 1.5em;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* Account for the fixed header (which otherwise would occlude anchor targets) */
+/* Via https://stackoverflow.com/a/28824157 */
+:target::before {
+  content: "";
+  display: block;
+  height: 60px; /* fixed header height*/
+  margin: -60px 0 0; /* negative fixed header height */
+}
+</style>
+
+{% endblock %}
+
+{% block jumbotron %}
+<!-- Main jumbotron for a primary marketing message or call to action -->
+<div class="jumbotron">
+  <div class="container">
+  <div class="row mt-5">
+    <div class="col-md-6 mt-4 text-center">
+    <img src="{{ cover_path_url_base }}/xbox_logo.png" class="img-fluid" />
+    </div>
+    <div class="col-md-6">
+    <h1 class="display-3" style="font-family: 'Ubuntu Mono'">xemu</h1>
+    <h4 class="card-subtitle mb-2 text-muted">Original Xbox Emulator</h4>
+    <p>
+    An open-source, cross-platform application that emulates the hardware of
+    the original Xbox game console, allowing users to play their Xbox games on
+    Windows, macOS, and Linux systems.
+    </p>
+    <p><a class="btn btn-outline-secondary btn-lg" href="https://github.com/mborgerson/xemu/wiki" role="button">Learn more &raquo;</a></p>
+    </div>
+  </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<h2 class="mb-4 text-center">Features</h2>
+<div class="row">
+  <div class="col-md-4">
+    <h4><i class="fab fa-github"></i> Open Source</h4>
+    <p>The source code for xemu is publicly available. Users are invited to help improve the project!</p>
+  </div>
+  <div class="col-md-4">
+    <h4><i class="fas fa-users"></i> Cross Platform</h4>
+    <p>xemu runs natively on Windows, macOS, and Linux platforms. Pre-compiled binaries are available for Windows, and soon for all three platforms.</p>
+  </div>
+  <div class="col-md-4">
+    <h4><i class="fas fa-project-diagram"></i> System Link</h4>
+    <p>Networking is supported out of the box. Connect to other instances of xemu and even real Xboxes, locally or over the Internet.</p>
+  </div>
+  <div class="col-md-4">
+    <h4><i class="fas fa-gamepad"></i> Gamepad Support</h4>
+    <p>Built on SDL2, xemu supports virtually all gamepads. Connect up to 4 controllers at any time, just like a real Xbox.</p>
+  </div>
+  <div class="col-md-4">
+    <div class="coming-soon-contents">
+    <h4><i class="fas fa-save"></i> Snapshots</h4>
+    <p>Don't wait for checkpoints. xemu supports saving the current machine state and loading it back up at a later time.</p>
+    </div>
+    <div class="coming-soon-overlay">
+    Coming Soon!
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="coming-soon-contents">
+    <h4><i class="fas fa-expand-alt"></i> Surface Scaling</h4>
+    <p>Breathe new life into your old games by scaling up the resolution which the games render at.</p>
+    </div>
+    <div class="coming-soon-overlay">
+    Coming Soon!
+    </div>
+  </div>
+</div>
+
+<hr>
+
+<div class="" id="compatibility">
+<h2 class="mb-4 text-center">Compatibility</h2>
+</div>
+<div id="title_stats" style="height: 120px"></div>
+<div class="form-group has-search">
+  <span class="fa fa-search form-control-feedback"></span>
+  <input class="form-control" type="text" placeholder="Search" id="filter">
+</div>
+<div class="container mt-2">
+  <div class="row" id="results">
+  {% for title in index_titles %}
+    <div class="col mb-4 title-card" data-title-name="{{ title.title_name }}">
+      <a href="{{ title.title_url }}">
+        <div class="mx-auto title-card-container">
+          <div class="title-card-image-container">
+            {% if not title.have_cover %}
+            <div class="card-body text-center">{{ title.title_name }}</div>
+            {% else %}
+            <img data-src="{{ title.cover_thumbnail_url }}" class="img-fluid lazy" title="{{ title.title_name }}">
+            {% endif %}
+          </div>
+          <div class="fill-color-{{ title.status }} card-body text-center py-1 my-0">
+            <small><strong>{{ title.status }}</strong></small>
+          </div>
+        </div>
+      </a>
+    </div> 
+  {% endfor %}
+  </div>
+</div>
+{% endblock %}
+
+{% block footer_extension %}
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.lazy/1.7.10/jquery.lazy.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.lazy/1.7.10/jquery.lazy.plugins.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+<script type="text/javascript">
+// Lazy-load images
+var lazyInstance = $('img.lazy').Lazy({
+  scrollDirection: 'vertical',
+  visibleOnly: true,
+  chainable: false,
+  effect: "fadeIn",
+  effectTime: 333,
+  onError: function(element) {
+      console.log('error loading ' + element.data('src'));
+  }
+});
+
+// https://stackoverflow.com/a/1909508
+function delay(fn, ms) {
+  let timer = 0
+  return function(...args) {
+    clearTimeout(timer)
+    timer = setTimeout(fn.bind(this, ...args), ms || 0)
+  }
+}
+
+// Simple filter via: https://stackoverflow.com/a/44736154
+$("#filter").keyup(delay(function() {
+  var filter = $(this).val();
+  $('.title-card').each(function() {
+    if ($(this).attr('data-title-name').search(new RegExp(filter, "i")) < 0) {
+      $(this).hide();
+    } else {
+      $(this).show();
+    }
+  });
+  lazyInstance.update();
+}, 250));
+
+var options = {
+  series: [
+    {% for status in game_status_counts: %}
+    {
+      name: '{{ status }}',
+      data: [
+        {{ game_status_counts[status] }},
+      ]
+    },
+    {% endfor %}
+  ],
+  chart: {
+    type: 'bar',
+    height: 100,
+    offsetY: 0,
+    stacked: true,
+    stackType: '100%',
+    toolbar: {
+      show: false
+    }
+  },
+  plotOptions: {
+    bar: {
+      horizontal: true,
+    },
+  },
+  stroke: {
+    width: 1,
+    colors: ['#fff']
+  },
+  xaxis: {
+    categories: [
+      'Titles'
+      ],
+    labels: {
+      show: false
+    }
+  },
+  yaxis: {
+    labels: {
+      show: false
+    }
+  },
+  tooltip: {
+    y: {
+      formatter: function (val) {
+        return val
+      }
+    }
+  },
+  colors: [
+  {% for key in title_status_colors %}
+    '{{ title_status_colors[key] }}',
+  {% endfor %}
+  ],
+  legend: {
+    position: 'top',
+    horizontalAlign: 'center',
+  }
+  };
+var chart = new ApexCharts(document.querySelector("#title_stats"), options);
+chart.render();
+</script>
+{% endblock %}
