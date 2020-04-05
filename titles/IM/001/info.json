@@ -1,0 +1,48 @@
+{
+    "name": "Official Xbox Magazine Game Disc 02",
+    "title_id": "494d0001",
+    "releases": [
+        {
+            "title_id": "494d0001",
+            "region": "USA",
+            "edition": "Original",
+            "disc_id": 1
+        },
+        {
+            "title_id": "494d0001",
+            "region": "Europe",
+            "edition": "Original",
+            "disc_id": 2
+        },
+        {
+            "title_id": "494d0001",
+            "region": "UK",
+            "edition": "Original",
+            "disc_id": 5
+        },
+        {
+            "title_id": "494d0001",
+            "region": "UK",
+            "edition": "Original",
+            "disc_id": 6
+        },
+        {
+            "title_id": "494d0001",
+            "region": "UK",
+            "edition": "Original",
+            "disc_id": 7
+        },
+        {
+            "title_id": "494d0001",
+            "region": "UK",
+            "edition": "Original",
+            "disc_id": 12
+        },
+        {
+            "title_id": "494d0001",
+            "region": "France",
+            "edition": "Original",
+            "disc_id": 19
+        }
+    ]
+}

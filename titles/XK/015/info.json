@@ -1,0 +1,12 @@
+{
+    "name": "Xbox Demo Disc Version 2.3",
+    "title_id": "584b000f",
+    "releases": [
+        {
+            "title_id": "584b000f",
+            "region": "USA",
+            "edition": "Kiosk Demo",
+            "disc_id": 1
+        }
+    ]
+}

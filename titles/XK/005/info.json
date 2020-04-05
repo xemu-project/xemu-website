@@ -1,0 +1,36 @@
+{
+    "name": "Xbox Demo Disk Version 1.4",
+    "title_id": "584b0005",
+    "releases": [
+        {
+            "title_id": "584b0005",
+            "region": "USA",
+            "edition": "Kiosk Demo",
+            "disc_id": 5
+        },
+        {
+            "title_id": "584b0005",
+            "region": "USA",
+            "edition": "Kiosk Demo",
+            "disc_id": 6
+        },
+        {
+            "title_id": "584b0005",
+            "region": "USA",
+            "edition": "Kiosk Demo",
+            "disc_id": 7
+        },
+        {
+            "title_id": "584b0005",
+            "region": "Europe",
+            "edition": "Original",
+            "disc_id": 14
+        },
+        {
+            "title_id": "584b0005",
+            "region": "Germany",
+            "edition": "Original",
+            "disc_id": 18
+        }
+    ]
+}

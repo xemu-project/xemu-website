@@ -1,0 +1,17 @@
+{
+    "name": "Xbox the Best of Demo Disk Version 10.0",
+    "title_id": "584b000a",
+    "releases": [
+        {
+            "title_id": "584b000a",
+            "region": "Europe",
+            "edition": "Original",
+            "disc_id": 2
+        },
+        {
+            "title_id": "584b000a",
+            "region": "Australia",
+            "disc_id": 5
+        }
+    ]
+}

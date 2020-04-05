@@ -1,2 +1,8 @@
 __pycache__/
 dist/
+env/
+.sass-cache/
+dart-sass/
+bootstrap-4.4.1/
+*.log
+*.pid

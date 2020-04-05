@@ -1,0 +1,18 @@
+{
+    "name": "Xbox Demo Disc Version 3.4",
+    "title_id": "584b001b",
+    "releases": [
+        {
+            "title_id": "584b001b",
+            "region": "USA",
+            "edition": "Kiosk Demo",
+            "disc_id": 1
+        },
+        {
+            "title_id": "584b001b",
+            "region": "USA",
+            "edition": "Kiosk Demo",
+            "disc_id": 2
+        }
+    ]
+}

@@ -1,5 +1,7 @@
+{% set title_status_colors = {'Unknown' : '#2A2A2A', 'Broken' : '#D7263D', 'Intro' : '#F86624', 'Starts' : '#FF9800', 'Playable' : '#1B998B', 'Perfect' : '#4CAF50'} %}
+
 {% extends "template_base.html" %}
-{% block header_extension %}
+{% block append_head %}
 <style type="text/css">
 /* https://www.gungorbudak.com/blog/2018/12/12/bootstrap-4-search-box-with-search-icon/ */
 .has-search .form-control {
@@ -38,7 +40,7 @@
   background-color: #373737;
 }
 .title-card-image-container {
-  background-image:url('{{ cover_path_url_base }}/cover_front_default.png');
+  background-image:url('cover_front_default.png');
   background-size: 8rem 11rem;
   background-repeat: no-repeat;
   width: 100%;
@@ -70,6 +72,12 @@
   height: 60px; /* fixed header height*/
   margin: -60px 0 0; /* negative fixed header height */
 }
+
+.feature-icon {
+  font-size: 0.7em;
+  padding-right: 0.25em;
+  vertical-align: 10%;
+}
 </style>
 
 {% endblock %}
@@ -80,10 +88,10 @@
   <div class="container">
   <div class="row mt-5">
     <div class="col-md-6 mt-4 text-center">
-    <img src="{{ cover_path_url_base }}/xbox_logo.png" class="img-fluid" />
+    <img src="xbox_logo.png" class="img-fluid" width=450 />
     </div>
     <div class="col-md-6">
-    <h1 class="display-3" style="font-family: 'Ubuntu Mono'">xemu</h1>
+    <h1 class="display-3" style="font-family: 'Ubuntu Mono'; color: #42e335">xemu</h1>
     <h4 class="card-subtitle mb-2 text-muted">Original Xbox Emulator</h4>
     <p>
     An open-source, cross-platform application that emulates the hardware of
@@ -94,6 +102,7 @@
     </div>
   </div>
   </div>
+  <div class="scroll"></div>
 </div>
 {% endblock %}
 
@@ -101,24 +110,24 @@
 <h2 class="mb-4 text-center">Features</h2>
 <div class="row">
   <div class="col-md-4">
-    <h4><i class="fab fa-github"></i> Open Source</h4>
+    <h4><i class="fab fa-github feature-icon"></i> Open Source</h4>
     <p>The source code for xemu is publicly available. Users are invited to help improve the project!</p>
   </div>
   <div class="col-md-4">
-    <h4><i class="fas fa-users"></i> Cross Platform</h4>
+    <h4><i class="fas fa-users feature-icon"></i> Cross Platform</h4>
     <p>xemu runs natively on Windows, macOS, and Linux platforms. Pre-compiled binaries are available for Windows, and soon for all three platforms.</p>
   </div>
   <div class="col-md-4">
-    <h4><i class="fas fa-project-diagram"></i> System Link</h4>
+    <h4><i class="fas fa-people-arrows feature-icon"></i> System Link</h4>
     <p>Networking is supported out of the box. Connect to other instances of xemu and even real Xboxes, locally or over the Internet.</p>
   </div>
   <div class="col-md-4">
-    <h4><i class="fas fa-gamepad"></i> Gamepad Support</h4>
+    <h4><i class="fas fa-gamepad feature-icon"></i> Gamepad Support</h4>
     <p>Built on SDL2, xemu supports virtually all gamepads. Connect up to 4 controllers at any time, just like a real Xbox.</p>
   </div>
   <div class="col-md-4">
     <div class="coming-soon-contents">
-    <h4><i class="fas fa-save"></i> Snapshots</h4>
+    <h4><i class="fas fa-download feature-icon"></i> Snapshots</h4>
     <p>Don't wait for checkpoints. xemu supports saving the current machine state and loading it back up at a later time.</p>
     </div>
     <div class="coming-soon-overlay">
@@ -127,7 +136,7 @@
   </div>
   <div class="col-md-4">
     <div class="coming-soon-contents">
-    <h4><i class="fas fa-expand-alt"></i> Surface Scaling</h4>
+    <h4><i class="fas fa-expand-alt feature-icon"></i> Surface Scaling</h4>
     <p>Breathe new life into your old games by scaling up the resolution which the games render at.</p>
     </div>
     <div class="coming-soon-overlay">
@@ -148,7 +157,7 @@
 </div>
 <div class="container mt-2">
   <div class="row" id="results">
-  {% for title in index_titles %}
+  {% for title in titles %}
     <div class="col mb-4 title-card" data-title-name="{{ title.title_name }}">
       <a href="{{ title.title_url }}">
         <div class="mx-auto title-card-container">
@@ -170,7 +179,7 @@
 </div>
 {% endblock %}
 
-{% block footer_extension %}
+{% block append_foot %}
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.lazy/1.7.10/jquery.lazy.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.lazy/1.7.10/jquery.lazy.plugins.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
@@ -221,9 +230,10 @@ var options = {
     {% endfor %}
   ],
   chart: {
+    foreColor: '#a7a7a7', // text color
+    background: '#444',
     type: 'bar',
     height: 100,
-    offsetY: 0,
     stacked: true,
     stackType: '100%',
     toolbar: {
@@ -236,8 +246,12 @@ var options = {
     },
   },
   stroke: {
-    width: 1,
-    colors: ['#fff']
+    show: false,
+    width: 0,
+    colors: ['#999']
+  },
+  grid: {
+    show: false
   },
   xaxis: {
     categories: [
@@ -245,14 +259,30 @@ var options = {
       ],
     labels: {
       show: false
+    },
+    axisBorder: {
+      show: false,
+      color: '#ffff00'
+    },
+    axisTicks: {
+      show: false,
     }
   },
   yaxis: {
     labels: {
-      show: false
+      show: true,
+      maxWidth: 0
+    },
+    axisBorder: {
+      show: false,
+      color: '#ff00ff'
+    },
+    axisTicks: {
+      show: false,
     }
   },
   tooltip: {
+    enabled: false,
     y: {
       formatter: function (val) {
         return val
@@ -267,6 +297,7 @@ var options = {
   legend: {
     position: 'top',
     horizontalAlign: 'center',
+    offsetY: 20
   }
   };
 var chart = new ApexCharts(document.querySelector("#title_stats"), options);

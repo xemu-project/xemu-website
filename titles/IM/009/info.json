@@ -1,0 +1,24 @@
+{
+    "name": "Official Xbox Magazine Game Disc 10",
+    "title_id": "494d0009",
+    "releases": [
+        {
+            "title_id": "494d0009",
+            "region": "USA",
+            "edition": "Original",
+            "disc_id": 1
+        },
+        {
+            "title_id": "494d0009",
+            "region": "Europe",
+            "edition": "Original",
+            "disc_id": 2
+        },
+        {
+            "title_id": "494d0009",
+            "region": "Australia",
+            "edition": "Original",
+            "disc_id": 3
+        }
+    ]
+}

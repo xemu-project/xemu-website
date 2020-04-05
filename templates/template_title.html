@@ -25,10 +25,10 @@
       <li class="list-group-item d-flex justify-content-between lh-condensed">
         <div class="list-group w-100">
           <div class="d-flex w-100 justify-content-between">
-            <h6 class="">Status</h6>
-            <span class="text-color-{{ title.status }}"><strong>{{ title.status }}</strong></span>
+            <h5 class="">Status</h5>
+            <span><strong>{{ title.status }}</strong></span>
           </div>
-          <p class="text-muted mb-1"><small>{{ title_status_descriptions[title.status] }}</small></p>
+          <p class="text-muted mb-1">{{ title_status_descriptions[title.status] }}</p>
         </div>
       </li>
 
@@ -74,15 +74,16 @@
       <h4>Known Issues</h4>
     </div>
     <div class="list-group">
-      {% if False %}
-      <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+      {% if title.issues|length > 0 %}
+        {% for issue in title.issues %}
+      <a href="{{ issue.url }}" class="list-group-item list-group-item-action flex-column align-items-start">
         <div class="d-flex w-100 justify-content-between">
-          <h5 class="mb-1">List group item heading</h5>
-          <small>3 days ago</small>
+          <h5 class="mb-1">{{ issue.title }}</h5>
+          <small>#{{ issue.number }}</small>
         </div>
-        <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-        <small>Donec id elit non mi porta.</small>
+        <p class="mb-1 text-small text-muted">Issue last updated {{ issue.updated_at.strftime('%b %-m, %Y') }}.</p>
       </a>
+        {% endfor %}
       {% else %}
       <div class="list-group-item text-center text-muted text-small">
         No issues have been reported for this title.

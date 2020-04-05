@@ -1,0 +1,30 @@
+{
+    "name": "Official Xbox Magazine Game Disc 48",
+    "title_id": "494d0030",
+    "releases": [
+        {
+            "title_id": "494d0030",
+            "region": "Europe",
+            "edition": "Original",
+            "disc_id": 2
+        },
+        {
+            "title_id": "494d0030",
+            "region": "France",
+            "edition": "Original",
+            "disc_id": 3
+        },
+        {
+            "title_id": "494d0030",
+            "region": "Germany",
+            "edition": "Original",
+            "disc_id": 4
+        },
+        {
+            "title_id": "494d004d",
+            "region": "USA",
+            "edition": "Original",
+            "disc_id": 1
+        }
+    ]
+}
