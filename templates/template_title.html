@@ -22,11 +22,11 @@
   <div class="col-md-8">
     <ul class="list-group mb-3">
 
-      <li class="list-group-item d-flex justify-content-between lh-condensed">
+      <li class="list-group-item d-flex justify-content-between">
         <div class="list-group w-100">
           <div class="d-flex w-100 justify-content-between">
-            <h5 class="">Status</h5>
-            <span><strong>{{ title.status }}</strong></span>
+            <h5>Status</h5>
+            <strong>{{ title.status }}</strong>
           </div>
           <p class="text-muted mb-1">{{ title_status_descriptions[title.status] }}</p>
         </div>
@@ -34,12 +34,24 @@
 
       {% if title.most_recent_test %}
       <li class="list-group-item d-flex justify-content-between">
-        <div>
-          <span>Last Tested</span>
-        </div>
-        <div class="list-group text-right">
-          <a class="btn btn-outline-secondary btn-sm" href="#" role="button">{{ title.most_recent_test.build }}</a>
-          <span><small>{{ title.most_recent_test.date }}</small></span>
+        <div class="list-group w-100">
+          <div class="d-flex w-100 justify-content-between">
+            <h5>Last Tested</h5>
+            <strong>{{ title.most_recent_test.created_at.strftime('%b %-d, %Y') }}</strong>
+          </div>
+          <details>
+            <summary>
+            {% if title.most_recent_test.info['provided_by_ip_addr'] %}
+            <strong>Reported by anonymous user at IP address:</strong> {{ title.most_recent_test.info['provided_by_ip_addr'] }}
+            {% endif %}
+            {% if title.most_recent_test.info['provided_by_discord_name'] %}
+            <strong>Reported by Discord user:</strong> {{ title.most_recent_test.info['provided_by_discord_name'] }}
+            {% endif %}
+            </summary>
+            <pre>
+{% for k in title.most_recent_test.info %}{{ k }}: {{ title.most_recent_test.info[k]|e }}
+{% endfor %}</pre>
+          </details>
         </div>
       </li>
       {% endif %}
@@ -81,7 +93,7 @@
           <h5 class="mb-1">{{ issue.title }}</h5>
           <small>#{{ issue.number }}</small>
         </div>
-        <p class="mb-1 text-small text-muted">Issue last updated {{ issue.updated_at.strftime('%b %-m, %Y') }}.</p>
+        <p class="mb-1 text-small text-muted">Issue last updated {{ issue.updated_at.strftime('%b %-d, %Y') }}.</p>
       </a>
         {% endfor %}
       {% else %}

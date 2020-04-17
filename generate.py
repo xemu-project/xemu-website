@@ -1,16 +1,26 @@
 #!/usr/bin/env python
+"""
+xemu.app Static Site Generator
+"""
+
 import codecs
 import json
 import os
 import re
+import requests
 
 from collections import defaultdict
-from datetime import datetime
+from datetime import datetime, timezone
 from github import Github
 from jinja2 import Environment, FileSystemLoader
 from tqdm import tqdm
 
+output_dir = 'dist'
 repo_url_base = 'https://raw.githubusercontent.com/mborgerson/xemu-website/master/'
+compatibility_reports_url = 'https://reports.xemu.app/compatibility'
+compatibility_reports_url_verify_certs = True
+# compatibility_reports_url = 'https://127.0.0.1/compatibility'
+# compatibility_reports_url_verify_certs = False
 
 title_status_descriptions = {
     'Unknown'  : 'A compatibility test has not been recorded for this title.',
@@ -25,7 +35,8 @@ def get_field(s,x):
     return s[x] if x in s else ''
 
 class Issue:
-    issues_by_title = None
+    all_issues = []
+    issues_by_title = defaultdict(list)
 
     def __init__(self, number, url, title, affected_titles, created_at, updated_at):
         self.number = number
@@ -39,63 +50,58 @@ class Issue:
         return self.title
 
     @classmethod
-    def get_all_issues(cls):
+    def load_issues(cls, title_alias_map):
         """
-        Search through all GitHub issues for any title tags to construct a list of
-        titles and their associated issues
+        Search through all GitHub issues for any title tags to construct a
+        list of titles and their associated issues
         """
-        issues = []
-        titles_re = re.compile(r'Titles?:\s*(\w+)(\s*,\s*\w+)*')
+        titles_re = re.compile(r'Titles?:\s*([a-fA-f0-9,\s]+)')
+        title_id_re = re.compile(r'([a-fA-f0-9]{8})')
         for issue in Github().get_user('mborgerson').get_repo('xemu').get_issues():
             if issue.state != 'open': continue
-            # Matches returns list of tuples, just concatenate everything, strip
-            # out the comments and chop up by whitespace
-            matches = titles_re.findall(issue.body)
-            joiner = lambda x: ' '.join(x)
-            matches = map(joiner, matches)
-            affected_titles = []
-            for t in joiner(matches).replace(',', ' ').split():
-                affected_titles.append(t.lstrip('0x'))
-            issues.append(cls(
+            # Look for a titles sequence and pull out anything that looks like
+            # an id
+            references = ' '.join(titles_re.findall(issue.body))
+            affected_titles = title_id_re.findall(references)
+            cls.all_issues.append(cls(
                 issue.number,
                 issue.html_url,
                 issue.title,
                 affected_titles,
                 issue.created_at,
                 issue.updated_at))
-        return issues
-
-    @classmethod
-    def get_issues_by_title(cls):
-        if cls.issues_by_title is not None:
-            return cls.issues_by_title
 
         # Organize issues by title
-        issues_by_title = defaultdict(list)
-        for issue in cls.get_all_issues():
-            for title in issue.affected_titles:
-                issues_by_title[title].append(issue)
+        for issue in cls.all_issues:
+            for title_id in issue.affected_titles:
+                if title_id not in title_alias_map:
+                    print('Warning: Issue %s references unknown title id "%s"' % (issue.url, title_id))
+                    continue
+                if issue not in cls.issues_by_title[title_alias_map[title_id]]:
+                    cls.issues_by_title[title_alias_map[title_id]].append(issue)
 
-        cls.issues_by_title = issues_by_title
-        return issues_by_title
+class CompatibilityReport:
+    all_reports = []
+    reports_by_title = defaultdict(list)
 
-class CompatibilityTest:
-    def __init__(self, d):
-        timef = '%Y-%m-%d %H:%M:%S %Z'
-        self.tester      = get_field(d, "tester")
-        self.date        = datetime.strptime(get_field(d, "date"), timef)
-        self.build       = get_field(d, "build")
-        self.video       = get_field(d, "video")
-        self.platform    = get_field(d, "platform")
-        self.cpu         = get_field(d, "cpu")
-        self.gfx_card    = get_field(d, "gfx_card")
-        self.gfx_driver  = get_field(d, "gfx_driver")
-        self.memory      = get_field(d, "memory")
-        self.xbe_hash    = get_field(d, "xbe_hash")
-        self.xbe_version = get_field(d, "xbe_version")
-        self.xbe_region  = get_field(d, "xbe_region")
-        self.description = get_field(d, "description")
-        self.rating      = get_field(d, "rating")
+    def __init__(self, info):
+        self.info = info
+
+    @property
+    def created_at(self):
+        return datetime.fromtimestamp(self.info['created_at'], timezone.utc)
+
+    @classmethod
+    def load_reports(cls, title_alias_map, url, verify):
+        # FIXME: Ideally shouldn't load this all into memory. Instead, save to
+        # disk and load on demand. But this works for now.
+        cls.all_reports = [CompatibilityReport(i) for i in json.loads(requests.get(url, verify=verify).text)]
+        for report in cls.all_reports:
+            title_id = report.info['xbe_cert_title_id']
+            if title_id not in title_alias_map:
+                print('Warning: Compatibility report %s references unknown title "%s"' % (report.info['_id'], title_id))
+                continue
+            cls.reports_by_title[title_alias_map[title_id]].append(report)
 
 class Title:
     def __init__(self, info_path):
@@ -137,24 +143,28 @@ class Title:
                 print('Note: Missing thumbnail for %s' % self.title_name)
             self.cover_thumbnail_url = self.cover_url
 
-        # Parse out compatibility tests
-        self.compatibility_tests = []
-        self.most_recent_test = None
-        if 'compatibility_tests' in self.info:
-            self.compatibility_tests = [CompatibilityTest(x) for x in self.info['compatibility_tests']]
+    def process_compatibility(self):
+        # FIXME:
+        # - Only show reports for master branch
+        # - Sort by the build version that was tested, showing most recent
+        #   builds first
+        # - Check version against repo for version numbers to filter out
+        #   unofficial builds
+        self.compatibility_tests = CompatibilityReport.reports_by_title[self.full_title_id_hex]
         if len(self.compatibility_tests) > 0:
-            self.most_recent_test = compatibility_tests[-1]
-            self.status = self.most_recent_test.rating
+            self.most_recent_test = sorted(self.compatibility_tests, key=lambda x:x.info['created_at'])[-1]
+            self.status = self.most_recent_test.info['compat_rating']
+            assert(self.status in title_status_descriptions)
         else:
+            self.most_recent_test = None
             self.status = 'Unknown'
         assert(self.status in title_status_descriptions)
 
     @property
     def issues(self):
-        return Issue.get_issues_by_title()[self.info['title_id']]
+        return Issue.issues_by_title[self.info['title_id']]
 
 def main():
-    output_dir = 'dist'
     env = Environment(loader=FileSystemLoader(searchpath='templates'))
     game_status_counts = {
         'Unknown'  : 0,
@@ -165,7 +175,6 @@ def main():
         'Perfect'  : 0,
     }
 
-    # Gather all info.json files
     print('Gathering info.json files...')
     titles = []
     title_alias_map = {}
@@ -175,16 +184,26 @@ def main():
             if name != 'info.json': continue
             title = Title(os.path.join(root,name))
             titles.append(title)
-            assert(title.full_title_id_hex not in title_lookup, "Title %s defined in multiple places" % title.full_title_id_hex)
+            assert(title.full_title_id_hex not in title_lookup), "Title %s defined in multiple places" % title.full_title_id_hex
             title_lookup[title.full_title_id_hex] = title
-            game_status_counts[title.status] += 1
             for release in title.info['releases']:
                 title_alias_map[release['title_id']] = title.info['title_id']
     print('  - Found %d' % (len(titles)))
 
     print('Getting GitHub Issues List...')
-    Issue.get_all_issues()
-    print('  - Ok')
+    # Issue.load_issues(title_alias_map)
+    print('  - Ok. %d issues total' % len(Issue.all_issues))
+
+    print('Getting compatibility report list...')
+    CompatibilityReport.load_reports(
+        title_alias_map,
+        compatibility_reports_url,
+        compatibility_reports_url_verify_certs
+        )
+    print('  - Ok. %d reports total' % len(CompatibilityReport.all_reports))
+    for title in titles:
+        title.process_compatibility()
+        game_status_counts[title.status] += 1
 
     print('Rebuilding pages...')
     template = env.get_template('template_title.html')
