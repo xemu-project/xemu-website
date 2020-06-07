@@ -191,7 +191,7 @@ def main():
     print('  - Found %d' % (len(titles)))
 
     print('Getting GitHub Issues List...')
-    # Issue.load_issues(title_alias_map)
+    Issue.load_issues(title_alias_map)
     print('  - Ok. %d issues total' % len(Issue.all_issues))
 
     print('Getting compatibility report list...')
