@@ -97,7 +97,7 @@ class CompatibilityReport:
         # disk and load on demand. But this works for now.
         cls.all_reports = [CompatibilityReport(i) for i in json.loads(requests.get(url, verify=verify).text)]
         for report in cls.all_reports:
-            title_id = report.info['xbe_cert_title_id']
+            title_id = '%08x' % report.info['xbe_cert_title_id']
             if title_id not in title_alias_map:
                 print('Warning: Compatibility report %s references unknown title "%s"' % (report.info['_id'], title_id))
                 continue
