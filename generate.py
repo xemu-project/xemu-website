@@ -27,7 +27,7 @@ title_status_descriptions = {
     'Broken'   : 'This title crashes very soon after launching, or displays nothing at all.',
     'Intro'    : 'This title displays an intro sequence, but fails to make it to gameplay.',
     'Starts'   : 'This title starts, but may crash or have significant issues.',
-    'Playable' : 'This title is playable from start to finish, with only minor issues.',
+    'Playable' : 'This title is playable, with minor issues.',
     'Perfect'  : 'This title is playable from start to finish with no noticable issues.'
     }
 
