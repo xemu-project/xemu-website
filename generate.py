@@ -134,7 +134,7 @@ class Title:
             self.cover_url = repo_url_base + self.title_path + '/' + self.cover_path
         else:
             print('Note: Missing artwork for %s' % self.title_name)
-            self.cover_url = repo_url_base + '/cover_front_default.png'
+            self.cover_url = repo_url_base + '/resources/cover_front_default.png'
 
         if self.have_thumbnail:
             self.cover_thumbnail_url = repo_url_base + self.title_path + '/' + self.cover_thumbnail_path
