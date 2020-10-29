@@ -19,6 +19,12 @@
             "region": "USA",
             "edition": "Demo",
             "disc_id": 51
+        },
+        {
+            "title_id": "55530041",
+            "region": "USA, Europe",
+            "edition": "Original",
+            "disc_id": 2
         }
     ]
 }
