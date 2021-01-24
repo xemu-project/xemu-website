@@ -159,7 +159,7 @@
 <div class="container mt-2">
   <div class="row" id="results">
   {% for title in titles %}
-    <div class="col mb-4 title-card" data-title-name="{{ title.title_name }}">
+    <div class="col mb-4 title-card" data-title-name="{{ title.title_name }}" data-title-status="{{ title.status }}">
       <a href="{{ title.title_url }}">
         <div class="mx-auto title-card-container">
           <div class="title-card-image-container">
@@ -206,18 +206,52 @@ function delay(fn, ms) {
   }
 }
 
+var filter_title_str = null;
+var filter_status_str = null;
+var hidden_status_list = [];
+
 // Simple filter via: https://stackoverflow.com/a/44736154
 $("#filter").keyup(delay(function() {
-  var filter = $(this).val();
+  filter_title_str = $(this).val();
+  filter_titles();
+}, 250));
+
+function toggle_single_status_filter(status)
+{
+  filter_status_str = filter_status_str === status ? null : status;
+  filter_titles();
+}
+
+function toggle_hidden_status_filter(status)
+{
+  if (hidden_status_list.includes(status)) {
+    // User has toggled a status that's already hidden, remove status from hidden filter list
+    hidden_status_list = hidden_status_list.filter(function(hidden_status) {
+      return hidden_status !== status;
+    });
+  } else {
+    hidden_status_list.push(status);
+  }
+  filter_titles();
+}
+
+function filter_titles()
+{
   $('.title-card').each(function() {
-    if ($(this).attr('data-title-name').search(new RegExp(filter, "i")) < 0) {
+    // Only show titles that match this critera:
+    // Status of title matches the filtered status if it's been set
+    // Status of title hasn't been excluded in the hidden status list
+    // Title name matches the user input
+    if ((filter_status_str != null && $(this).attr('data-title-status') !== filter_status_str) ||
+        (hidden_status_list.includes($(this).attr('data-title-status'))) ||
+        (filter_title_str != null && $(this).attr('data-title-name').search(new RegExp(filter_title, "i")) < 0 )) {
       $(this).hide();
     } else {
       $(this).show();
     }
   });
   lazyInstance.update();
-}, 250));
+}
 
 var options = {
   series: [
@@ -239,6 +273,16 @@ var options = {
     stackType: '100%',
     toolbar: {
       show: false
+    },
+    events : {
+      legendClick : function statustoggleclick(chartContext, seriesIndex, config) {
+          let status = config.globals.seriesNames[seriesIndex];
+          toggle_hidden_status_filter(status);
+        },
+      dataPointSelection : function statusclick(event) {
+          let status = event.currentTarget.parentNode.getAttribute("seriesName");
+          toggle_single_status_filter(status);
+        }
     }
   },
   plotOptions: {
