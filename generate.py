@@ -11,6 +11,7 @@ import requests
 
 from collections import defaultdict
 from datetime import datetime, timezone
+from functools import reduce
 from github import Github
 from jinja2 import Environment, FileSystemLoader
 from tqdm import tqdm
@@ -109,9 +110,12 @@ class Title:
             self.info = json.load(f)
         self.pubid = codecs.decode(self.info['title_id'][0:4], 'hex').decode('ascii')
         self.tid = '%03d' % (int(self.info['title_id'][4:], 16))
-        self.title_url = f"/titles/{self.info['title_id']}"
-        self.title_path = os.path.dirname(info_path)
         self.title_name = self.info['name']
+        anchor_text = ''.join([c if c.isalnum() else '-' for c in self.title_name])
+        anchor_text = reduce(lambda s, c: s if (s.endswith('-') and c == '-') else s+c, anchor_text)
+        anchor_text = anchor_text.lstrip('-').rstrip('-')
+        self.title_url = f"/titles/{self.info['title_id']}#{anchor_text}"
+        self.title_path = os.path.dirname(info_path)
         self.full_title_id_text = '%s-%s' % (self.pubid, self.tid)
         self.full_title_id_hex = self.info['title_id']
 
@@ -123,7 +127,7 @@ class Title:
             self.cover_path = f'cover_front.png'
             if not os.path.exists(os.path.join(self.title_path, self.cover_path)):
                 self.have_cover = False
-        
+
         self.have_thumbnail = True
         self.cover_thumbnail_path = 'cover_front_thumbnail.jpg'
         if not os.path.exists(os.path.join(self.title_path, self.cover_thumbnail_path)):
