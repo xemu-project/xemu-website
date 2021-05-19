@@ -56,7 +56,7 @@ class Issue:
         Search through all GitHub issues for any title tags to construct a
         list of titles and their associated issues
         """
-        titles_re = re.compile(r'Titles?:\s*([a-fA-f0-9,\s]+)')
+        titles_re = re.compile(r'Titles?[:/]\s*([a-fA-f0-9,\s]+)', re.IGNORECASE)
         title_id_re = re.compile(r'([a-fA-f0-9]{8})')
         for issue in Github().get_user('mborgerson').get_repo('xemu').get_issues():
             if issue.state != 'open': continue
