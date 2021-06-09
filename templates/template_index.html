@@ -78,6 +78,11 @@
   padding-right: 0.25em;
   vertical-align: 10%;
 }
+
+.button-icon {
+  display: inline-block;
+  margin-right: 1em;
+}
 </style>
 
 {% endblock %}
@@ -96,9 +101,33 @@
     <p>
     An open-source, cross-platform application that emulates the hardware of
     the original Xbox game console, allowing users to play their Xbox games on
-    Windows, macOS, and Linux systems.
+    Windows, macOS, and Linux systems. <a href="https://github.com/mborgerson/xemu/wiki#content-top">Learn more</a>.
     </p>
-    <p><a class="btn btn-outline-secondary btn-lg" href="https://github.com/mborgerson/xemu/wiki#content-top" role="button">Learn more &raquo;</a></p>
+
+    <div class="container">
+      <div class="row">
+        <div class="column text-center text-md-left p-2">
+          <div class="btn-group">
+            <button class="btn btn-outline-secondary btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Download
+            </button>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="https://github.com/mborgerson/xemu/releases/latest/download/xemu-win-release.zip"><i class="fab fa-windows button-icon" aria-hidden="true"></i> Download for Windows</a>
+              <a class="dropdown-item" href="https://github.com/mborgerson/xemu/releases/latest/download/xemu-macos-universal-release.zip"><i class="fab fa-apple button-icon" aria-hidden="true"></i> Download for macOS</a>
+              <a class="dropdown-item" href="https://github.com/mborgerson/xemu/wiki#linux-ubuntu"><i class="fab fa-linux button-icon" aria-hidden="true"></i> Download for Linux</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="https://github.com/mborgerson/xemu/releases"><i class="fa fa-ellipsis-h button-icon" aria-hidden="true"></i>All Releases</a>
+            </div>
+          </div>
+        </div>
+        <div class="column p-2">
+          <strong>Latest Release:</strong>
+          v{{xemu_build_version}}<br/>
+          {{xemu_build_date.strftime('%b %-d, %Y')}}
+        </div>
+      </div>
+    </div>
+
     </div>
   </div>
   </div>

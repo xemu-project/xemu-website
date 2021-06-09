@@ -52,7 +52,7 @@ $body-color:                $white !default;
 
 // Links
 
-$link-color:                $success !default;
+$link-color:                $gray-100 !default;
 
 // Fonts
 
@@ -436,7 +436,6 @@ body {
   background-size: 400px 311px;
   background-repeat: no-repeat;
 }
-
 
 .btn-icon {
   padding-right: 0.5em;

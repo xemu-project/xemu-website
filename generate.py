@@ -23,6 +23,11 @@ compatibility_reports_url_verify_certs = True
 # compatibility_reports_url = 'https://127.0.0.1/compatibility'
 # compatibility_reports_url_verify_certs = False
 
+develop_mode = False
+disable_load_issues = develop_mode
+disable_load_reports = develop_mode
+disable_load_version = develop_mode
+
 title_status_descriptions = {
     'Unknown'  : 'A compatibility test has not been recorded for this title.',
     'Broken'   : 'This title crashes very soon after launching, or displays nothing at all.',
@@ -56,6 +61,8 @@ class Issue:
         Search through all GitHub issues for any title tags to construct a
         list of titles and their associated issues
         """
+        if disable_load_issues:
+            return
         titles_re = re.compile(r'Titles?[:/]\s*([a-fA-f0-9,\s]+)', re.IGNORECASE)
         title_id_re = re.compile(r'([a-fA-f0-9]{8})')
         for issue in Github().get_user('mborgerson').get_repo('xemu').get_issues():
@@ -96,6 +103,8 @@ class CompatibilityReport:
     def load_reports(cls, title_alias_map, url, verify):
         # FIXME: Ideally shouldn't load this all into memory. Instead, save to
         # disk and load on demand. But this works for now.
+        if disable_load_reports:
+            return
         cls.all_reports = [CompatibilityReport(i) for i in json.loads(requests.get(url, verify=verify).text)]
         for report in cls.all_reports:
             title_id = '%08x' % report.info['xbe_cert_title_id']
@@ -237,13 +246,24 @@ def main():
             count += 1
     print('  - Created %d redirect pages' % count)
 
+    if disable_load_version:
+        xemu_build_tag = 'build-202106041913'
+        xemu_build_version = '0.5.2-26-g0a8e9b8db3'
+        xemu_build_date = datetime(2021, 6, 4, 19, 13, 6)
+    else:
+        xemu_build_version = requests.get('https://raw.githubusercontent.com/mborgerson/xemu/ppa-snapshot/XEMU_VERSION').text
+        latest_release = Github().get_user('mborgerson').get_repo('xemu').get_latest_release()
+        xemu_build_date = latest_release.created_at
+
     print('Rebuilding index...')
     template = env.get_template('template_index.html')
     with open(os.path.join(output_dir, 'index.html'), 'w') as f:
         f.write(template.render(
             titles=sorted(titles,key=lambda title:title.title_name),
             title_status_descriptions=title_status_descriptions,
-            game_status_counts=game_status_counts
+            game_status_counts=game_status_counts,
+            xemu_build_version=xemu_build_version,
+            xemu_build_date=xemu_build_date
             ))
     print('  - Ok')
 
