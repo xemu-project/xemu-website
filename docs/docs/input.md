@@ -5,8 +5,6 @@ at any time, just like a real Xbox.
     * There is currently no interface within xemu to adjust the keybindings.
     * There is currently no interface to add/remove memory cards.
 
-You can bind and unbind controllers in your system, just like a real Xbox.
-
 ## Keyboard as Gamepad
 
 The keyboard layout for the gamepad is:
