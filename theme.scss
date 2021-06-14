@@ -207,6 +207,9 @@ $pre-color:                         inherit !default;
 
 // Variables ===================================================================
 
+$web-font-path: "https://fonts.googleapis.com/css?family=Roboto:400,400italic&display=swap" !default;
+@import url($web-font-path);
+
 // Navbar ======================================================================
 
 // Buttons =====================================================================
