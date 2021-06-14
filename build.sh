@@ -14,7 +14,7 @@ if [[ ! -d bootstrap-4.4.1 ]]; then
 fi
 
 echo "Compiling stylesheets"
-./dart-sass/sass theme.scss dist/theme.css
+./dart-sass/sass theme.scss:dist/theme.css --style compressed
 
 echo "Generating HTML pages"
 ./generate.py
