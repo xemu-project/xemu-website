@@ -16,7 +16,7 @@ $gray-100: #f8f9fa !default;
 $gray-200: #ebebeb !default;
 $gray-300: #dee2e6 !default;
 $gray-400: #ced4da !default;
-$gray-500: #adb5bd !default;
+$gray-500: #BBB !default;
 $gray-600: #888 !default;
 $gray-700: #444 !default;
 $gray-800: #303030 !default;
@@ -37,7 +37,7 @@ $teal:    #20c997 !default;
 $cyan:    #3498DB !default;
 
 $primary:       darken($xemu-logo-green, 10%) !default;
-$secondary:     $gray-600 !default;
+$secondary:     $gray-500 !default;
 $success:       $green !default;
 $info:          $cyan !default;
 $warning:       $yellow !default;
@@ -54,7 +54,8 @@ $body-color:                $white !default;
 
 // Links
 
-$link-color:                $gray-100 !default;
+$link-color:                $gray-300 !default;
+$link-hover-color:          $white !default;
 
 // Fonts
 
@@ -95,9 +96,9 @@ $dropdown-bg:                       $gray-900 !default;
 $dropdown-border-color:             $gray-700 !default;
 $dropdown-divider-bg:               $gray-700 !default;
 
-$dropdown-link-color:               $white !default;
+$dropdown-link-color:               $gray-400 !default;
 $dropdown-link-hover-color:         $white !default;
-$dropdown-link-hover-bg:            $gray-600 !default;
+$dropdown-link-hover-bg:            $gray-800 !default;
 
 // Navs
 
@@ -113,7 +114,7 @@ $nav-tabs-link-active-border-color: $nav-tabs-border-color $nav-tabs-border-colo
 
 /*$navbar-padding-y:                  1rem !default;*/
 
-$navbar-dark-color:                rgba($white,.6) !default;
+$navbar-dark-color:                $link-color !default;
 $navbar-dark-hover-color:          $white !default;
 
 $navbar-light-color:                rgba($gray-900, .7) !default;
