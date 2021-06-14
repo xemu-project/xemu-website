@@ -1,11 +1,26 @@
+{% set description = "A free and open-source application that emulates the original Microsoft Xbox game console, enabling people to play their original Xbox games on Windows, macOS, and Linux systems." %}
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="{% if self.title() %}{{ self.title() }} | {% endif %}xemu: Original Xbox Emulator">
+    <meta property="og:description" content="{{ description }}">
+    <meta property="og:image" content="{{ main_url_base }}/docs/assets/images/social_banner.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1080">
+    <meta property="og:image:height" content="568">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@xemu_project">
+    <meta name="twitter:creator" content="@xemu_project">
+    <meta name="twitter:title" content="{% if self.title() %}{{ self.title() }} | {% endif %}xemu: Original Xbox Emulator">
+    <meta name="twitter:description" content="{{ description }}">
+    <meta name="twitter:image" content="{{ main_url_base }}/docs/assets/images/social_banner.png">
     <link rel="stylesheet" href="{{ main_url_base }}/theme.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.13.0/css/all.css">
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap" rel="stylesheet">
+
     <title>{%block title %}{% endblock %}{% if self.title() %} | {% endif %}xemu: Original Xbox Emulator</title>
     {% block append_head %}{% endblock %}
 
