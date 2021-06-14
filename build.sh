@@ -24,3 +24,6 @@ cp resources/cover_front_default.png \
    resources/xbox_duke.png \
    dist
 rm dist/theme.css.map
+
+docker run --rm -v ${PWD}/docs:/docs squidfunk/mkdocs-material build
+cp -r docs/site dist/docs

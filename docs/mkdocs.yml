@@ -1,0 +1,77 @@
+site_name: "xemu: Original Xbox Emulator"
+site_url: https://xemu.app/docs/
+site_author: Matt Borgerson
+site_description: >-
+  A free and open-source application that emulates the original Microsoft
+  Xbox game console, enabling people to play their original Xbox games on
+  Windows, macOS, and Linux systems.
+copyright: Copyright &copy; 2020 - 2021 xemu Project
+
+extra_css:
+  - stylesheets/extra.css
+theme:
+  name: material
+  custom_dir: overrides
+  features:
+    - navigation.expand
+    - navigation.sections
+  # Don't include MkDocs' JavaScript
+  include_search_page: false
+  search_index_only: true
+  logo:
+  favicon:
+
+extra:
+  homepage: https://xemu.app
+
+markdown_extensions:
+  - admonition
+  - abbr
+  - attr_list
+  - def_list
+  - footnotes
+  - meta
+  - md_in_html
+  - toc:
+      permalink: true
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.magiclink:
+      repo_url_shorthand: true
+      user: squidfunk
+      repo: mkdocs-material
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
+nav:
+  - Setup:
+    - Download: download.md
+    - Getting Started: getting-started.md
+    - Networking: networking.md
+    - HDD Access via FTP: ftp.md
+    - Snapshots (Save States): snapshots.md
+  - Advanced Topics:
+    - Building from Source: building-from-source.md
+    - Serial Port: serial-port.md
+  - Additional Information:
+    - FAQ: faq.md

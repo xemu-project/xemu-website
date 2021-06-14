@@ -1,0 +1,1 @@
+Xbox Development Kits came with a serial port for debugging, likewise xemu can also support a serial port. Simply add `-device lpc47m157` to the command line launch arguments. You can then route the serial port to various devices, for example you can send it the console with `-serial stdio` or to a socket with `-serial tcp:127.0.0.1:5558`. See QEMU documentation for more details.
