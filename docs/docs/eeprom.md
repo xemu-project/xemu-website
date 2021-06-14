@@ -7,5 +7,5 @@ valid EEPROM image will be generated for you.
 
 ## Editing Your EEPROM
 
-You can use the [XboxEepromEditor](https://github.com/Ernegien/XboxEepromEditor)
+You can use the [XboxEepromEditor](https://github.com/Ernegien/XboxEepromEditor) ([Windows Download](https://github.com/Ernegien/XboxEepromEditor/releases/latest/download/XboxEepromEditor.zip))
 to adjust settings in your EEPROM image.
