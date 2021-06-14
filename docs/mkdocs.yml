@@ -71,6 +71,7 @@ nav:
     - Getting Started: getting-started.md
     - Input Devices: input.md
     - Networking: networking.md
+    - Dashboard: dashboard.md
   - Reference:
     - Command Line Arguments: cli.md
     - HDD Access via FTP: ftp.md

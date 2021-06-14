@@ -41,17 +41,18 @@ You can use a pre-built 8G Xbox HDD image, free of any copyrighted content, and
 only containing a dummy dashboard. [You can download this image from
 here!](https://github.com/mborgerson/xemu-hdd-image/releases/latest/download/xbox_hdd.qcow2.zip)
 
-**Note:** By design, this particular drive image does not contain the official Xbox
-dashboard, but instead contains only a dummy dashboard. Because of this, you
-may see an error message when starting xemu with an unmodified retail BIOS
-image due to the system failing to find a properly signed dashboard.
+!!! note
+    By design, this particular drive image does not contain the official Xbox
+    dashboard, but instead contains only a dummy dashboard. Because of this, you
+    may see an error message when starting xemu with an unmodified retail BIOS
+    image due to the system failing to find a properly signed dashboard.
 
-If you would like to change your dashboard (perhaps to the official retail
-dashboard, or any alternative dashboard), or copy additional files over to
-the Xbox HDD, you can start xemu, using a modified BIOS image, and a disc
-containing an alternative dashboard. Then you can either install that
-dashboard, or connect to xemu using FTP to transfer your desired dashboard
-files to the HDD.
+    If you would like to change your dashboard (perhaps to the official retail
+    dashboard, or any alternative dashboard), or copy additional files over to
+    the Xbox HDD, you can start xemu, using a modified BIOS image, and a disc
+    containing an alternative dashboard. Then you can either install that
+    dashboard, or connect to xemu using FTP to transfer your desired dashboard
+    files to the HDD.
 
 ### Option 2: Image your real Xbox HDD
 
