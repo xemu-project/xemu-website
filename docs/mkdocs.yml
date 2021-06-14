@@ -64,6 +64,8 @@ markdown_extensions:
   - pymdownx.tilde
 
 nav:
+  - About: about.md
+  - FAQ: faq.md
   - Setup:
     - Download: download.md
     - Getting Started: getting-started.md
@@ -73,5 +75,3 @@ nav:
   - Advanced Topics:
     - Building from Source: building-from-source.md
     - Serial Port: serial-port.md
-  - Additional Information:
-    - FAQ: faq.md

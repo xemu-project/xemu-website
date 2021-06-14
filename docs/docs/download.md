@@ -16,7 +16,7 @@ The latest pre-built release version is recommended. Simply download the release
 
 [![Download](https://img.shields.io/badge/Download-Ubuntu%20PPA-orange?logo=ubuntu&logoColor=white)](https://launchpad.net/~mborgerson/+archive/ubuntu/xemu)
 
-Users running recent versions of Ubuntu (18.04 and newer) are recommended to install through the daily build PPA repository. Users running non-Ubuntu distributions are currently recommended to [build from source](https://github.com/mborgerson/xemu/wiki/Building-from-Source#linux).
+Users running recent versions of Ubuntu (18.04 and newer) are recommended to install through the daily build PPA repository. Users running non-Ubuntu distributions are currently recommended to [build from source](building-from-source.md#linux).
 
 At the command line, run the following:
 
