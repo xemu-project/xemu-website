@@ -127,6 +127,7 @@ class Title:
         self.title_path = os.path.dirname(info_path)
         self.full_title_id_text = '%s-%s' % (self.pubid, self.tid)
         self.full_title_id_hex = self.info['title_id']
+        self.full_title_id_num = int(self.info['title_id'], 16)
 
         # Determine cover paths
         self.have_cover = True
@@ -257,9 +258,15 @@ def main():
 
     print('Rebuilding index...')
     template = env.get_template('template_index.html')
+
+    tmap = {t.full_title_id_num : t for t in titles}
+    from rank import rank
+    dorder = [tmap.pop(k) for k in rank]
+    dorder.extend(sorted(tmap.values(),key=lambda title:title.title_name))
+
     with open(os.path.join(output_dir, 'index.html'), 'w') as f:
         f.write(template.render(
-            titles=sorted(titles,key=lambda title:title.title_name),
+            titles=dorder,
             title_status_descriptions=title_status_descriptions,
             game_status_counts=game_status_counts,
             xemu_build_version=xemu_build_version,
