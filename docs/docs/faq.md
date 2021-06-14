@@ -3,6 +3,9 @@ Of course, but first please read through the [getting started guide](getting-sta
 
 [![Chat Badge](https://img.shields.io/badge/Chat-xemu%20Discord%20Server-7289DA?logo=Discord&logoColor=white)](https://discord.gg/ayyjsuM)
 
+#### Q: I think I've found a bug, what do I do?
+Join the Discord server and chat about what you're seeing in #general, maybe it's a known issue. We can work together to get it recorded and fixed.
+
 #### Q: Are there system requirements?
 There are not strict requirements; most relatively modern systems should be able to run xemu. xemu runs on all major operating systems.
 
@@ -33,5 +36,8 @@ No, not yet. You can however convert a redump style ISO to a compatible ISO. Mor
 #### Q: Why am I getting an `Assertion failed!` message?
 When a game exercises a piece of code in xemu that has not yet been implemented or verified, xemu will `assert`  which forces execution to stop. The reason for this is that anything happening beyond that point may be unpredictable and significantly increase the debugging burden.
 
-#### Q: I think I've found a bug, what do I do?
-Join the Discord server and chat about what you're seeing in #general, maybe it's a known issue. We can work together to get it recorded and fixed.
+#### Q: How do I enable widescreen mode?
+You can change the setting in your [dashboard](dashboard.md) or use the [EEPROM editor](eeprom.md) to enable widescreen. Then select 'Stretch' in xemu View scaling mode. Note: not all games support widescreen.
+
+#### Q: How can I increase the resolution?
+Same games natively support higher resolutions like 720p and 1080i. You can enable use of these resolutions in your [dashboard](dashboard.md) or by usinhg the [EEPROM editor](eeprom.md). Emulator-based resolution scaling is being worked on and will be released soon.
