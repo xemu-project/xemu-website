@@ -69,6 +69,7 @@ nav:
   - Setup:
     - Download: download.md
     - Getting Started: getting-started.md
+    - Input Devices: input.md
     - Networking: networking.md
     - HDD Access via FTP: ftp.md
     - Snapshots (Save States): snapshots.md
