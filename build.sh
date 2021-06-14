@@ -26,5 +26,10 @@ cp resources/cover_front_default.png \
    dist
 rm dist/theme.css.map
 
+mkdir -p dist/webfonts/
+cp fontawesome-free-5.15.3-web/webfonts/fa-solid-900.woff2 \
+	fontawesome-free-5.15.3-web/webfonts/fa-brands-400.woff2 \
+   dist/webfonts
+
 docker run --rm -v ${PWD}/docs:/docs squidfunk/mkdocs-material build
 cp -r docs/site dist/docs
