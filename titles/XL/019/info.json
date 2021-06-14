@@ -7,6 +7,12 @@
             "region": "USA",
             "edition": "Demo",
             "disc_id": 71
+        },
+        {
+            "title_id": "584c8013",
+            "region": "USA",
+            "edition": "Demo",
+            "disc_id": 0
         }
     ]
 }
