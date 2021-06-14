@@ -75,3 +75,11 @@ nav:
   - Advanced Topics:
     - Building from Source: building-from-source.md
     - Serial Port: serial-port.md
+
+plugins:
+  - search
+  - redirects:
+      redirect_maps:
+        index.md: getting-started.md
+  - minify:
+      minify_html: true
