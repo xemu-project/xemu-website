@@ -73,6 +73,7 @@ nav:
     - HDD Access via FTP: ftp.md
     - Snapshots (Save States): snapshots.md
   - Advanced Topics:
+    - EEPROM Settings: eeprom.md
     - Building from Source: building-from-source.md
     - Serial Port: serial-port.md
 
