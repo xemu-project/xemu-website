@@ -15,6 +15,7 @@ from functools import reduce
 from github import Github
 from jinja2 import Environment, FileSystemLoader
 from tqdm import tqdm
+from minify_html import minify as minify_html
 
 output_dir = 'dist'
 repo_url_base = 'https://raw.githubusercontent.com/mborgerson/xemu-website/master/'
@@ -227,10 +228,10 @@ def main():
         os.makedirs(title_dir, exist_ok=True)
         title = title_lookup[title_id]
         with open(os.path.join(title_dir, 'index.html'), 'w') as f:
-            f.write(template.render(
+            f.write(minify_html(template.render(
                 title=title,
                 title_status_descriptions=title_status_descriptions
-                ))
+                )))
         count += 1
     print('  - Created %d title pages' % count)
 
@@ -265,13 +266,13 @@ def main():
     dorder.extend(sorted(tmap.values(),key=lambda title:title.title_name))
 
     with open(os.path.join(output_dir, 'index.html'), 'w') as f:
-        f.write(template.render(
+        f.write(minify_html(template.render(
             titles=dorder,
             title_status_descriptions=title_status_descriptions,
             game_status_counts=game_status_counts,
             xemu_build_version=xemu_build_version,
             xemu_build_date=xemu_build_date
-            ))
+            ), minify_js=True, minify_css=True))
     print('  - Ok')
 
 if __name__ == '__main__':

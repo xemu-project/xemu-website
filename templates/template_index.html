@@ -83,7 +83,29 @@
   display: inline-block;
   margin-right: 1em;
 }
+
+canvas {
+  display: block;
+  visibility: hidden;
+  width: 256px;
+  height: 256px;
+  margin-left: -38px;
+  margin-bottom: -177px;
+  margin-top: -80px;
+  padding: 0;
+  border: none;
+}
 </style>
+
+<script type="x-shader/x-vertex" id="vertex-shader">
+{% include "gl_logo_vert.glsl" %}
+</script>
+<script type="x-shader/x-fragment" id="fragment-shader">
+{% include "gl_logo_frag.glsl" %}
+</script>
+<script type="text/javascript">
+{% include "gl_logo.js" %}
+</script>
 
 {% endblock %}
 
@@ -95,7 +117,10 @@
     <img src="xbox_logo.png" class="img-fluid" width=450 />
     </div>
     <div class="col-md-6">
-    <h1 class="display-3"><img alt="xemu logo" src="/logo-green.svg" style="height: 0.8em"></h1>
+    <h1 class="display-3">
+      <canvas id="logo-canvas" class="gl-logo"></canvas>
+      <img id="logo-fallback" alt="xemu logo" src="/logo-green.svg" style="height: 1.03em;">
+    </h1>
     <h4 class="card-subtitle mb-2 text-muted">Original Xbox Emulator</h4>
     <p>
     A free and open-source application that emulates the original Microsoft

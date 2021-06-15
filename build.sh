@@ -19,11 +19,7 @@ echo "Compiling stylesheets"
 echo "Generating HTML pages"
 ./generate.py
 
-cp resources/cover_front_default.png \
-   resources/xbox_logo.png \
-   resources/xbox_duke.png \
-   resources/logo-green.svg \
-   dist
+cp resources/* dist
 rm dist/theme.css.map
 
 mkdir -p dist/webfonts/
