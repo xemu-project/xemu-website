@@ -40,4 +40,4 @@ When a game exercises a piece of code in xemu that has not yet been implemented 
 You can change the setting in your [dashboard](dashboard.md) or use the [EEPROM editor](eeprom.md) to enable widescreen. Then select 'Stretch' in xemu View scaling mode. Note: not all games support widescreen.
 
 #### Q: How can I increase the resolution?
-Same games natively support higher resolutions like 720p and 1080i. You can enable use of these resolutions in your [dashboard](dashboard.md) or by usinhg the [EEPROM editor](eeprom.md). Emulator-based resolution scaling is being worked on and will be released soon.
+Same games natively support higher resolutions like 720p and 1080i. You can enable use of these resolutions in your [dashboard](dashboard.md) or by using the [EEPROM editor](eeprom.md). Emulator-based resolution scaling is being worked on and will be released soon.
