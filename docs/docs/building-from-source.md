@@ -26,7 +26,7 @@ First install the [Homebrew package manager](https://brew.sh/).
 ```bash
 # Install dependencies
 brew update
-brew install coreutils pkg-config dylibbundler ninja
+brew install coreutils pkg-config dylibbundler libpcap ninja
 
 # Clone and build
 git clone https://github.com/mborgerson/xemu.git
