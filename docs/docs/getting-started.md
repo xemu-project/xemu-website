@@ -93,4 +93,4 @@ I've found an issue, what do I do?
 Come chat on the Discord server linked at the top and we can do an early diagnosis of the issue. If necessary, we can catalog the issue for further exploration.
 
 ---
-<a href="#content-top">Return to Top</a>
+<a href="#top">Return to Top</a>
