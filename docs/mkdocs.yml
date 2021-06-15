@@ -76,6 +76,7 @@ nav:
     - Command Line Arguments: cli.md
     - HDD Access via FTP: ftp.md
     - Snapshots (Save States): snapshots.md
+    - Redump ISOs: redump-isos.md
   - Advanced Topics:
     - EEPROM Settings: eeprom.md
     - Building from Source: building-from-source.md
