@@ -31,7 +31,7 @@ Possibly. Check the compatibility list first if you're curious, or try it out fo
 No, not directly. xemu emulates the hardware of the system, so you'll need to have a disc image of your game backup. You can use [extract-xiso](https://github.com/xboxdev/extract-xiso) or qwix to create an image.
 
 #### Q: Does xemu support "redump" style ISOs?
-No, not yet. You can however convert a redump style ISO to a compatible ISO. More info [here](<https://github.com/mborgerson/xemu/wiki#about-redump-isos>).
+No, not yet. You can however convert a redump style ISO to a compatible ISO. More info [here](disk-image.md).
 
 #### Q: Why am I getting an `Assertion failed!` message?
 When a game exercises a piece of code in xemu that has not yet been implemented or verified, xemu will `assert`  which forces execution to stop. The reason for this is that anything happening beyond that point may be unpredictable and significantly increase the debugging burden.

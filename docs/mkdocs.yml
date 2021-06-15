@@ -72,11 +72,11 @@ nav:
     - Input Devices: input.md
     - Networking: networking.md
     - Dashboard: dashboard.md
+    - Disc Images: disk-image.md
   - Reference:
     - Command Line Arguments: cli.md
     - HDD Access via FTP: ftp.md
     - Snapshots (Save States): snapshots.md
-    - Redump ISOs: redump-isos.md
   - Advanced Topics:
     - EEPROM Settings: eeprom.md
     - Building from Source: building-from-source.md
