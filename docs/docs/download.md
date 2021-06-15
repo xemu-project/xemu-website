@@ -1,6 +1,6 @@
 ## Download for Windows
 
-[Download for Windows :fontawesome-brands-windows:](https://github.com/mborgerson/xemu/releases/latest/download/xemu-win-release.zip){ .md-button .md-button--secondary }
+[Download for :fontawesome-brands-windows: Windows](https://github.com/mborgerson/xemu/releases/latest/download/xemu-win-release.zip){ .md-button .md-button--secondary }
 
 ### Installation
 
@@ -8,7 +8,7 @@ Simply download the Zip archive release for Windows, extract the archive to a di
 
 ## Download for macOS
 
-[Download for macOS :fontawesome-brands-apple:](https://github.com/mborgerson/xemu/releases/latest/download/xemu-macos-universal-release.zip){ .md-button .md-button--secondary }
+[Download for :fontawesome-brands-apple: macOS](https://github.com/mborgerson/xemu/releases/latest/download/xemu-macos-universal-release.zip){ .md-button .md-button--secondary }
 
 **Compatibility Note:** This download is a Universal binary, and will work on both x86-64 and the new Apple M1-based Macs.
 
