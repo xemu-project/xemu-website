@@ -7,6 +7,20 @@ site_description: >-
   Windows, macOS, and Linux systems.
 copyright: Copyright &copy; 2020 - 2021 xemu Project
 
+extra:
+  analytics:
+    provider: google
+    property: !ENV GOOGLE_ANALYTICS_KEY
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/mborgerson/xemu
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/xemu_project
+    - icon: fontawesome/brands/patreon
+      link: https://www.patreon.com/mborgerson
+    - icon: fontawesome/brands/discord
+      link: https://discord.gg/ayyjsuM 
+
 extra_css:
   - stylesheets/extra.css
 theme:
