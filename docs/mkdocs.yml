@@ -23,6 +23,15 @@ theme:
 
 extra:
   homepage: https://xemu.app
+  social:
+  - icon: fontawesome/brands/github
+    link: https://github.com/mborgerson/xemu
+  - icon: fontawesome/brands/twitter
+    link: https://twitter.com/xemu_project
+  - icon: fontawesome/brands/patreon
+    link: https://www.patreon.com/mborgerson
+  - icon: fontawesome/brands/discord
+    link: https://discord.gg/ayyjsuM
 
 markdown_extensions:
   - admonition
