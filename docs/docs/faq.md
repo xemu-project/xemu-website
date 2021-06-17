@@ -42,8 +42,5 @@ You can change the setting in your [dashboard](dashboard.md) or use the [EEPROM 
 #### Q: How can I increase the resolution?
 Same games natively support higher resolutions like 720p and 1080i. You can enable use of these resolutions in your [dashboard](dashboard.md) or by using the [EEPROM editor](eeprom.md). Emulator-based resolution scaling is being worked on and will be released soon.
 
-#### Q: Does xemu support Intel iGPUs?
-Intel Integrated Graphics aren't currently supported on xemu in Windows at this time, however, Intel Integrated Graphics are supported in Linux/MacOS for running xemu. See [here](<https://github.com/mborgerson/xemu/issues/137>) for more details.
-
 #### Q: Are there any plans for a mobile port of xemu?
 There are currently no plans for a mobile port of xemu on iOS or Android, the emulator hasn't reached the performance necessary to run well on iOS or Android at this time.
