@@ -1,3 +1,14 @@
+## System Requirements
+
+xemu runs on Windows, macOS, and Linux systems. An OpenGL 4.0-compatible GPU is
+required. Most recent integrated GPUs will work.
+
+Please note that xemu is an evolving project and, although xemu can run on large
+number of systems, actual game performance is in flux and will vary based on the
+characteristics of your system.
+
+## Required Files
+
 xemu is a low-level, full-system emulator which emulates the actual hardware of
 the Xbox; this means that in order to actually run xemu, you must have a copy
 of the stuff that a real Xbox needs when it turns on:
