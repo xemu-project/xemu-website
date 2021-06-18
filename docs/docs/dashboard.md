@@ -6,7 +6,7 @@ storage management.
 
 ## Default xemu Dashboard
 
-The [pre-built Xbox HDD image](getting-started.md#option-1-use-a-pre-built-xbox-hdd-image-recommended),
+The [pre-formatted Xbox HDD image](required-files.md#hard-disk-image),
 does not contain the official Xbox dashboard. Instead it contains only an
 **unsigned** "dummy" dashboard, intended to be replaced.
 
