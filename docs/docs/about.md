@@ -1,5 +1,3 @@
-# About
-
 <center>
 [![Chat Badge](https://img.shields.io/badge/Chat-xemu%20Discord%20Server-7289DA?logo=Discord&logoColor=white)](https://discord.gg/ayyjsuM)
 [![YouTube Badge](https://img.shields.io/badge/Videos-YouTube-red?logo=YouTube&logoColor=white)](https://www.youtube.com/channel/UCrT8NawDTt5gJnMMe9uUg-Q/featured)
@@ -25,6 +23,15 @@ others. xemu is based on the excellent QEMU full system emulator project.
     Developers work with legal backups of their own physical media and encourage
     all users to do the same. Piracy is not tolerated on any communication
     channel.
+
+## System Requirements
+
+xemu runs on Windows, macOS, and Linux systems. An OpenGL 4.0-compatible GPU is
+required. Most recent integrated GPUs will work.
+
+Please note that xemu is an evolving project and, although xemu can run on large
+number of systems, actual game performance is in flux and will vary based on the
+characteristics of your system.
 
 ## Open Source Development
 

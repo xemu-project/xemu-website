@@ -7,11 +7,15 @@ storage management.
 ## Default xemu Dashboard
 
 The [pre-built Xbox HDD image](getting-started.md#option-1-use-a-pre-built-xbox-hdd-image-recommended),
-does not contain the official Xbox dashboard. Instead it contains only a 'dummy'
-dashboard, intended to be replaced.
+does not contain the official Xbox dashboard. Instead it contains only an
+**unsigned** "dummy" dashboard, intended to be replaced.
 
-It is not strictly required to replace the dummy dashboard. Games can still
-be launched with the dummy dashboard installed.
+It is not strictly required to replace the dummy dashboard. Games can still be
+launched with the dummy dashboard installed.
+
+Because the dummy dashboard is unsigned, you may see an error message when
+starting xemu with an unmodified retail BIOS image due to the system failing to
+find a properly signed dashboard.
 
 ## Installing the Official Xbox Dashboard
 

@@ -7,7 +7,7 @@ Of course, but first please read through the [getting started guide](getting-sta
 Join the Discord server and chat about what you're seeing in #general, maybe it's a known issue. We can work together to get it recorded and fixed.
 
 #### Q: Are there system requirements?
-See [here](getting-started.md#system-requirements).
+See [here](about.md#system-requirements).
 
 #### Q: What BIOS do I need to use?
 Your MCPX and BIOS dump should be for a 1.0 Xbox. It's suggested that your MCPX dump be 1.0 and that a compatible BIOS image be used (users have reported success with "COMPLEX 4627").

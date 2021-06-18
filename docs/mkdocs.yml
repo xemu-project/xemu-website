@@ -77,7 +77,8 @@ nav:
   - FAQ: faq.md
   - Setup:
     - Download: download.md
-    - Getting Started: getting-started.md
+    - Required Files: required-files.md
+    - Disc Images: disc-images.md
     - Input Devices: input.md
     - Networking: networking.md
     - Dashboard: dashboard.md
@@ -94,6 +95,7 @@ plugins:
   - search
   - redirects:
       redirect_maps:
-        index.md: getting-started.md
+        index.md: download.md
+        getting-started.md: required-files.md
   - minify:
       minify_html: true
