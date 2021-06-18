@@ -1,3 +1,13 @@
+## Frequently Asked Questions
+
+Please check the [list of frequently asked questions](faq.md).
+
+## Black Screen / Failed Load / Dirty Disc
+
+* Check your disc backup and verify that your backup is correct.
+* Some games are susceptible to cache problems. Try clearing your cache, or
+  simply try with a blank HDD image.
+
 ## Windows Performance Considerations
 
 ### Integrated vs Discrete GPU
@@ -12,7 +22,7 @@ application by navigating to <kbd>Display settings</kbd>&rarr;<kbd>Graphics sett
 You can confirm which GPU xemu is actually using by looking at the "xemu.log"
 file.
 
-### nVidia Settings
+### Nvidia Settings
 
 It is recommended to **disable** "Multi-threaded Optimizations" in the nVidia
 Control Panel. This feature has been known to negatively impact xemu
