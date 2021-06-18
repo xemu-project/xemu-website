@@ -44,3 +44,6 @@ Same games natively support higher resolutions like 720p and 1080i. You can enab
 
 #### Q: Are there any plans for a mobile port of xemu?
 There are currently no plans for a mobile port of xemu on iOS or Android, the emulator hasn't reached the performance necessary to run well on iOS or Android at this time.
+
+#### Q: Does xemu accept game discs from your disk drive?
+xemu does not accept game discs from the drive, however you can dump your games using a specialized drive called a "Kreon Drive". See [here](http://wiki.redump.org/index.php?title=Microsoft_Xbox_and_Xbox_360_Dumping_Guide) for more details.
