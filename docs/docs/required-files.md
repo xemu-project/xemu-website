@@ -2,9 +2,9 @@ xemu is a low-level, full-system emulator which emulates the actual hardware of
 the Xbox; this means that in order to actually run xemu, you must have a copy
 of the stuff that a real Xbox needs when it turns on:
 
-1. [The MCPX Boot ROM image](#mcpx-boot-rom-image)
-2. [The flash ROM image (aka *BIOS*)](#flash-rom-image-aka-bioskernel)
-3. [A properly-formatted hard disk image](#hard-disk-image)
+1. [MCPX Boot ROM Image](#mcpx-boot-rom-image)
+2. [Flash ROM Image (BIOS)](#flash-rom-image-bios)
+3. [Hard Disk Image](#hard-disk-image)
 
 Unfortunately, distributing some of these items would violate copyright laws, so
 you'll need to acquire them on your own.
@@ -33,8 +33,9 @@ People have reported most success using the modified retail "COMPLEX 4627" BIOS.
 ## Hard Disk Image
 
 You can use a pre-built 8G Xbox HDD image, free of any copyrighted content, and
-only containing a dummy dashboard. [You can download this image from
-here!](https://github.com/mborgerson/xemu-hdd-image/releases/latest/download/xbox_hdd.qcow2.zip)
+only containing a dummy dashboard.
+
+[Download Pre-formatted Xbox Hard Disk Image ](https://github.com/mborgerson/xemu-hdd-image/releases/latest/download/xbox_hdd.qcow2.zip){ .md-button .md-button--secondary }
 
 !!! note
     By design, this particular drive image does not contain the official Xbox
