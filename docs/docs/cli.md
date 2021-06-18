@@ -10,5 +10,5 @@ startup behavior.
 
 ## Advanced
 
-Extra command line arguments are passed as QEMU launch arguments. See QEMU
-documentation for specifics.
+Extra command line arguments are passed as QEMU launch arguments. See [QEMU
+documentation](https://www.qemu.org/documentation/) for specifics.
