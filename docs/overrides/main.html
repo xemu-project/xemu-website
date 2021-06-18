@@ -9,7 +9,7 @@
   <meta property="og:title" content="{{ title }}">
   <meta property="og:description" content="{{ config.site_description }}">
   <meta property="og:url" content="{{ page.canonical_url }}">
-  <meta property="og:image" content="{{ image }}">
+  <meta property="og:image" content="{{ image | url }}">
   <meta property="og:image:type" content="image/png">
   <meta property="og:image:width" content="1280">
   <meta property="og:image:height" content="640">
@@ -18,7 +18,7 @@
   <meta name="twitter:creator" content="@xemu_project">
   <meta name="twitter:title" content="{{ title }}">
   <meta name="twitter:description" content="{{ config.site_description }}">
-  <meta name="twitter:image" content="{{ image }}">
+  <meta name="twitter:image" content="{{ image | url }}">
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163809672-1"></script>
   <script>

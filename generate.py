@@ -21,6 +21,7 @@ output_dir = 'dist'
 repo_url_base = 'https://raw.githubusercontent.com/mborgerson/xemu-website/master/'
 compatibility_reports_url = 'https://reports.xemu.app/compatibility'
 compatibility_reports_url_verify_certs = True
+main_url_base = 'https://xemu.app'
 # compatibility_reports_url = 'https://127.0.0.1/compatibility'
 # compatibility_reports_url_verify_certs = False
 
@@ -230,7 +231,8 @@ def main():
         with open(os.path.join(title_dir, 'index.html'), 'w') as f:
             f.write(minify_html(template.render(
                 title=title,
-                title_status_descriptions=title_status_descriptions
+                title_status_descriptions=title_status_descriptions,
+                main_url_base=main_url_base
                 )))
         count += 1
     print('  - Created %d title pages' % count)
@@ -271,7 +273,8 @@ def main():
             title_status_descriptions=title_status_descriptions,
             game_status_counts=game_status_counts,
             xemu_build_version=xemu_build_version,
-            xemu_build_date=xemu_build_date
+            xemu_build_date=xemu_build_date,
+            main_url_base=main_url_base
             ), minify_js=True, minify_css=True))
     print('  - Ok')
 
