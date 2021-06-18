@@ -1,20 +1,69 @@
-xemu requires game discs to be in the form of ".iso" disc images. You can
-backup your legally purchased games by:
+xemu requires game discs to be in the form of `*.iso` disc images.
 
-* Using a real Xbox with a custom dashboard to transfer the game files to your
-  computer over FTP.
+!!! warning "Disclaimer"
+
+    The xemu project does not endorse or promote piracy. We don't permit sharing
+    of games on any channel. The only legal way to acquire these files is
+    to dump them from your real, physical media.
+
+## Backing Up
+
+Fortunately games can be acquired for relatively cheap and it is very easy to
+create a game backup. You can backup your legally purchased games by:
+
+* Using your computer to connect via FTP to your real Xbox running a custom dashboard. You can
+  simply insert the disc and transfer the game files from the `D` directory to
+  your computer.
 * Purchasing and using a special, reflashed DVD drive. [More details here](http://wiki.redump.org/index.php?title=Microsoft_Xbox_and_Xbox_360_Dumping_Guide).
 
-You can create an iso image using [extract-xiso](https://github.com/XboxDev/extract-xiso) (command-line only).
+## Creating ISOs
 
-### About "redump" ISOs
+### extract-xiso (Command Line)
 
-Redump-style ISOs contain data for both the video partition and game partition. For now,
-you'll want to extract the game partition for use with xemu. You can do this by simply
-extracting everything after the first 387MiB. For example, using `dd`:
+[extract-xiso](https://github.com/XboxDev/extract-xiso) is a command-line tool
+to create Xbox-compatible disc images.
 
-```
-dd if=my-redump-style-dump.iso of=my-game-partition.iso skip=387 bs=1M
-```
+!!! warning
 
-You can then use the `my-game-partition.iso` with xemu.
+    Use only 32-bit builds of extract-xiso. 64-bit builds can cause subtle
+    issues resulting in dirty disc errors.
+
+### Qwix (GUI)
+
+[Qwix](https://avalaunch.net/qwix/) is a popular GUI based tool for creating
+Xbox compatible ISO images.
+
+!!! warning
+    Qwix is not an open-source project, it is not maintained by the xemu project. Use at own risk.
+
+## About "redump" ISOs
+
+"Redump" ISOs are a full dump of the game disc. Xbox game discs contain two
+partitions, the first is a video partition which you can access from a computer
+or DVD player. This partition usually contains a short video instructing you to
+insert the disc into an Xbox. The second partition contains the actual game
+data. A "redump" ISO contains both of these partitions.
+
+If you have used a customized DVD drive to produce a backup of your game disc,
+you more than likely have this format. As a sanity check, these images are
+typically ~7GB in size.
+
+xemu is not currently compatible with this format, but you can extract the
+second partition of the disc image for use with xemu. Unfortunately there is not
+a GUI-friendly solution for this yet. You will need to use a command-line tool.
+You can do this with `dd` or with the `extract-xiso` utility.
+
+=== "Using `dd`"
+    ```
+    dd if=game-redump.iso of=game.iso skip=387 bs=1M
+    ```
+
+    You can then use the `game.iso` with xemu.
+
+=== "Using `extract-xiso`"
+    ```
+    extract-xiso -r game-redump.iso
+    ```
+
+    You can then use `game-redump.iso` with xemu. Your original will be
+    `game-redump.iso.old`.
