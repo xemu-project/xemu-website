@@ -39,17 +39,33 @@ open ./dist/xemu.app
 
 ## Linux
 
-### Debian/Ubuntu
-```bash
-# Install dependencies
-sudo apt update
-sudo apt install build-essential libsdl2-dev libepoxy-dev libpixman-1-dev libgtk-3-dev libssl-dev libsamplerate0-dev libpcap-dev ninja-build
+=== "Debian/Ubuntu"
 
-# Clone and build
-git clone https://github.com/mborgerson/xemu.git
-cd xemu
-./build.sh
+    ```bash
+    # Install dependencies
+    sudo apt update
+    sudo apt install build-essential libsdl2-dev libepoxy-dev libpixman-1-dev libgtk-3-dev libssl-dev libsamplerate0-dev libpcap-dev ninja-build
 
-# Run
-./dist/xemu
-```
+    # Clone and build
+    git clone https://github.com/mborgerson/xemu.git
+    cd xemu
+    ./build.sh
+
+    # Run
+    ./dist/xemu
+    ```
+
+=== "Arch Linux"
+
+    ```bash
+    # Install dependencies
+    sudo pacman -S --noconfirm base-devel sdl2 libepoxy pixman gtk3 openssl libsamplerate libpcap ninja glu
+
+    # Clone and build
+    git clone https://github.com/mborgerson/xemu.git
+    cd xemu
+    ./build.sh
+
+    # Run
+    ./dist/xemu
+    ```
