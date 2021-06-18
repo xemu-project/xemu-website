@@ -11,9 +11,9 @@ xemu requires game discs to be in the form of `*.iso` disc images.
 Fortunately games can be acquired for relatively cheap and it is very easy to
 create a game backup. You can backup your legally purchased games by:
 
-* Using your computer to connect via FTP to your real Xbox running a custom dashboard. You can
-  simply insert the disc and transfer the game files from the `D` directory to
-  your computer.
+* Using your computer to connect via FTP to your real Xbox running a custom
+  dashboard. You can simply insert the disc and transfer the game files from the
+  `D` directory to your computer.
 * Purchasing and using a special, reflashed DVD drive. [More details here](http://wiki.redump.org/index.php?title=Microsoft_Xbox_and_Xbox_360_Dumping_Guide).
 
 ## Creating ISOs
@@ -27,6 +27,24 @@ to create Xbox-compatible disc images.
 
     Use only 32-bit builds of extract-xiso. 64-bit builds can cause subtle
     issues resulting in dirty disc errors.
+
+If you have downloaded your game files over FTP to a directory, the directory
+structure will look something like this:
+
+```
+game/
+  default.xbe
+  data/
+    image.tga
+```
+
+You can run:
+
+```bash
+extract-xiso -c game
+```
+
+game.iso will be produced. This can be used with xemu.
 
 ### Qwix (GUI)
 
