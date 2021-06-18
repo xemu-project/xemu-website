@@ -1,5 +1,5 @@
 #### Q: Can I get some help?
-Of course, but first please read through the [getting started guide](getting-started.md). If you still have questions, please read the following FAQs. If you're still having problems, head to #help in the xemu Discord server.
+Of course, but first please read through the [setup guide](download.md). If you still have questions, please read the following FAQs. If you're still having problems, head to #help in the xemu Discord server.
 
 [![Chat Badge](https://img.shields.io/badge/Chat-xemu%20Discord%20Server-7289DA?logo=Discord&logoColor=white)](https://discord.gg/ayyjsuM)
 
