@@ -30,6 +30,8 @@ performance.
 
 ## Linux Performance Considerations
 
+### CPU Performance Scaling
+
 You may want to check that your CPU scaling governor is set to `performance`.
 In a terminal enter the following command to see current governor state:
 
