@@ -27,3 +27,19 @@ file.
 It is recommended to **disable** "Multi-threaded Optimizations" in the nVidia
 Control Panel. This feature has been known to negatively impact xemu
 performance.
+
+## Linux Performance Considerations
+
+You may want to check that your CPU scaling governor is set to `performance`.
+In a terminal enter the following command to see current governor state:
+
+```bash
+cat /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor
+```
+
+If you see `powersave` printed, you may wish to switch to the `performance`
+profile. To select the `performance` profile:
+
+```bash
+echo performance | sudo tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor
+```
