@@ -37,6 +37,12 @@
             "region": "Europe",
             "edition": "Original",
             "disc_id": 7
-        }
+        },
+	{
+	    "title_id": "4541006a",
+	    "region": "Europe",
+	    "edition": "Demo",
+	    "disc_id": 50
+	}
     ]
 }
