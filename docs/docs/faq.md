@@ -47,3 +47,6 @@ There are currently no plans for a mobile port of xemu on iOS or Android, the em
 
 #### Q: Can xemu load an Xbox game disc from my computer's DVD drive?
 Generally, no. You will need to create a backup of your game disc. Please [see here](disc-images.md) for more information about creating and using disc images.
+
+#### Q: Why does xemu crash when I enable Surround Sound in my EEPROM?
+This is because Surround Sound isn't implemented in xemu yet, please disable this in your [EEPROM](eeprom.md) if you have it enabled.
