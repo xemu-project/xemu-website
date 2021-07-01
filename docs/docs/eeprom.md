@@ -9,3 +9,6 @@ valid EEPROM image will be generated for you.
 
 You can use the [XboxEepromEditor](https://github.com/Ernegien/XboxEepromEditor) ([Windows Download](https://github.com/Ernegien/XboxEepromEditor/releases/latest/download/XboxEepromEditor.zip))
 to adjust settings in your EEPROM image.
+
+!!! warning
+    xemu doesn't support surround sound at this time, do not enable this in your eeprom.
