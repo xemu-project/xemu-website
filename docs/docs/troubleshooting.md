@@ -8,6 +8,10 @@ Please check the [list of frequently asked questions](faq.md).
 * Some games are susceptible to cache problems. Try clearing your cache, or
   simply try with a blank HDD image.
 
+## Enabling Surround Sound in your EEPROM
+
+* Surround Sound isn't supported in xemu yet, you should disable this in your [EEPROM](eeprom.md) if you have enabled it.
+
 ## Windows Performance Considerations
 
 ### Integrated vs Discrete GPU
