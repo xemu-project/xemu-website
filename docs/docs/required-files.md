@@ -24,8 +24,11 @@ it badly and it's a couple of bytes off. It should start with `0x33 0xC0` and en
 with `0x02 0xEE`.
 
 There is also a open-source alternative to a real MCPX dump, known as [Fancy Mouse Boot ROM](https://github.com/SnowyMouse/fancy-mouse-boot-rom).
-It has high compatibility and is nearly functionally equivalent.
+It has high compatibility and is nearly functionally equivalent. 
 Releases can be found [here](https://github.com/SnowyMouse/fancy-mouse-boot-rom/releases).
+!!! warning "Revisions"
+    The Fancy Mouse Boot ROM .zip contains two files "mouse_rev0.bin" and "mouse_rev1.bin".
+    Choose "mouse_rev0.bin" as that is the equivalent to a MCPX 1.0 image, not a MCPX 1.1 in which we don't support currently.
 ## Flash ROM Image (BIOS)
 
 Xbox compatible BIOS. Just like a real Xbox, running an unmodified retail BIOS will
