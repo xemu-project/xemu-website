@@ -23,6 +23,9 @@ If your MCPX dump has an MD5 of `196a5f59a13382c185636e691d6c323d`, you dumped
 it badly and it's a couple of bytes off. It should start with `0x33 0xC0` and end
 with `0x02 0xEE`.
 
+There is also a open-source alternative to a real MCPX dump, known as [Fancy Mouse Boot ROM](https://github.com/SnowyMouse/fancy-mouse-boot-rom).
+It has high compatibility and is nearly functionally equivalent.
+Releases can be found [here](https://github.com/SnowyMouse/fancy-mouse-boot-rom/releases).
 ## Flash ROM Image (BIOS)
 
 Xbox compatible BIOS. Just like a real Xbox, running an unmodified retail BIOS will
