@@ -84,6 +84,7 @@ nav:
     - Dashboard: dashboard.md
     - Troubleshooting: troubleshooting.md
   - Reference:
+    - Configuration File: config-file.md
     - Command Line Arguments: cli.md
     - HDD Access via FTP: ftp.md
     - Snapshots (Save States): snapshots.md
