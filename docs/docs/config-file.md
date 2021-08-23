@@ -4,7 +4,7 @@ The default xemu configuration file can be found at the following locations afte
 
 | OS | Path |
 |----|------|
-| Linux | `/.local/share/xemu/xemu/xemu.ini` |
+| Linux | `~/.local/share/xemu/xemu/xemu.ini` |
 | macOS |  |
 | Windows |  |
 
