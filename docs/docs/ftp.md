@@ -54,6 +54,7 @@ Site</kbd> button.
 * For "Logon Type" select "Normal"
 * Enter the appropriate "User" and "Password" (typically `xbox` for both)
 * Navigate to the "Transfer Settings" tab and select "Active"
+* Check "Limit number of simultaneous connections" and set Max Connections to 1
 * Click <kbd>OK</kbd> when you are finished
 
 We must configure one more additional setting.
