@@ -49,3 +49,29 @@ profile. To select the `performance` profile:
 ```bash
 echo performance | sudo tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor
 ```
+
+## Switchroot
+
+If you are running switchroot Linux on your Nintendo Switch, you can install
+xemu from the PPA as described in in the [Download](download.md) page. However,
+when running xemu you may see the following error:
+
+```
+dbus[12047]: arguments to dbus_message_new_method_call() were incorrect, assertion "path != NULL" failed in file ../../../dbus/dbus-message.c line 1362.
+This is normally a bug in some application using the D-Bus library.
+
+  D-Bus not built with -rdynamic so unable to print a backtrace
+```
+
+To fix this you can build and install SDL from source:
+
+```bash
+sudo apt install cmake build-essential
+git clone https://github.com/libsdl-org/SDL && cd SDL
+mkdir build && cd build
+cmake ..
+make -j4
+sudo make install
+```
+
+Then launch xemu `LD_LIBRARY_PATH=/usr/local/lib xemu`
