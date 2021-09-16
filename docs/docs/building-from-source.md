@@ -69,3 +69,13 @@ open ./dist/xemu.app
     # Run
     ./dist/xemu
     ```
+
+!!! tip "Tip: Building with Clang, or another specific compiler"
+
+    If you have multiple toolchains and would like to build with specific one,
+    such as clang, you can specify the compiler and linker through environment
+    variables when invoking build.sh as follows:
+
+    ```bash
+    CC=clang CXX=clang++ CC_LD=lld CXX_LD=lld AR=llvm-ar ./build.sh
+    ```
