@@ -37,7 +37,7 @@ No, not yet. You can however convert a redump style ISO to a compatible ISO. Mor
 When a game exercises a piece of code in xemu that has not yet been implemented or verified, xemu will `assert`  which forces execution to stop. The reason for this is that anything happening beyond that point may be unpredictable and significantly increase the debugging burden.
 
 #### Q: How do I enable widescreen mode?
-You can change the setting in your [dashboard](dashboard.md) or use the [EEPROM editor](eeprom.md) to enable widescreen. Then select 'Stretch' in xemu View scaling mode. Note: not all games support widescreen.
+You can change the setting in your [dashboard](dashboard.md) or use the [EEPROM editor](eeprom.md) to enable widescreen. Then select 'Scale (Widescreen 16:9)' in xemu View scaling mode. Note: not all games support widescreen.
 
 #### Q: How can I increase the resolution?
 For all titles the rendering resolution can be easily scaled by navigating to View&rarr;Rendering Scale. For titles that natively support higher resolutions, you can enable the associated mode in your dashboard or by using the [EEPROM editor](eeprom.md).
