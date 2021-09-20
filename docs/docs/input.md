@@ -8,6 +8,12 @@ controllers at any time, just like a real Xbox.
     * USB passthru is not supported yet.
     * Only the Xbox controller is emulated. There is not (yet) support for other controllers like the Steel Batallion.
 
+!!! warning "Input not functional on early BIOS revisions"
+    Emulated gamepads may be non-functional when using early BIOS revisions
+    (<4627). It is recommended to not use these early BIOS revisions,
+    until this bug is fixed.
+
+
 ## Popular Gamepads
 
 ### Xbox One, Xbox 360 controllers
