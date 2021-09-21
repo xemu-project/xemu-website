@@ -14,6 +14,14 @@ Please check the [list of frequently asked questions](faq.md).
 
 ## Windows Performance Considerations
 
+### Powersave vs Performance Power Management Profile
+
+Ensure your computer is using a Performance power management profile. If you are using a laptop, connect your AC adapter to prevent throttling.
+
+### Background Processes
+
+Ensure any background processes are not consuming your system resources by checking the system task manager.
+
 ### Integrated vs Discrete GPU
 
 In some systems you may have both integrated and discrete GPUs. By default, xemu
