@@ -19,13 +19,13 @@ A default one will be created if you do not provide one.
 This is likely due to a mismatch of MCPX and BIOS images, or a corrupt MCPX boot ROM.
 
 #### Q: Why am I getting `Please insert an Xbox disc...`? I already loaded an ISO.
-Try restarting xemu. If you continue to get the message, your ISO may not be dumped in a compatible way. Try using `extract-xiso` to pack your ISO.
+Try restarting xemu. If you continue to get the message, your ISO may not be dumped in a compatible way. Try using [extract-xiso](https://github.com/xboxdev/extract-xiso) to pack your ISO.
 
 #### Q: Is there a game compatibility list?
 Yes, visit https://xemu.app
 
 #### Q: Does game `x`  work?
-Possibly. Check the compatibility list first if you're curious, or try it out for yourself. You are invited to submit a compatibility report too.
+Possibly. [Check the compatibility list](https://xemu.app) first if you're curious, or try it out for yourself. You are invited to submit a compatibility report too.
 
 #### Q: Does xemu run my game's `default.xbe`?
 No, not directly. xemu emulates the hardware of the system, so you'll need to have a disc image of your game backup. You can use [extract-xiso](https://github.com/xboxdev/extract-xiso) or qwix to create an image.
