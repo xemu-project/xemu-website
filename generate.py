@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 """
 xemu.app Static Site Generator
 """
@@ -71,7 +71,7 @@ class Issue:
             if issue.state != 'open': continue
             # Look for a titles sequence and pull out anything that looks like
             # an id
-            references = ' '.join(titles_re.findall(issue.body))
+            references = ' '.join(titles_re.findall(issue.body or ''))
             affected_titles = title_id_re.findall(references)
             cls.all_issues.append(cls(
                 issue.number,
