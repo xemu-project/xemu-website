@@ -60,7 +60,7 @@ echo performance | sudo tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governo
 
 ## Switchroot
 
-If you are running switchroot Linux on your Nintendo Switch, you can install
+If you are running Switchroot L4T Ubuntu on your Nintendo Switch, you can install
 xemu from the PPA as described in in the [Download](download.md) page. However,
 when running xemu you may see the following error:
 
@@ -71,7 +71,10 @@ This is normally a bug in some application using the D-Bus library.
   D-Bus not built with -rdynamic so unable to print a backtrace
 ```
 
-To fix this you can build and install SDL from source:
+This can be avoided by running the [L4T Megascript](https://github.com/cobalt2727/L4T-Megascript/wiki/Initial-Setup) (use Option A for Switch users, or Option B for Jetson Nano users)
+During their "initial setup" script, you'll be prompted to install SDL2 - choose yes to upgrade to working SDL2 binaries.
+
+If you'd like to do things yourself, instead of using the L4T Megascript, build and install SDL from source:
 
 ```bash
 sudo apt install cmake build-essential
