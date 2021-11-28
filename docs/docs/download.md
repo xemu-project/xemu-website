@@ -20,6 +20,18 @@ Because the app is not signed, you will need to right-click, or hold the <kbd>co
 
 ## Download for Linux
 
+### Ubuntu PPA (18.04 and newer)
+
+Users running recent versions of Ubuntu (18.04 and newer) are recommended to install through the daily build PPA repository. At the command line, run the following:
+
+```sh
+sudo add-apt-repository ppa:mborgerson/xemu
+sudo apt update
+sudo apt install xemu
+```
+
+You can now launch xemu through your typical launcher, or by typing `xemu` at the command line.
+
 ### Flatpak
 
 1. [Set up Flatpak](https://www.flatpak.org/setup/)
@@ -35,18 +47,6 @@ Because the app is not signed, you will need to right-click, or hold the <kbd>co
 Note: Only the `~/.var/app/app.xemu.xemu/data/xemu/xemu` directory can be written by xemu.
 The Hard Disk image has to be placed there, for example at `~/.var/app/app.xemu.xemu/data/xemu/xemu/xbox_hdd.qcow2`.
 
-### Ubuntu PPA
-
-Users running recent versions of Ubuntu (18.04 and newer) are recommended to install through the daily build PPA repository. At the command line, run the following:
-
-```sh
-sudo add-apt-repository ppa:mborgerson/xemu
-sudo apt update
-sudo apt install xemu
-```
-
-You can now launch xemu through your typical launcher, or by typing `xemu` at the command line.
-
 ### Build from source
 
-It is also possible to [build from source](building-from-source.md#linux), which works on all Linux distributions.
+On most Linux distributions, it is also possible to [build from source](building-from-source.md#linux).
