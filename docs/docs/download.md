@@ -36,13 +36,13 @@ You can now launch xemu through your typical launcher, or by typing `xemu` at th
 
 1. [Set up Flatpak](https://www.flatpak.org/setup/)
 
-2. Install xemu from [Flathub](https://flathub.org/apps/details/org.xemu.xemu)
+2. Install xemu from [Flathub](https://flathub.org/apps/details/app.xemu.xemu)
 
-`flatpak install -y org.xemu.xemu`
+`flatpak install -y app.xemu.xemu`
 
 3. Run xemu
 
-`flatpak run org.xemu.xemu`
+`flatpak run app.xemu.xemu`
 
 Note: Only the `~/.var/app/app.xemu.xemu/data/xemu/xemu` directory can be written by xemu.
 The Hard Disk image has to be placed there, for example at `~/.var/app/app.xemu.xemu/data/xemu/xemu/xbox_hdd.qcow2`.
