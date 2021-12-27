@@ -5,11 +5,14 @@ Users are recommended to use the [pre-built xemu binaries](https://github.com/mb
 ## Windows
 
 Windows builds are cross-compiled from Ubuntu. If you would like to build *on* Windows, you can use WSL2 and Docker. See [official Docker
-documentation](https://docs.docker.com/docker-for-windows/wsl/) for how to get WSL2 and Docker set up.
+documentation](https://docs.docker.com/docker-for-windows/wsl/) for how to get WSL2 and Docker set up. Make sure to remove back slashes " \ " in the build portion and make sure the build command is one line.
 
 ```bash
+# Configure git (change back To true after use if needed)
+git config --global core.autocrlf false
+
 # Clone and build
-git clone https://github.com/mborgerson/xemu.git
+git clone --recurse-submodules https://github.com/mborgerson/xemu.git
 docker run --rm -v $PWD/xemu:/xemu -w /xemu \
     -e CCACHE_DIR=/xemu/ccache \
     mborgerson/xemu-ubuntu-win64-cross:latest \
