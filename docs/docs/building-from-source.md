@@ -8,7 +8,7 @@ Windows builds are cross-compiled from Ubuntu. If you would like to build *on* W
 documentation](https://docs.docker.com/docker-for-windows/wsl/) for how to get WSL2 and Docker set up. Make sure to remove back slashes " \ " in the build portion and make sure the build command is one line.
 
 ```bash
-# Configure git (change back To true after use if needed)
+# Configure git and change back To true after use if needed
 git config --global core.autocrlf false
 
 # Clone and build
