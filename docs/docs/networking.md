@@ -32,7 +32,7 @@ this mode can be used to connect with tunneling services.
 In this networking mode, all traffic that would be sent/received by the emulated
 NIC is simply encapsulated in UDP datagrams and forwarded to a remote host,
 which could be another instance of xemu or perhaps a real Xbox (see
-[l2tunnel](github.com/mborgerson/l2tunnel) for more information). This is useful
+[l2tunnel](https://github.com/mborgerson/l2tunnel) for more information). This is useful
 for quickly setting up a virtual LAN.
 
 The xemu project provides multiple free servers you can use to play with other
