@@ -58,23 +58,22 @@ profile. To select the `performance` profile:
 echo performance | sudo tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor
 ```
 
-## Switchroot
+## Switchroot/Jetson setup
 
-If you are running Switchroot L4T Ubuntu on your Nintendo Switch, you can install
-xemu from the PPA as described in in the [Download](download.md) page. However,
-when running xemu you may see the following error:
+If you are running Switchroot/L4T Ubuntu on your Nintendo Switch or Jetson device, you can install
+xemu from the PPA as described in in the [Download](download.md) page. However, this is generally **not recommended**, as when running xemu you may see the following error:
 
-```
+```bash
 dbus[12047]: arguments to dbus_message_new_method_call() were incorrect, assertion "path != NULL" failed in file ../../../dbus/dbus-message.c line 1362.
 This is normally a bug in some application using the D-Bus library.
 
   D-Bus not built with -rdynamic so unable to print a backtrace
 ```
 
-This can be avoided by running the [L4T Megascript](https://github.com/cobalt2727/L4T-Megascript/wiki/Initial-Setup) (use Option A for Switch users, or Option B for Jetson Nano users)
-During their "initial setup" script, you'll be prompted to install SDL2 - choose yes to upgrade to working SDL2 binaries.
+Instead of using the PPA, it's recommended to install xemu via the [L4T Megascript](https://github.com/cobalt2727/L4T-Megascript/) (use Option A for Switch users, or Option B for Jetson Nano/other users).
+During their "initial setup" script, you'll be prompted to install SDL2 - choose yes to upgrade to their working SDL2 binaries. Afterwards, you can install xemu itself from the menu. The Megascript's [build script](https://github.com/cobalt2727/L4T-Megascript/blob/master/scripts/games_and_emulators/xemu.sh) has been confirmed to result in a slight speed boost over the PPA, but it is not packaged by the xemu developers. Use at your own discretion.
 
-If you'd like to do things yourself, instead of using the L4T Megascript, build and install SDL from source:
+If you'd like to do things yourself via the PPA, instead of using the L4T Megascript, build and install SDL2 from source:
 
 ```bash
 sudo apt install cmake build-essential
