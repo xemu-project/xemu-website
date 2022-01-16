@@ -61,8 +61,12 @@ echo performance | sudo tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governo
 ## Switchroot/Jetson setup
 
 If you are running Switchroot/L4T Ubuntu on your Nintendo Switch or Jetson device, you can install
-xemu from the PPA as described in in the [Download](download.md) page. However, this is generally **not recommended**, as when running xemu you may see the following error:
+xemu from the PPA as described in in the [Download](download.md) page. However, this is generally **not recommended** for performance reasons.
+Instead of using the PPA, it's recommended to install xemu via the [L4T Megascript](https://github.com/cobalt2727/L4T-Megascript/wiki)'s build script (use Option A for Switch users, or Option B for Jetson Nano/other users).
+During their "initial setup" script, you'll be prompted to install SDL2 - choose yes to upgrade to newer SDL2 binaries. Afterwards, you can install xemu itself from the menu.
+The Megascript's [build script](https://github.com/cobalt2727/L4T-Megascript/blob/master/scripts/games_and_emulators/xemu.sh) has been confirmed to result in a slight speed boost over the PPA, but it is not packaged by the xemu developers. Use at your own discretion.
 
+If you see the following error, this is a [bug](https://github.com/mborgerson/xemu-website/commit/b6b8227a0b986176ae7d1d57e506751628ecceaf#commitcomment-63959699) from older releases of Switchroot's L4T Ubuntu:
 ```bash
 dbus[12047]: arguments to dbus_message_new_method_call() were incorrect, assertion "path != NULL" failed in file ../../../dbus/dbus-message.c line 1362.
 This is normally a bug in some application using the D-Bus library.
@@ -70,18 +74,13 @@ This is normally a bug in some application using the D-Bus library.
   D-Bus not built with -rdynamic so unable to print a backtrace
 ```
 
-Instead of using the PPA, it's recommended to install xemu via the [L4T Megascript](https://github.com/cobalt2727/L4T-Megascript/) (use Option A for Switch users, or Option B for Jetson Nano/other users).
-During their "initial setup" script, you'll be prompted to install SDL2 - choose yes to upgrade to their working SDL2 binaries. Afterwards, you can install xemu itself from the menu. The Megascript's [build script](https://github.com/cobalt2727/L4T-Megascript/blob/master/scripts/games_and_emulators/xemu.sh) has been confirmed to result in a slight speed boost over the PPA, but it is not packaged by the xemu developers. Use at your own discretion.
-
-If you'd like to do things yourself via the PPA, instead of using the L4T Megascript, build and install SDL2 from source:
-
+This can be fixed by building a newer SDL2 from source or pasting the following into a terminal:
 ```bash
-sudo apt install cmake build-essential
-git clone https://github.com/libsdl-org/SDL && cd SDL
-mkdir build && cd build
-cmake ..
-make -j4
-sudo make install
+# check for bad machine-id from 3.0.0 L4T Ubuntu image and fix if necessary
+# also generate if user has somehow deleted their machine-id as well
+if [[ $(cat /var/lib/dbus/machine-id) == "52e66c64e2624539b94b31f8412c6a7d" ]]; then
+  sudo rm /var/lib/dbus/machine-id && dbus-uuidgen | sudo tee /var/lib/dbus/machine-id
+elif [[ ! -f /var/lib/dbus/machine-id ]]; then
+  dbus-uuidgen | sudo tee /var/lib/dbus/machine-id
+fi
 ```
-
-Then launch xemu `LD_LIBRARY_PATH=/usr/local/lib xemu`
