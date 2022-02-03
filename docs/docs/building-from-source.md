@@ -94,3 +94,17 @@ open ./dist/xemu.app
     ```bash
     CC=clang CXX=clang++ CC_LD=lld CXX_LD=lld AR=llvm-ar ./build.sh
     ```
+
+!!! tip "Tip: Passing build flags to the C/C++ compiler"
+
+    Extra build flags can be passed to the C/C++ compiler by using environment
+    variables in a similar manner to changing toolchains. The CFLAGS variable
+    sets C compiler flags and the CXXFLAGS variable sets C++ compiler flags.
+    Multiple flags can be set by separating them with a space, just be sure to
+    surround it in quotations. For example, if you wanted to build xemu with
+    extra optimizations for your specific CPU then you would invoke build.sh
+    as follows:
+
+    ```bash
+    CFLAGS="-march=native" CXXFLAGS="-march=native" ./build.sh
+    ```
