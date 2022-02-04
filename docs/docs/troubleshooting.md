@@ -84,4 +84,4 @@ elif [[ ! -f /var/lib/dbus/machine-id ]]; then
   dbus-uuidgen | sudo tee /var/lib/dbus/machine-id
 fi
 ```
-Then launch xemu by typing `./xemu` from the "dist" folder at `$your-git-folder-location/dist/` after building (or if using the Megascript, simply launch Xemu from your app list).
+Then launch xemu by typing `./xemu` from a "dist" folder inside the git folder at `xemu/dist/` after successfully building (or if using the Megascript, simply launch Xemu from your app list).
