@@ -12,19 +12,17 @@ Simply download the Zip archive release for Windows, extract the archive to a di
 
 **Compatibility Note:** This download is a Universal binary, and will work on both x86-64 and the new Apple M1-based Macs.
 
-### Homebrew
-
-1. [Set up Homebrew](https://brew.sh)
-
-2. Install Xemu via Homebrew
-
-`brew install --cask xemu`
-
-### Manual installation
+### Install Manually
 
 Simply download the Zip archive release for macOS, extract the archive, then run the application. Optionally drag the xemu app bundle to your Applications folder.
 
 Because the app is not signed, you will need to right-click, or hold the <kbd>control</kbd> key and click, on the app and in the context menu that appears select <kbd>Open</kbd> on first launch.
+
+### Install via Homebrew
+
+If you have the [Homebrew package manager](https://brew.sh) installed, you can install xemu with:
+
+`brew install --cask xemu`
 
 ## Download for Linux
 
