@@ -4,17 +4,19 @@
 
 ### Installation
 
-Simply download the Zip archive release for Windows, extract the archive to a directory, then double-click on xemu.exe.
+Simply download the Zip archive release for Windows from the link above, extract the archive to a directory, then double-click on xemu.exe.
 
 ## Download for macOS
 
 [Download for :fontawesome-brands-apple: macOS](https://github.com/mborgerson/xemu/releases/latest/download/xemu-macos-universal-release.zip){ .md-button .md-button--secondary }
 
-**Compatibility Note:** This download is a Universal binary, and will work on both x86-64 and the new Apple M1-based Macs.
+!!! check ":fontawesome-brands-apple: Apple M1 Compatibility Note"
+
+	This download is a "Universal" binary, and will work on both Intel x86-64 and the new Apple M1-based Macs.
 
 ### Install Manually
 
-Simply download the Zip archive release for macOS, extract the archive, then run the application. Optionally drag the xemu app bundle to your Applications folder.
+Simply download the Zip archive release for macOS from the link above, extract the archive, then run the application. Optionally drag the xemu app bundle to your Applications folder.
 
 Because the app is not signed, you will need to right-click, or hold the <kbd>control</kbd> key and click, on the app and in the context menu that appears select <kbd>Open</kbd> on first launch.
 
@@ -50,8 +52,9 @@ You can now launch xemu through your typical launcher, or by typing `xemu` at th
 
 `flatpak run app.xemu.xemu`
 
-Note: Only the `~/.var/app/app.xemu.xemu/data/xemu/xemu` directory can be written by xemu.
-The Hard Disk image has to be placed there, for example at `~/.var/app/app.xemu.xemu/data/xemu/xemu/xbox_hdd.qcow2`.
+!!! warning "Accessible Directories"
+
+	When using the flatpak installation method, only the `~/.var/app/app.xemu.xemu/data/xemu/xemu` directory can be written to by xemu. The Hard Disk image must be placed there, for example at `~/.var/app/app.xemu.xemu/data/xemu/xemu/xbox_hdd.qcow2`.
 
 ### Build from source
 
