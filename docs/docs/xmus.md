@@ -1,10 +1,8 @@
-xemu allows inserting Xbox Memory Units, aka Memory Cards, in to controller hubs.
-
-This is done by using a file as the storage medium.
+xemu allows inserting Xbox Memory Units, aka Memory Cards, in to controller hubs. There is not yet a convenient user interface to do this, but it can be done easily enough with a few short commands in the Monitor.
 
 ## Creating an XMU image
 
-Create an 8 MiB XMU image using one of the following commands, depending on your platform.
+Like the virtual hard disk, an XMU is backed by an image file. Create an 8 MiB XMU image using one of the following commands, depending on your platform.
 
 === "Windows"
 
