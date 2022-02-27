@@ -4,11 +4,11 @@ controllers at any time, just like a real Xbox.
 !!! note "Notes & FAQ"
     * There is currently no interface within xemu to adjust the keybindings.
     * Hot plugging works on Windows and Linux. It is broken on macOS.
-    * There is currently no interface to add/remove memory cards.
+    * There is currently no UI to add/remove memory cards, but [it can be done](xmus.md)!
     * USB passthru is not supported yet.
     * Only the Xbox controller is emulated. There is not (yet) support for other controllers like the Steel Batallion.
 
-!!! warning "Input not functional on early BIOS revisions"
+!!! bug "Input not functional on early BIOS revisions"
     Emulated gamepads may be non-functional when using early BIOS revisions
     (<4627). It is recommended to not use these early BIOS revisions,
     until this bug is fixed.

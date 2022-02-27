@@ -1,4 +1,6 @@
-xemu requires game discs to be in the form of `*.iso` disc images.
+xemu requires game discs to be in the form of xiso images. These are generally
+saved with a `.iso` extension, but are not the same as typical ISO images and
+should be created following the instructions below.
 
 !!! warning "Disclaimer"
 
