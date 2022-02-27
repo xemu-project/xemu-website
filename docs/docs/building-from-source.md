@@ -9,7 +9,7 @@ documentation](https://docs.docker.com/docker-for-windows/wsl/) for how to get W
 
 ```bash
 # Clone and build
-git clone --recurse-submodules https://github.com/mborgerson/xemu.git
+git clone https://github.com/mborgerson/xemu.git
 docker run --rm -v $PWD/xemu:/xemu -w /xemu -e CCACHE_DIR=/xemu/ccache mborgerson/xemu-ubuntu-win64-cross:latest ./build.sh -p win64-cross
 
 # Run
