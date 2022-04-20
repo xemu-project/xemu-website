@@ -52,4 +52,4 @@ only containing a dummy dashboard.
     **Alternative 2:** Build a new HDD image from scratch
 
     You can also create an Xbox hard-disk image using XboxHDM. Directions on how
-    to do this [can be found here](https://github.com/mborgerson/xemu-hdd-image).
+    to do this [can be found here](https://github.com/mborgerson/xemu-hdd-image). [FATXplorer can also create an Xbox hard-disk image](https://fatxplorer.eaton-works.com/2021/08/18/fatxplorer-3-0-beta-15--formatting-a-file-is-now-supported/).
