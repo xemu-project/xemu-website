@@ -28,9 +28,9 @@ If you have the [Homebrew package manager](https://brew.sh) installed, you can i
 
 ## Download for Linux
 
-### Ubuntu PPA (18.04 and newer)
+### Ubuntu PPA (20.04 and newer)
 
-Users running recent versions of Ubuntu (18.04 and newer) are recommended to install through the daily build PPA repository. At the command line, run the following:
+Users running recent versions of Ubuntu (20.04 and newer) are recommended to install through the daily build PPA repository. At the command line, run the following:
 
 ```sh
 sudo add-apt-repository ppa:mborgerson/xemu
