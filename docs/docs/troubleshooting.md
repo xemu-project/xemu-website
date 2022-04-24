@@ -12,6 +12,18 @@ Please check the [list of frequently asked questions](faq.md).
 
 * Surround Sound isn't supported in xemu yet, you should disable this in your [EEPROM](eeprom.md) if you have enabled it.
 
+## Flatpak release will not load BIOS / MCPX ROM / Hard Drive
+
+Flatpak programs are normally sandboxed, restricting their access to the filesystem.
+
+By default, xemu can only access `~/.var/app/app.xemu.xemu/data/xemu/xemu`
+
+If you want to allow xemu access to other folders, then:
+
+1. Install [Flatseal](https://flathub.org/apps/details/com.github.tchx84.Flatseal)
+2. Select <kbd>app.xemu.xemu</kbd>
+3. In the <kbd>Filesystem</kbd> section, allow access to the folders your BIOS / MCPX / Hard Drive Image are in
+
 ## Windows Performance Considerations
 
 ### Powersave vs Performance Power Management Profile
