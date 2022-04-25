@@ -9,8 +9,8 @@ documentation](https://docs.docker.com/docker-for-windows/wsl/) for how to get W
 
 ```bash
 # Clone and build
-git clone https://github.com/mborgerson/xemu.git
-docker run --rm -v $PWD/xemu:/xemu -w /xemu \
+git clone --recurse-submodules https://github.com/mborgerson/xemu.git
+docker run -u $(id -u):$(id -g) --rm -v $PWD/xemu:/xemu -w /xemu \
     -e CCACHE_DIR=/xemu/ccache \
     mborgerson/xemu-ubuntu-win64-cross:latest \
     ./build.sh -p win64-cross
@@ -29,7 +29,7 @@ brew update
 brew install coreutils pkg-config dylibbundler ninja
 
 # Clone and build
-git clone https://github.com/mborgerson/xemu.git
+git clone --recurse-submodules https://github.com/mborgerson/xemu.git
 cd xemu
 ./build.sh
 
@@ -47,7 +47,7 @@ open ./dist/xemu.app
     sudo apt install git build-essential libsdl2-dev libepoxy-dev libpixman-1-dev libgtk-3-dev libssl-dev libsamplerate0-dev libpcap-dev ninja-build python3-yaml
 
     # Clone and build
-    git clone https://github.com/mborgerson/xemu.git
+    git clone --recurse-submodules https://github.com/mborgerson/xemu.git
     cd xemu
     ./build.sh
 
@@ -62,7 +62,7 @@ open ./dist/xemu.app
     sudo pacman -S --noconfirm git base-devel sdl2 libepoxy pixman gtk3 openssl libsamplerate libpcap ninja glu python-yaml
 
     # Clone and build
-    git clone https://github.com/mborgerson/xemu.git
+    git clone --recurse-submodules https://github.com/mborgerson/xemu.git
     cd xemu
     ./build.sh
 
@@ -77,7 +77,7 @@ open ./dist/xemu.app
     sudo dnf install libdrm-devel libslirp-devel mesa-libGLU-devel gtk3-devel libpcap-devel libsamplerate-devel libaio-devel SDL2-devel libepoxy-devel pixman-devel gcc-c++ ninja-build openssl-devel python3-pyyaml
 
     # Clone and build
-    git clone https://github.com/mborgerson/xemu.git
+    git clone --recurse-submodules https://github.com/mborgerson/xemu.git
     cd xemu
     ./build.sh
 
