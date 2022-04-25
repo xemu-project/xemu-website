@@ -6,7 +6,7 @@ startup behavior.
 | `-full-screen` | Launch in full screen |
 | `-dvd_path <iso>` | Load disc image `<iso>` |
 | `-snapshot` | Discard any writes to the HDD image after exit |
-| `-config_path <config>` | Use `<config>` as config file (usually xemu.ini) |
+| `-config_path <config>` | Use `<config>` as config file (usually xemu.toml) |
 
 ## Advanced
 
