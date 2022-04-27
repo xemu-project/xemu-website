@@ -27,6 +27,7 @@ First install the [Homebrew package manager](https://brew.sh/).
 # Install dependencies
 brew update
 brew install coreutils pkg-config dylibbundler ninja
+python3 -m pip install pyyaml
 
 # Clone and build
 git clone --recurse-submodules https://github.com/mborgerson/xemu.git
