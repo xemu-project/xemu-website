@@ -36,7 +36,7 @@ file.
 
 ### Nvidia Settings
 
-It is recommended to **disable** "Multi-threaded Optimizations" in the nVidia
+It is recommended to **disable** "Multi-threaded Optimizations" in the Nvidia
 Control Panel. This feature has been known to negatively impact xemu
 performance.
 
@@ -60,13 +60,18 @@ echo performance | sudo tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governo
 
 ## Switchroot/Jetson setup
 
-If you are running Switchroot/L4T Ubuntu on your Nintendo Switch or Jetson device, you can install
-xemu from the PPA as described in in the [Download](download.md) page. However, this is generally **not recommended** for performance reasons.
-Instead of using the PPA, it's recommended to install xemu via the [L4T Megascript](https://github.com/cobalt2727/L4T-Megascript/wiki)'s build script (use Option A for Switch users, or Option B for Jetson Nano/other users).
-During their "initial setup" script, you'll be prompted to install SDL2 - choose yes to upgrade to newer SDL2 binaries. Afterwards, you can install xemu itself from the menu.
-The Megascript's [build script](https://github.com/cobalt2727/L4T-Megascript/blob/master/scripts/games_and_emulators/xemu.sh) has been confirmed to result in a slight speed boost over the PPA, but it is not packaged by the xemu developers. Use at your own discretion.
+If you are running Switchroot/L4T Ubuntu on your Nintendo Switch or Jetson device, you have two options:
+- Install xemu using the [official PPA](https://launchpad.net/~mborgerson/+archive/ubuntu/xemu). This gives you the option to quickly install and update xemu like any other package on your device. To do so, run the following:
+```bash
+sudo add-apt-repository ppa:mborgerson/xemu
+sudo apt-get update
+sudo apt install xemu
+```
+- Install xemu via the [L4T Megascript](https://github.com/cobalt2727/L4T-Megascript/wiki/)'s build script (check the `Initial Setup` page in their wiki to get started).
+During their "initial setup" script, you'll be prompted to install SDL2 - choose yes to upgrade to newer SDL2 binaries. Afterwards, you can install xemu itself from the menu. **Skip the "initial setup" script if you're not on a Switch or other Tegra hardware!**
+The Megascript's [build script](https://github.com/cobalt2727/L4T-Megascript/blob/master/scripts/games_and_emulators/xemu.sh) gets you the newest updates sooner and has been confirmed to result in a performance boost over the PPA, but it is not packaged by the xemu developers. Use at your own discretion. To update xemu, simply run the Megascript's `Auto Updater` script.
 
-If you see the following error, this is a [bug](https://github.com/mborgerson/xemu-website/commit/b6b8227a0b986176ae7d1d57e506751628ecceaf#commitcomment-63959699) from older releases of Switchroot's L4T Ubuntu:
+If you see the following error, this is a bug from older releases of Switchroot's L4T Ubuntu:
 ```bash
 dbus[12047]: arguments to dbus_message_new_method_call() were incorrect, assertion "path != NULL" failed in file ../../../dbus/dbus-message.c line 1362.
 This is normally a bug in some application using the D-Bus library.
@@ -74,14 +79,4 @@ This is normally a bug in some application using the D-Bus library.
   D-Bus not built with -rdynamic so unable to print a backtrace
 ```
 
-This can be fixed by building a newer SDL2 from source or pasting the following into a terminal:
-```bash
-# check for bad machine-id from 3.0.0 L4T Ubuntu image and fix if necessary
-# also generate if user has somehow deleted their machine-id as well
-if [[ $(cat /var/lib/dbus/machine-id) == "52e66c64e2624539b94b31f8412c6a7d" ]]; then
-  sudo rm /var/lib/dbus/machine-id && dbus-uuidgen | sudo tee /var/lib/dbus/machine-id
-elif [[ ! -f /var/lib/dbus/machine-id ]]; then
-  dbus-uuidgen | sudo tee /var/lib/dbus/machine-id
-fi
-```
-Then launch xemu by typing `./xemu` from a "dist" folder inside the git folder at `xemu/dist/` after successfully building (or if using the Megascript, simply launch Xemu from your app list).
+This can be fixed by [updating to the newest Switchroot L4T Ubuntu release following this guide](https://wiki.switchroot.org/en/Linux/Ubuntu-Install-Guide#updates-for-previous-30-installs).
