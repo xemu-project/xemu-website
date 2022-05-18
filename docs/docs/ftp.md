@@ -8,25 +8,20 @@ or write files on the virtual hard disk.
 
 In xemu, open the Network window by navigating to
 <kbd>Machine</kbd>&rarr;<kbd>Network</kbd>. If networking is currently
-enabled, click <kbd>Disable</kbd>. From the "Attached To" combo box, select
-"NAT", then click <kbd>Enable</kbd>.
+enabled, click <kbd>Enable</kbd> toggle to disable it. From the
+"Attached to" combo box, select "NAT".
 
 ## Step 2: Forward port 21
 
-Because xemu is configured to use "user networking," we must configure xemu
-to forward FTP traffic on the host machine to the internal network. There is
-not a fancy GUI to do this yet, but we can easily do this using the monitor.
+We must now configure xemu to forward FTP traffic on the host machine to
+the internal network. In the **Port Forwarding** section, enter `2121`
+in the `Host Port` field, `21` in the `Guest Port` field, select `TCP` as
+the `Protocol` and click the <kbd>Add</kbd> button.
 
-In xemu, open the Monitor window by navigating to
-<kbd>Debug</kbd>&rarr;<kbd>Monitor</kbd>. In the box at the bottom of the
-Monitor window, paste the following command and press <kbd>Enter</kbd>:
-
-```
-hostfwd_add xemu-netdev tcp:127.0.0.1:2121-:21
-```
+Finally, then click <kbd>Enable</kbd> to connect the virtual network.
 
 Now xemu will begin listening on TCP port 2121 for new connections, and forward
-that traffic to the internal network.
+that traffic to the internal network to Xbox software listening on port 21.
 
 ## Step 3: Launch your alternative dashboard from disc
 
