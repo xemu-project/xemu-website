@@ -13,8 +13,8 @@ theme:
   name: material
   custom_dir: overrides
   features:
-    - navigation.expand
     - navigation.sections
+    - navigation.instant
   # Don't include MkDocs' JavaScript
   include_search_page: false
   search_index_only: true
@@ -70,6 +70,11 @@ markdown_extensions:
   - pymdownx.tilde
 
 nav:
+  - Home: https://xemu.app
+  - Compatibility: https://xemu.app/#compatibility
+  - Documentation: /docs/
+  - GitHub: https://github.com/mborgerson/xemu
+  - Patreon: https://www.patreon.com/mborgerson
   - About: about.md
   - FAQ: faq.md
   - Setup:
@@ -86,9 +91,11 @@ nav:
     - Snapshots (Save States): snapshots.md
   - Advanced Topics:
     - EEPROM Settings: eeprom.md
-    - Building from Source: building-from-source.md
     - Serial Port: serial-port.md
     - Memory Units (Cards): xmus.md
+    - Development:
+      - Welcome: dev/index.md
+      - Building from Source: dev/building-from-source.md
 
 plugins:
   - search
