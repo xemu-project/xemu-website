@@ -60,4 +60,4 @@ You can now launch xemu through your typical launcher, or by typing `xemu` at th
 
 ### Build from source
 
-On most Linux distributions, it is also possible to [build from source](building-from-source.md#linux).
+On most Linux distributions, it is also possible to [build from source](dev/building-from-source.md#linux).
