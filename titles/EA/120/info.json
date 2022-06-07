@@ -6,37 +6,43 @@
             "title_id": "45410078",
             "region": "USA",
             "edition": "Original",
-            "disc_id": 2
+            "disc_id": 2,
+            "name": "FIFA Soccer 06"
         },
         {
             "title_id": "45410078",
             "region": "Europe",
             "edition": "Original",
-            "disc_id": 3
+            "disc_id": 3,
+            "name": "FIFA 06"
         },
         {
             "title_id": "45410078",
             "region": "Italy",
             "edition": "Original",
-            "disc_id": 4
+            "disc_id": 4,
+            "name": "FIFA 06"
         },
         {
             "title_id": "45410078",
             "region": "Spain",
             "edition": "Original",
-            "disc_id": 5
+            "disc_id": 5,
+            "name": "FIFA 06"
         },
         {
             "title_id": "45410078",
             "region": "Europe",
             "edition": "Original",
-            "disc_id": 6
+            "disc_id": 6,
+            "name": "FIFA 06"
         },
         {
             "title_id": "45410078",
             "region": "Europe",
             "edition": "Original",
-            "disc_id": 8
+            "disc_id": 8,
+            "name": "FIFA 06"
         }
     ]
 }
