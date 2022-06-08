@@ -1,5 +1,27 @@
+{% set title_status_colors = {'Unknown' : '#595959', 'Broken' : '#D7263D', 'Intro' : '#F86624', 'Starts' : '#FF9800', 'Playable' : '#42e335', 'Perfect' : '#1bdeff'} %}
 {% extends "template_base.html" %}
 {% block title %}{{ title.title_name }} Compatibility{% endblock %}
+{% block append_head %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
+
+<style type="text/css">
+.playability-tag {
+  display: inline-block;
+  font-weight: 400;
+  color: {{ title_status_colors[title.status] }};
+  text-align: center;
+  vertical-align: middle;
+  background-color: transparent;
+  border: 1px solid {{ title_status_colors[title.status] }};
+  padding: .375rem .75rem;
+  font-size: .9375rem;
+  line-height: 1.5;
+  border-radius: .25rem;
+}
+</style>
+
+{% endblock %}
+
 {% block content %}
 <!-- Game Identification -->
 <div class="py-5 row flex-md-nowrap text-center text-md-left align-items-center justify-content-center justify-content-md-start">
@@ -33,7 +55,7 @@
         <div class="list-group w-100">
           <div class="d-flex w-100 justify-content-between">
             <h5>Status</h5>
-            <strong>{{ title.status }}</strong>
+            <span class="playability-tag">{{ title.status }}</span>
           </div>
           <p class="text-muted mb-1">{{ title_status_descriptions[title.status] }}</p>
         </div>
@@ -113,9 +135,6 @@
 </div>
 {% endblock %}
 
-{% block append_head %}
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
-{% endblock %}
 {% block append_foot %}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js" crossorigin="anonymous"></script>
 <script type="text/javascript">
