@@ -21,7 +21,7 @@
   <!-- Game Cover -->
   <div class="col-md-4 text-center">
     <figure class="figure">
-      <img src="{{ title.cover_url }}" class="img-thumbnail img-fluid" width=350 />
+      <a href="{{ title.cover_url }}" class="enlarge-image"><img src="{{ title.cover_url }}" class="img-thumbnail img-fluid" width=350 /></a>
     </figure>
   </div>
 
@@ -111,4 +111,23 @@
     </div>
   </div>
 </div>
+{% endblock %}
+
+{% block append_head %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
+{% endblock %}
+{% block append_foot %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js" crossorigin="anonymous"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+  $('.enlarge-image').magnificPopup({
+      type: 'image',
+      closeOnContentClick: true,
+      mainClass: 'mfp-img-mobile',
+      image: {
+        verticalFit: true
+      }
+    });
+  });
+</script>
 {% endblock %}
