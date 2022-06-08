@@ -159,6 +159,12 @@ class Title:
                 print('Note: Missing thumbnail for %s' % self.title_name)
             self.cover_thumbnail_url = self.cover_url
 
+        xtimage_path = os.path.join(self.title_path, 'xtimage.png')
+        if os.path.exists(xtimage_path):
+            self.xtimage_url = repo_url_base + self.title_path + '/xtimage.png'
+        else:
+            self.xtimage_url = None
+
     def process_compatibility(self):
         # FIXME:
         # - Only show reports for master branch

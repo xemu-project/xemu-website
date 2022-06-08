@@ -2,12 +2,19 @@
 {% block title %}{{ title.title_name }} Compatibility{% endblock %}
 {% block content %}
 <!-- Game Identification -->
-<div class="py-2 pt-5">
-  <h2>{{ title.title_name }}</h2>
-  <h6 class="card-subtitle mb-2 text-muted">
-    <strong>{{ title.full_title_id_text }}</strong>
-    <span class="align-text-top " style="font-family: monospace;">[{{ title.full_title_id_hex }}]</span>
-  </h6>
+<div class="py-5 row flex-md-nowrap text-center text-md-left align-items-center justify-content-center justify-content-md-start">
+  {% if title.xtimage_url %}
+  <div class="col-md-auto">
+    <img src="{{ title.xtimage_url }}" class="rounded-circle img-thumbnail" />
+  </div>
+  {% endif %}
+  <div class="col-md-auto align-self-center">
+    <h1>{{ title.title_name }}</h1>
+    <h6 class="card-subtitle mb-2 text-muted">
+      <strong>{{ title.full_title_id_text }}</strong>
+      <span class="align-text-top" style="font-family: monospace;">[{{ title.full_title_id_hex }}]</span>
+    </h6>
+  </div>
 </div>
 
 <div class="row">
