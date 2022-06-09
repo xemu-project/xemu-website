@@ -19,6 +19,13 @@ docker run -u $(id -u):$(id -g) --rm -v $PWD/xemu:/xemu -w /xemu \
 ./xemu/dist/xemu.exe
 ```
 
+### Tips
+
+* The `docker run` command must be done from the directory containing the `xemu` clone, not from inside the clone. If running
+`ls -d xemu` does not print "xemu" you will need to change directories.
+
+* When building on Windows via WSL2, doing the `git clone` from inside WSL2 may substantially increase the build speed.
+
 ## macOS
 
 First install the [Homebrew package manager](https://brew.sh/).
