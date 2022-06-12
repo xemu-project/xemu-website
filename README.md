@@ -25,4 +25,4 @@ develop_mode = True
 main_url_base = '{YOUR LOCAL ABSOLUTE FILESYSTEM PATH GOES HERE}/xemu-website/dist'
 ```
 
-Documentation is generated via [MKDocs](https://www.mkdocs.org). The source files can be found within the `\docs\docs` folder and configured via `\docs\mkdocs.yml`
+Documentation is generated via [MkDocs](https://www.mkdocs.org). The source files can be found within the `\docs\docs` folder and configured via `\docs\mkdocs.yml`
