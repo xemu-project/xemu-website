@@ -5,7 +5,7 @@ This repo contains the main website contents for the xemu original Xbox emulator
 
 ### Build
 
-To build, simply run `.\build.sh`
+To build, simply run `rm -rf dist/ && ./build.sh` from within the project root
 
 #### Ubuntu
 
