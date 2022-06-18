@@ -7,9 +7,10 @@ var time_loc;
 var buffer;
 var ebuffer;
 var pending_disable_fallback = true;
-var restart_anim = false;
+var restart_anim = true;
 var last_started = 0;
 var loaded = false;
+
 function reset_time() {
   restart_anim = true;
 }
@@ -102,28 +103,18 @@ function setupWebGL (evt) {
   buffer = gl.createBuffer();
   gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
   gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([
-  -1.0, -1.0,  0.0,  0.0,
-  -1.0,  1.0,  0.0,  1.0,
-   1.0,  1.0,  1.0,  1.0,
-   1.0, -1.0,  1.0,  0.0]), gl.STATIC_DRAW);
-
+    -1.0, -1.0, -1.0, 1.0, 1.0, 1.0, 1.0, -1.0]), gl.STATIC_DRAW);
   ebuffer = gl.createBuffer();
   gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, ebuffer);
   gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, new Int8Array([ 0, 1, 2, 3 ]), gl.STATIC_DRAW);
 
   var pos_attr_loc = gl.getAttribLocation(program, "in_Position");
-  gl.vertexAttribPointer(pos_attr_loc, 2, gl.FLOAT, false, 4*4, 0);
+  gl.vertexAttribPointer(pos_attr_loc, 2, gl.FLOAT, false, 2*4, 0);
   gl.enableVertexAttribArray(pos_attr_loc);
-  var tex_attr_loc = gl.getAttribLocation(program, "in_Texcoord");
-  gl.vertexAttribPointer(tex_attr_loc, 2, gl.FLOAT, false, 4*4, 2*4);
-  gl.enableVertexAttribArray(tex_attr_loc);
-
   var tex = loadTexture(gl, "logo_sdf.png")
   var tex_loc = gl.getUniformLocation(program, "tex");
   time_loc = gl.getUniformLocation(program, "iTime");
-
   gl.useProgram(program);
-
   gl.viewport(0, 0, gl.canvas.width, gl.canvas.height);
   requestAnimationFrame(render);
 }
@@ -141,12 +132,11 @@ function render(ts) {
   }
   gl.clearColor(0, 0, 0, 0);
   gl.clear(gl.COLOR_BUFFER_BIT);
-  var offset = 6000.0;
   if (restart_anim) {
-    last_started = ts+offset;
+    last_started = ts;
     restart_anim = false;
   }
-  gl.uniform1f(time_loc, (ts-last_started+offset)/1000.0);
+  gl.uniform1f(time_loc, (ts-last_started)/1000.0);
   gl.drawElements(gl.TRIANGLE_FAN, 4, gl.UNSIGNED_BYTE, 0);
   requestAnimationFrame(render);
 }
