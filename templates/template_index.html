@@ -79,17 +79,6 @@ canvas {
   border: none;
 }
 </style>
-
-<script type="x-shader/x-vertex" id="vertex-shader">
-{% include "gl_logo_vert.glsl" %}
-</script>
-<script type="x-shader/x-fragment" id="fragment-shader">
-{% include "gl_logo_frag.glsl" %}
-</script>
-<script type="text/javascript">
-{% include "gl_logo.js" %}
-</script>
-
 {% endblock %}
 
 {% block jumbotron %}
@@ -378,4 +367,5 @@ var options = {
 var chart = new ApexCharts(document.querySelector("#title_stats"), options);
 chart.render();
 </script>
+<script type="text/javascript" src="gl_logo.js"></script>
 {% endblock %}
