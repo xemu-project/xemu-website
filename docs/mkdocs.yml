@@ -96,6 +96,11 @@ nav:
     - Development:
       - Welcome: dev/index.md
       - Building from Source: dev/building-from-source.md
+      - Debugging:
+        - Overview: dev/debug/index.md
+        - Host Debugging: dev/debug/host.md
+        - Guest Debugging: dev/debug/guest.md
+        - Graphics Debugging: dev/debug/graphics.md
 
 plugins:
   - search
