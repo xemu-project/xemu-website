@@ -103,23 +103,23 @@ canvas {
     <div class="container">
       <div class="row">
         <div class="column text-center text-md-left p-2">
-          <div class="btn-group">
-            <button class="btn btn-outline-secondary btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Download
-            </button>
-            <div class="dropdown-menu">
-              <a class="dropdown-item" href="https://github.com/mborgerson/xemu/releases/latest/download/xemu-win-release.zip"><i class="fab fa-windows button-icon" aria-hidden="true"></i> Download for Windows (x86-64)</a>
-              <a class="dropdown-item" href="https://github.com/mborgerson/xemu/releases/latest/download/xemu-macos-universal-release.zip"><i class="fab fa-apple button-icon" aria-hidden="true"></i> Download for macOS (Universal 2)</a>
-              <a class="dropdown-item" href="https://xemu.app/docs/download/#download-for-linux"><i class="fab fa-linux button-icon" aria-hidden="true"></i> Download for Linux</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="https://github.com/mborgerson/xemu/releases"><i class="fa fa-ellipsis-h button-icon" aria-hidden="true"></i>All Releases</a>
-            </div>
-          </div>
+          <a class="btn btn-secondary btn-lg" role="button" id="download-gen" href="/docs/download">
+            <i class="fa fa-laptop button-icon" aria-hidden="true"></i>View Download Options
+          </a>
+          <a class="btn btn-secondary btn-lg" role="button" id="download-win" style="display: none" href="https://github.com/mborgerson/xemu/releases/latest/download/xemu-win-release.zip">
+            <i class="fab fa-windows button-icon" aria-hidden="true"></i>Download for Windows
+          </a>
+          <a class="btn btn-secondary btn-lg" role="button" id="download-mac" style="display: none" href="https://github.com/mborgerson/xemu/releases/latest/download/xemu-macos-universal-release.zip">
+            <i class="fab fa-apple button-icon" aria-hidden="true"></i>Download for macOS
+          </a>
+          <a class="btn btn-secondary btn-lg" role="button" id="download-linux" style="display: none" href="/docs/download/#download-for-linux">
+            <i class="fab fa-linux button-icon" aria-hidden="true"></i>Download for Linux
+          </a>
         </div>
         <div class="column p-2">
-          <strong>Latest Release:</strong>
-          v{{xemu_build_version}}<br/>
-          {{xemu_build_date.strftime('%b %-d, %Y')}}
+          <strong>Latest Release:</strong> v{{xemu_build_version}} ({{xemu_build_date.strftime('%b %-d, %Y')}})
+          <br />
+          <a href="/docs/download" id="download-options" style="display: none">Alternative download options</a>
         </div>
       </div>
     </div>
@@ -201,6 +201,19 @@ canvas {
 {% endblock %}
 
 {% block append_foot %}
+<script type="text/javascript">
+// Show platform-specific download button
+var platform = undefined;
+if (navigator.userAgent.indexOf("Win") != -1) platform = "win";
+else if (navigator.userAgent.indexOf("Mac") != -1) platform = "mac";
+else if (navigator.userAgent.indexOf("Linux") != -1) platform = "linux";
+if (platform != undefined) {
+  $('#download-gen').hide();
+  $('#download-' + platform).show();
+  $('#download-options').show();
+}
+</script>
+
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.lazy/1.7.10/jquery.lazy.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.lazy/1.7.10/jquery.lazy.plugins.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
