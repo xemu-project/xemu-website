@@ -61,3 +61,7 @@ You can now launch xemu through your typical launcher, or by typing `xemu` at th
 ### Build from source
 
 On most Linux distributions, it is also possible to [build from source](dev/building-from-source.md#linux).
+
+## Previous Releases
+
+You can find older builds of xemu on the [Releases page](https://github.com/mborgerson/xemu/releases).
