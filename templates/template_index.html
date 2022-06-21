@@ -201,11 +201,17 @@ canvas {
 {% endblock %}
 
 {% block append_foot %}
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.lazy/1.7.10/jquery.lazy.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.lazy/1.7.10/jquery.lazy.plugins.min.js"></script>
 <script type="text/javascript">
 // Show platform-specific download button
 var platform = undefined;
 if (navigator.userAgent.indexOf("Win") != -1) platform = "win";
-else if (navigator.userAgent.indexOf("Mac") != -1) platform = "mac";
+else if (navigator.userAgent.indexOf("Mac") != -1) {
+  if (navigator.userAgent.indexOf("iPhone") == -1) {
+    platform = "mac";
+  }
+}
 else if (navigator.userAgent.indexOf("Linux") != -1) platform = "linux";
 if (platform != undefined) {
   $('#download-gen').hide();
@@ -213,9 +219,6 @@ if (platform != undefined) {
   $('#download-options').show();
 }
 </script>
-
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.lazy/1.7.10/jquery.lazy.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.lazy/1.7.10/jquery.lazy.plugins.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 <script type="text/javascript">
 // Lazy-load images
