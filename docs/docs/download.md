@@ -10,9 +10,9 @@ Simply download the Zip archive release for Windows from the link above, extract
 
 [Download for :fontawesome-brands-apple: macOS](https://github.com/mborgerson/xemu/releases/latest/download/xemu-macos-universal-release.zip){ .md-button .md-button--secondary }
 
-!!! check ":fontawesome-brands-apple: Apple M1 Compatibility Note"
+!!! check ":fontawesome-brands-apple: Apple Silicon Compatibility Note"
 
-	This download is a "Universal" binary, and will work on both Intel x86-64 and the new Apple M1-based Macs.
+	This download is a "Universal" binary, and will work on both Intel x86-64 and the new Apple silicon (M1) Mac computers.
 
 ### Install Manually
 
