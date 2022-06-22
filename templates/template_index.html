@@ -67,7 +67,7 @@
   margin-right: 0.75em;
 }
 
-canvas {
+#logo-canvas {
   display: block;
   visibility: hidden;
   width: 256px;
@@ -78,20 +78,42 @@ canvas {
   padding: 0;
   border: none;
 }
+
+#bg-scene {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.jumbotron {
+  position: relative;
+}
+
+@media only screen and (min-width: 768px)
+{
+  .navbar-transparent
+  {
+    background-color: transparent !important;
+    transition: background-color 200ms linear;
+  }
+}
 </style>
 {% endblock %}
 
 {% block jumbotron %}
-<div class="jumbotron">
+<div class="jumbotron d-flex align-items-center min-vh-100">
+  <div id="bg-scene"></div>
   <div class="container">
   <div class="row mt-5">
-    <div class="col-md-6 mt-4 text-center">
+    <div class="col-md-6 mt-4 pb-5 pb-md-0 text-center">
     <img src="xbox_logo.png" class="img-fluid" width=450 />
     </div>
     <div class="col-md-6">
     <h1 class="display-3">
       <canvas id="logo-canvas" class="gl-logo"></canvas>
-      <img id="logo-fallback" alt="xemu logo" src="/logo-green.svg" style="height: 1.03em;">
+      <img id="logo-fallback" alt="xemu logo" src="/logo-green-jumbotron.svg" style="height: 1.03em;">
     </h1>
     <h4 class="card-subtitle mb-2 text-muted">Original Xbox Emulator</h4>
     <p>
@@ -103,21 +125,21 @@ canvas {
     <div class="container pl-2 p-0">
       <div class="row">
         <div class="column text-center text-md-left p-2">
-          <a class="btn btn-secondary btn-lg" role="button" id="download-gen" href="/docs/download">
+          <a class="btn btn-green btn-lg" role="button" id="download-gen" href="/docs/download">
             <i class="fa fa-laptop button-icon" aria-hidden="true"></i>View Download Options
           </a>
-          <a class="btn btn-secondary btn-lg" role="button" id="download-win" style="display: none" href="https://github.com/mborgerson/xemu/releases/latest/download/xemu-win-release.zip">
+          <a class="btn btn-green btn-lg" role="button" id="download-win" style="display: none" href="https://github.com/mborgerson/xemu/releases/latest/download/xemu-win-release.zip">
             <i class="fab fa-windows button-icon" aria-hidden="true"></i>Download for Windows
           </a>
-          <a class="btn btn-secondary btn-lg" role="button" id="download-mac" style="display: none" href="https://github.com/mborgerson/xemu/releases/latest/download/xemu-macos-universal-release.zip">
+          <a class="btn btn-green btn-lg" role="button" id="download-mac" style="display: none" href="https://github.com/mborgerson/xemu/releases/latest/download/xemu-macos-universal-release.zip">
             <i class="fab fa-apple button-icon" aria-hidden="true"></i>Download for macOS
           </a>
-          <a class="btn btn-secondary btn-lg" role="button" id="download-linux" style="display: none" href="/docs/download/#download-for-linux">
+          <a class="btn btn-green btn-lg" role="button" id="download-linux" style="display: none" href="/docs/download/#download-for-linux">
             <i class="fab fa-linux button-icon" aria-hidden="true"></i>Download for Linux
           </a>
         </div>
         <div class="column p-2">
-          <strong>Latest Release:</strong> v{{xemu_build_version}} ({{xemu_build_date.strftime('%b %-d, %Y')}})
+          <strong>Latest release:</strong> v{{xemu_build_version}} ({{xemu_build_date.strftime('%b %-d, %Y')}})
           <br />
           <a href="/docs/download" id="download-options" style="display: none">Alternative download options</a>
         </div>
@@ -126,8 +148,8 @@ canvas {
 
     </div>
   </div>
+
   </div>
-  <div class="scroll"></div>
 </div>
 {% endblock %}
 
@@ -201,8 +223,6 @@ canvas {
 {% endblock %}
 
 {% block append_foot %}
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.lazy/1.7.10/jquery.lazy.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.lazy/1.7.10/jquery.lazy.plugins.min.js"></script>
 <script type="text/javascript">
 // Show platform-specific download button
 var platform = undefined;
@@ -219,7 +239,62 @@ if (platform != undefined) {
   $('#download-options').show();
 }
 </script>
+
+<script type="text/javascript" src="three.min.js"></script>
+<script type="text/javascript">
+var canvas = document.querySelector('#bg-scene');
+var scene = new THREE.Scene();
+var camera = new THREE.PerspectiveCamera( 50, canvas.offsetWidth/canvas.offsetHeight, 0.1, 1000 );
+scene.fog = new THREE.Fog('black', 0.5, 2.5);
+scene.background = new THREE.Color('black');
+
+var renderer = new THREE.WebGLRenderer();
+renderer.setSize( canvas.offsetWidth, canvas.offsetHeight );
+canvas.appendChild( renderer.domElement );
+
+const texture = new THREE.TextureLoader().load("mesh_pattern.svg");
+texture.wrapS = THREE.RepeatWrapping;
+texture.wrapT = THREE.RepeatWrapping;
+texture.repeat.set( 50, -25 );
+
+const geometry = new THREE.SphereGeometry( 1, 50, 25 );
+var material = new THREE.MeshBasicMaterial( { map: texture, side: THREE.BackSide } );
+var sphere = new THREE.Mesh( geometry, material );
+scene.add( sphere );
+camera.position.z = 1;
+
+var clock = new THREE.Clock();
+var render = function () {
+  requestAnimationFrame( render );
+  var delta = clock.getDelta();
+  sphere.rotation.y += 0.01 * delta;
+  renderer.render(scene, camera);
+};
+render();
+window.addEventListener('resize', function(){
+    camera.aspect = canvas.offsetWidth/canvas.offsetHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(canvas.offsetWidth, canvas.offsetHeight);
+  }, false);
+</script>
+<script type="text/javascript" src="gl_logo.js"></script>
+<script type="text/javascript">
+function updateNavbarTransparency() {
+  var nav = $(".navbar");
+  var t = $(document).scrollTop() < ($(".jumbotron")[0].offsetHeight-nav.height());
+  nav.toggleClass('navbar-transparent', t);
+}
+$(document).scroll(updateNavbarTransparency);
+$(function () {
+  $(".navbar-toggle").click(updateNavbarTransparency);
+});
+updateNavbarTransparency();
+</script>
+
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.lazy/1.7.10/jquery.lazy.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.lazy/1.7.10/jquery.lazy.plugins.min.js"></script>
+
 <script type="text/javascript">
 // Lazy-load images
 var lazyInstance = $('img.lazy').Lazy({
@@ -383,5 +458,5 @@ var options = {
 var chart = new ApexCharts(document.querySelector("#title_stats"), options);
 chart.render();
 </script>
-<script type="text/javascript" src="gl_logo.js"></script>
+
 {% endblock %}

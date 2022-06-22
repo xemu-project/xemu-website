@@ -21,9 +21,10 @@ $gray-600: #888 !default;
 $gray-700: #444 !default;
 $gray-800: #303030 !default;
 $gray-900: #222 !default;
+$gray-1000: #111 !default;
 $black:    #000 !default;
 
-$xemu-logo-green: #42e335ff !default;
+$xemu-logo-green: #62ca13ff !default;
 
 $blue:    #375a7f !default;
 $indigo:  #6610f2 !default;
@@ -36,14 +37,14 @@ $green:   #00bc8c !default;
 $teal:    #20c997 !default;
 $cyan:    #3498DB !default;
 
-$primary:       darken($xemu-logo-green, 10%) !default;
+$primary:       darken($xemu-logo-green, 5%) !default;
 $secondary:     $gray-500 !default;
 $success:       $green !default;
 $info:          $cyan !default;
 $warning:       $yellow !default;
 $danger:        $red !default;
 $light:         $gray-500 !default;
-$dark:          $gray-800 !default;
+$dark:          $gray-1000 !default;
 
 $yiq-contrasted-threshold:  175 !default;
 
@@ -142,7 +143,7 @@ $pagination-disabled-border-color:  transparent !default;
 
 // Jumbotron
 
-$jumbotron-bg:                      $gray-800 !default;
+$jumbotron-bg:                      $gray-1000 !default;
 
 // Cards
 
@@ -422,13 +423,6 @@ $web-font-path: "https://fonts.googleapis.com/css?family=Roboto:400,400italic&di
   }
 }
 
-body {
-  background-image: url(xbox_duke.png);
-  background-position: -200px 40em;
-  background-size: 400px 311px;
-  background-repeat: no-repeat;
-}
-
 .btn-icon {
   padding-right: 0.5em;
 }
@@ -444,4 +438,8 @@ body {
 
 .btn-secondary.focus {
   color: $gray-900;
+}
+
+.btn-green {
+    @include button-outline-variant(#82b540, $gray-900, #8dc103, #8dc103);
 }
