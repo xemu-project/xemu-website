@@ -40,7 +40,7 @@ const int numParticles = 35;
 const int numSpotlights = 5;
 const vec2 texSize = vec2(128.0,128.0);
 const vec4 bgColor = vec4(0.);
-const vec4 fgColor = vec4(0.259, 0.890, 0.208, 1.);
+const vec4 fgColor = vec4(0.384, 0.792, 0.075, 1.);
 const vec4 particleColor = fgColor;
 const vec4 textPos = vec4(0.01, 0, 0.98, 0.125);
 
@@ -321,6 +321,8 @@ function render(ts) {
     requestAnimationFrame(render);
     return;
   }
+  if (!(gl = getRenderingContext()))
+    return;
   if (pending_disable_fallback) {
     document.getElementById("logo-canvas").style.visibility = "visible";
     document.getElementById("logo-fallback").style.visibility = "hidden";
@@ -339,7 +341,7 @@ function render(ts) {
 }
 
 function getRenderingContext() {
-  var canvas = document.querySelector("canvas");
+  var canvas = document.querySelector("#logo-canvas");
   canvas.width = 512;
   canvas.height = 512;
   var gl = canvas.getContext("webgl");
