@@ -242,8 +242,8 @@ if (platform != undefined) {
 <script type="text/javascript">
 var canvas = document.querySelector('#bg-scene');
 var scene = new THREE.Scene();
-var camera = new THREE.PerspectiveCamera( 50, canvas.offsetWidth/canvas.offsetHeight, 0.1, 1000 );
-scene.fog = new THREE.Fog('black', 0.5, 2.75);
+var camera = new THREE.PerspectiveCamera( 74.5, canvas.offsetWidth/canvas.offsetHeight, 0.1, 1000 );
+scene.fog = new THREE.Fog('black', 0.2, 2.45);
 scene.background = new THREE.Color('black');
 
 var renderer = new THREE.WebGLRenderer();
@@ -260,13 +260,14 @@ const geometry = new THREE.SphereGeometry( 1, 50, 25 );
 var material = new THREE.MeshBasicMaterial( { map: texture, side: THREE.BackSide } );
 var sphere = new THREE.Mesh( geometry, material );
 scene.add( sphere );
-camera.position.z = 1;
+camera.position.z = 0.65;
+camera.position.x = 0.12;
 
 var clock = new THREE.Clock();
 var render = function () {
   requestAnimationFrame( render );
-  var delta = clock.getDelta();
-  sphere.rotation.y += 0.01 * delta;
+  var t = clock.getElapsedTime();
+  sphere.rotation.y = (Math.PI/10) * Math.sin(t * Math.PI / 50);
   renderer.render(scene, camera);
 };
 render();

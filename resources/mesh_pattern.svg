@@ -7,46 +7,82 @@
    viewBox="0 0 33.866666 33.866668"
    version="1.1"
    id="svg5"
+   sodipodi:docname="mesh_pattern.svg"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
-   xmlns:svg="http://www.w3.org/2000/svg">
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <title
+     id="title2697">xemu.app Orb Mesh Texture</title>
+  <sodipodi:namedview
+     id="namedview13"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     showgrid="false"
+     inkscape:zoom="4.8226892"
+     inkscape:cx="61.272868"
+     inkscape:cy="68.633906"
+     inkscape:window-width="1908"
+     inkscape:window-height="1017"
+     inkscape:window-x="3844"
+     inkscape:window-y="1097"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg5" />
   <defs
      id="defs2" />
   <g
      id="layer1">
     <rect
-       style="fill:#062a00;stroke-width:1.05833333;fill-opacity:1;stroke:#2c6d0f;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
+       style="fill:#0f3205;stroke-width:1.05833333;fill-opacity:1;stroke:#21610d;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
        id="rect846"
        width="33.866665"
        height="33.866665"
        x="8.9009603e-07"
        y="8.9009603e-07" />
     <path
-       style="fill:none;stroke:#2c6d0f;stroke-width:0.52916667;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
+       style="fill:none;stroke:#21610d;stroke-width:0.79375001;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
        d="M 8.9009603e-7,8.9009603e-7 33.866664,33.866664"
        id="path1520" />
     <path
-       style="fill:none;stroke:#2c6d0f;stroke-width:0.52916667;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
+       style="fill:none;stroke:#21610d;stroke-width:0.79375001;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
        d="m 22.053307,12.062727 -5.162329,4.91296"
        id="path1522" />
     <path
-       style="fill:none;stroke:#2c6d0f;stroke-width:0.529167;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="fill:none;stroke:#21610d;stroke-width:0.79375001;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        d="M 22.053307,12.062727 16.933333,0"
        id="path1668" />
     <path
-       style="fill:none;stroke:#2c6d0f;stroke-width:0.529167;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="fill:none;stroke:#21610d;stroke-width:0.79375001;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        d="m 22.053307,12.062727 11.81336,4.870606"
        id="path1994" />
     <path
-       style="fill:none;stroke:#2c6d0f;stroke-width:0.52916667;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
+       style="fill:none;stroke:#21610d;stroke-width:0.79375001;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
        d="m 11.728649,21.888647 5.162329,-4.91296"
        id="path4202" />
     <path
-       style="fill:none;stroke:#2c6d0f;stroke-width:0.529167;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="fill:none;stroke:#21610d;stroke-width:0.79375001;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        d="m 11.728649,21.888647 5.204684,11.97802"
        id="path4204" />
     <path
-       style="fill:none;stroke:#2c6d0f;stroke-width:0.529167;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="fill:none;stroke:#21610d;stroke-width:0.79375001;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        d="M 11.728649,21.888647 0,16.933333"
        id="path4206" />
   </g>
+  <metadata
+     id="metadata2695">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:title>xemu.app Orb Mesh Texture</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
 </svg>
