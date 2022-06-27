@@ -43,16 +43,18 @@ def get_field(s,x):
     return s[x] if x in s else ''
 
 class Issue:
-    all_issues = []
     issues_by_title = defaultdict(list)
+    all_issues = []
 
-    def __init__(self, number, url, title, affected_titles, created_at, updated_at):
+    def __init__(self, number, url, title, affected_titles, created_at, updated_at, closed_at, state):
         self.number = number
         self.url = url
         self.title = title
         self.affected_titles = affected_titles
         self.created_at = created_at
         self.updated_at = updated_at
+        self.closed_at = closed_at
+        self.state = state
 
     def __repr__(self):
         return self.title
@@ -67,8 +69,7 @@ class Issue:
             return
         titles_re = re.compile(r'Titles?[:/]\s*([a-fA-f0-9,\s]+)', re.IGNORECASE)
         title_id_re = re.compile(r'([a-fA-f0-9]{8})')
-        for issue in Github().get_user('mborgerson').get_repo('xemu').get_issues():
-            if issue.state != 'open': continue
+        for issue in Github().get_user('mborgerson').get_repo('xemu').get_issues(state='all'):
             # Look for a titles sequence and pull out anything that looks like
             # an id
             references = ' '.join(titles_re.findall(issue.body or ''))
@@ -78,8 +79,10 @@ class Issue:
                 issue.html_url,
                 issue.title,
                 affected_titles,
-                issue.created_at,
-                issue.updated_at))
+                issue.created_at.replace(tzinfo=timezone.utc),
+                issue.updated_at.replace(tzinfo=timezone.utc),
+                issue.closed_at.replace(tzinfo=timezone.utc) if issue.state == 'closed' else None,
+                issue.state))
 
         # Organize issues by title
         for issue in cls.all_issues:
@@ -89,6 +92,7 @@ class Issue:
                     continue
                 if issue not in cls.issues_by_title[title_alias_map[title_id]]:
                     cls.issues_by_title[title_alias_map[title_id]].append(issue)
+
 
 class CompatibilityReport:
     all_reports = []
@@ -166,12 +170,6 @@ class Title:
             self.xtimage_url = None
 
     def process_compatibility(self):
-        # FIXME:
-        # - Only show reports for master branch
-        # - Sort by the build version that was tested, showing most recent
-        #   builds first
-        # - Check version against repo for version numbers to filter out
-        #   unofficial builds
         self.compatibility_tests = CompatibilityReport.reports_by_title[self.full_title_id_hex]
         if len(self.compatibility_tests) > 0:
             self.most_recent_test = sorted(self.compatibility_tests, key=lambda x:x.info['created_at'])[-1]
@@ -184,7 +182,22 @@ class Title:
 
     @property
     def issues(self):
-        return Issue.issues_by_title[self.info['title_id']]
+        """
+        Open issues affecting this title.
+        """
+        return [i for i in Issue.issues_by_title[self.info['title_id']]
+                if i.state == 'open']
+
+    @property
+    def recently_closed_issues(self):
+        """
+        Issues affecting this game that were closed recently (since last report) and may impact playability status.
+        """
+        if self.most_recent_test is None:
+            return []
+        return [i for i in Issue.issues_by_title[self.info['title_id']]
+                if i.state != 'open' and self.most_recent_test.created_at < i.closed_at]
+
 
 def main():
     env = Environment(loader=FileSystemLoader(searchpath='templates'))
@@ -258,7 +271,7 @@ def main():
 
     if disable_load_version:
         xemu_build_tag = 'build-202106041913'
-        xemu_build_version = '0.5.2-26-g0a8e9b8db3'
+        xemu_build_version = '0.7.55'
         xemu_build_date = datetime(2021, 6, 4, 19, 13, 6)
     else:
         xemu_build_version = requests.get('https://raw.githubusercontent.com/mborgerson/xemu/ppa-snapshot/XEMU_VERSION').text
@@ -282,6 +295,31 @@ def main():
             xemu_build_date=xemu_build_date,
             main_url_base=main_url_base
             ), minify_js=True, minify_css=True))
+    print('  - Ok')
+
+    print('Building testing priority table')
+
+    # Include titles that are either not Playable or have recently closed issues
+    def filter_(t):
+        if t.most_recent_test and t.most_recent_test.info['xemu_version'] == xemu_build_version:
+            return False # Up to date
+        if len(t.recently_closed_issues) > 0:
+            return True # Make sure the issues described are fixed
+        return t.status not in {'Playable', 'Perfect'}
+
+    def rank(t):
+        considered_playable = t.status in {'Playable', 'Perfect'}
+        have_recently_closed_issues = len(t.recently_closed_issues) > 0
+        ts = t.most_recent_test.created_at if t.most_recent_test else datetime.fromtimestamp(0, timezone.utc)
+        return (not have_recently_closed_issues, considered_playable, ts)
+
+    template = env.get_template('testing_priority.html')
+    with open(os.path.join(output_dir, 'testing_priority.html'), 'w') as f:
+        f.write(
+            minify_html(
+                template.render(
+                    titles=sorted([t for t in titles if filter_(t)], key=rank)),
+                minify_js=True, minify_css=True))
     print('  - Ok')
 
 if __name__ == '__main__':

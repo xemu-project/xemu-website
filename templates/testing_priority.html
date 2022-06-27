@@ -1,0 +1,67 @@
+{% set title_status_colors = {'Unknown' : '#595959', 'Broken' : '#D7263D', 'Intro' : '#F86624', 'Starts' : '#FF9800', 'Playable' : '#42e335', 'Perfect' : '#1bdeff'} %}
+{% extends "template_base.html" %}
+{% block title %}Compatibility Priority Testing List{% endblock %}
+
+{% block append_head %}
+<style type="text/css">
+.playability-tag {
+  display: inline-block;
+  font-weight: 400;
+  text-align: center;
+  vertical-align: middle;
+  padding: .375rem .75rem;
+  font-size: .9375rem;
+  line-height: 1.5;
+  border-radius: .25rem;
+}
+{% for status in title_status_colors %}
+.playability-tag-{{ status }} {
+  color: {{ title_status_colors[status] }};
+  border: 1px solid {{ title_status_colors[status] }};
+}
+{% endfor %}
+
+.table td {
+  vertical-align: middle !important;
+}
+</style>
+
+{% endblock %}
+
+{% block content %}
+<div class="pt-5">
+  <h1>Compatibilty Testing Priority List</h1>
+  <p>
+    The following list of titles have an issue closed since the last evaluation, or have not been evaluated recently, and should receive priority testing.
+  </p>
+</div>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Title</th>
+      <th scope="col">Last Updated</th>
+      <th scope="col">Recently Closed Issues</th>
+      <th scope="col">Current Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for title in titles %}
+    <tr>
+      <td><a href="{{ title.title_url }}">{{ title.title_name }}</a></td>
+      {% if title.most_recent_test %}
+      <td>{{ title.most_recent_test.created_at.strftime('%b %-d, %Y') }}</td>
+      {% else %}
+      <td>Never</td>
+      {% endif %}
+      <td>
+      {% for issue in title.recently_closed_issues %}
+      <a href="{{ issue.url }}" title="{{ issue.title|e }}">#{{ issue.number }}</a>
+      {% endfor %}
+      </td>
+      <td><span class="playability-tag playability-tag-{{ title.status }}">{{ title.status }}</span></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
