@@ -95,7 +95,7 @@
 {
   .navbar-transparent
   {
-    background-color: transparent !important;
+    background: transparent !important;
     transition: background-color 200ms linear;
   }
 }
@@ -108,7 +108,7 @@
   <div class="container">
   <div class="row mt-5">
     <div class="col-md-6 mt-4 pb-5 pb-md-0 text-center">
-    <img src="xbox_logo.png" class="img-fluid" width=450 />
+    <img src="xbox_logo.png" id="xbox-logo" class="img-fluid" width=450 />
     </div>
     <div class="col-md-6">
     <h1 class="display-3">
@@ -282,7 +282,7 @@ window.addEventListener('resize', function(){
 <script type="text/javascript">
 function updateNavbarTransparency() {
   var nav = $(".navbar");
-  var t = $(document).scrollTop() < ($(".jumbotron")[0].offsetHeight-nav.height());
+  var t = $(document).scrollTop() < $("#xbox-logo").offset().top - nav.height();
   nav.toggleClass('navbar-transparent', t);
 }
 $(document).scroll(updateNavbarTransparency);
