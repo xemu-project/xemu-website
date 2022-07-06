@@ -71,7 +71,7 @@ typically ~7GB in size.
 xemu is not currently compatible with this format, but you can extract the
 second partition of the disc image for use with xemu. Unfortunately there is not
 a GUI-friendly solution for this yet. You will need to use a command-line tool.
-You can do this with `dd` or with the `extract-xiso` utility.
+You can do this with utilities such as `dd`, `extract-xiso` or `fallocate` on supported systems.
 
 === "Using `dd`"
     ```
@@ -87,3 +87,11 @@ You can do this with `dd` or with the `extract-xiso` utility.
 
     You can then use `game-redump.iso` with xemu. Your original will be
     `game-redump.iso.old`.
+
+=== "Using `fallocate`"
+    This will truncate the original file in-place:
+    ```
+    fallocate -c -o 0 -l 387MiB game.iso
+    ```
+
+    You can then use the `game.iso` with xemu.
