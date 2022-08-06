@@ -6,6 +6,8 @@ Install [VSCode](https://code.visualstudio.com/download){target=_blank} and the 
 
 === "Windows"
 
+    Map a drive to the WSL2 root or your projects folder within. The particular path can be found by viewing `\\wsl$` in File Explorer and reviewing the folders (distros) underneath. For example, `net use w: \\wsl$\Ubuntu-20.04`.
+
     Install [MSYS2](https://www.msys2.org/){target=_blank}, run the `MSYS2 MinGW 64-bit` shell, and install GDB.
 
         $ pacman -S mingw-w64-x86_64-gdb

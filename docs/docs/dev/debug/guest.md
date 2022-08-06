@@ -13,7 +13,7 @@ To quickly diagnose a crash in guest code, one might execute the following GDB c
 <!--
 ## GDB
 
-TODO
+TODO: WIP
 
 ## Ghidra
 
@@ -55,18 +55,26 @@ DEBUG_XID | hw/xbox/xid.c | Input
 DEBUG_MCPX | hw/xbox/mcpx/apu.c | Audio
 DEBUG_DSP | hw/xbox/mcpx/dsp/dsp.c | Audio
 
-<!--
+
 ## Tracing
 
-A more advanced version of logging can be accomplished via qemu's tracing infrastructure. Documentation for such is located underneath `docs/devel/tracing.rst`. Review the `trace-events` files within the source tree to see what's supported.
+A more advanced version of logging can be accomplished via qemu's tracing infrastructure. Review the `trace-events` files within the source tree to see what's supported. See also [QEMU user documentation](https://qemu-project.gitlab.io/qemu/devel/tracing.html){target=_blank} for more details.
 
 #### Runtime Usage (preferred)
 
-TODO:
+Launch xemu from a console window (cmd.exe, Terminal.app, bash, etc...; whichever is appropriate for your OS).
+
+Open the monitor via <kbd>Debug</kbd> &rarr; <kbd>Monitor</kbd> in the xemu menu.
+
+Enter `trace-event <trace_event> on` to turn on an event, `trace-event <trace_event> off` to turn one off, replacing `<trace_event>` with the name of the event you wish to toggle.
+
+Examine the console where you launched xemu; trace messages will be written to `STDERR`.
+
+The [nv2a events](https://github.com/mborgerson/xemu/blob/master/hw/xbox/nv2a/trace-events){target=_blank} are particularly interesting when debugging graphics issues, specifically the `nv2a_pgraph_*` subset. These may be toggled all at once using a wildcard. For example, `trace-event nv2a_pgraph_* on` will turn them all on.
 
 #### Compile-Time Usage (deprecated)
 
-Append `--enable-trace-backends=simple` to the xemu build args to enable.
+Append `--debug --enable-trace-backends=simple` to the xemu build args to enable.
 
 Edit the global `/tmp/events` file with things you intend to match on.
 
@@ -78,4 +86,3 @@ Edit the global `/tmp/events` file with things you intend to match on.
     $ cat /tmp/events
 
 Then append `--trace events=/tmp/events` to the xemu runtime arguments. Once finished, run `python ./scripts/simpletrace.py trace-events-all trace-####` replacing `####` with the created trace log's ID.
--->
