@@ -72,7 +72,7 @@ Examine the console where you launched xemu; trace messages will be written to `
 
 The [nv2a events](https://github.com/mborgerson/xemu/blob/master/hw/xbox/nv2a/trace-events){target=_blank} are particularly interesting when debugging graphics issues, specifically the `nv2a_pgraph_*` subset. These may be toggled all at once using a wildcard. For example, `trace-event nv2a_pgraph_* on` will turn them all on.
 
-#### Compile-Time Usage (deprecated)
+#### Compile-Time Usage (alternate)
 
 Append `--debug --enable-trace-backends=simple` to the xemu build args to enable.
 
