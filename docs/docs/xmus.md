@@ -27,7 +27,7 @@ Like the virtual hard disk, an XMU is backed by an image file. Create an 8 MiB X
 Open up the Monitor, and type in these commands:
 
 ```
-drive_add 0 if=none,id=usbdisk1,file="xmu.img"
+drive_add 0 if=none,id=usbdisk1,file=xmu.img
 stop
 device_add usb-storage,drive=usbdisk1,port=1.3.2
 cont
