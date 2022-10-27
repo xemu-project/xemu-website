@@ -25,8 +25,9 @@ with `0x02 0xEE`.
 
 ## Flash ROM Image (BIOS)
 
-Xbox compatible BIOS. Just like a real Xbox, running an unmodified retail BIOS will
-not allow booting unofficial software.
+Xbox compatible BIOS. Due to key DRM functions being unimplemented, xemu is
+currently unable to boot games when using an unmodified retail BIOS. You must use
+either a debug BIOS or a modded retail BIOS that can boot unsigned software.
 
 People have reported most success using the modified retail "COMPLEX 4627" BIOS.
 
