@@ -1,5 +1,4 @@
-:root {
-
+:root, [data-md-color-scheme="default"] {
   --white:    #fff;
   --gray-100: #f8f9fa;
   --gray-200: #ebebeb;
@@ -12,45 +11,44 @@
   --gray-900: #222;
   --black:    #000;
 
-  --blue:    #375a7f;
-  --indigo:  #6610f2;
-  --purple:  #6f42c1;
-  --pink:    #e83e8c;
-  --red:     #E74C3C;
-  --orange:  #fd7e14;
-  --yellow:  #F39C12;
-  --green:   #00bc8c;
-  --teal:    #20c997;
-  --cyan:    #3498DB;
+  --blue:   #375a7f;
+  --indigo: #6610f2;
+  --purple: #6f42c1;
+  --pink:   #e83e8c;
+  --red:    #E74C3C;
+  --orange: #fd7e14;
+  --yellow: #F39C12;
+  --green:  #00bc8c;
+  --teal:   #20c997;
+  --cyan:   #3498DB;
 
-  --primary:       var(--blue);
-  --secondary:     var(--gray-600);
-  --success:       var(--green);
-  --info:          var(--cyan);
-  --warning:       var(--yellow);
-  --danger:        var(--red);
-  --light:         var(--gray-500);
-  --dark:          var(--gray-800);
+  --primary:   var(--blue);
+  --secondary: var(--gray-600);
+  --success:   var(--green);
+  --info:      var(--cyan);
+  --warning:   var(--yellow);
+  --danger:    var(--red);
+  --light:     var(--gray-500);
+  --dark:      var(--gray-800);
 
+  --md-default-bg-color:           var(--gray-900);
+  --md-default-fg-color:           var(--gray-500);
+  --md-default-fg-color--light:    var(--gray-500);
+  --md-default-fg-color--lighter:  var(--gray-300);
+  --md-default-fg-color--lightest: var(--gray-800);
+  --md-primary-fg-color:           #e7e7e7;
+  --md-primary-fg-color--light:    var(--gray-800);
+  --md-primary-fg-color--dark:     #00ff00;
 
-  --md-default-bg-color:        var(--gray-900);
-  --md-default-fg-color:        var(--gray-500);
-  --md-default-fg-color--light:        var(--gray-500);
-  --md-default-fg-color--lighter:        var(--gray-300);
-  --md-default-fg-color--lightest:        var(--gray-800);
-  --md-primary-fg-color:         #e7e7e7;
-  --md-primary-fg-color--light:  var(--gray-800);
-  --md-primary-fg-color--dark:   #00ff00;
-
-  --md-accent-fg-color:                var(--gray-600);
-  --md-accent-fg-color--transparent:   var(--gray-800);
-  --md-accent-bg-color:                var(--gray-200);
-  --md-accent-bg-color--light:         var(--gray-200);
+  --md-accent-fg-color:              var(--gray-600);
+  --md-accent-fg-color--transparent: var(--gray-800);
+  --md-accent-bg-color:              var(--gray-200);
+  --md-accent-bg-color--light:       var(--gray-200);
 
   --md-code-fg-color: #ff0000;
   --md-code-bg-color: #ff0000;
 
-  --md-typeset-kbd-bg-color--override: var(--gray-700);
+  --md-typeset-kbd-bg-color--override:     var(--gray-700);
   --md-typeset-kbd-border-color--override: var(--gray-800);
   --md-typeset-kbd-accent-color--override: var(--gray-700);
 }
