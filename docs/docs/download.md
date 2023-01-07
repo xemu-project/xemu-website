@@ -1,6 +1,6 @@
 ## Download for Windows
 
-[Download for :fontawesome-brands-windows: Windows](https://github.com/mborgerson/xemu/releases/latest/download/xemu-win-release.zip){ .md-button .md-button--secondary }
+[Download for :fontawesome-brands-windows: Windows](https://github.com/xemu-project/xemu/releases/latest/download/xemu-win-release.zip){ .md-button .md-button--secondary }
 
 ### Installation
 
@@ -8,7 +8,7 @@ Simply download the Zip archive release for Windows from the link above, extract
 
 ## Download for macOS
 
-[Download for :fontawesome-brands-apple: macOS](https://github.com/mborgerson/xemu/releases/latest/download/xemu-macos-universal-release.zip){ .md-button .md-button--secondary }
+[Download for :fontawesome-brands-apple: macOS](https://github.com/xemu-project/xemu/releases/latest/download/xemu-macos-universal-release.zip){ .md-button .md-button--secondary }
 
 !!! check ":fontawesome-brands-apple: Apple Silicon Compatibility Note"
 
@@ -64,4 +64,4 @@ On most Linux distributions, it is also possible to [build from source](dev/buil
 
 ## Previous Releases
 
-You can find older builds of xemu on the [Releases page](https://github.com/mborgerson/xemu/releases).
+You can find older builds of xemu on the [Releases page](https://github.com/xemu-project/xemu/releases).

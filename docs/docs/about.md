@@ -35,7 +35,7 @@ characteristics of your system.
 
 ## Open Source Development
 
-xemu is developed on GitHub at https://github.com/mborgerson/xemu. Contributions
+xemu is developed on GitHub at https://github.com/xemu-project/xemu. Contributions
 are welcome!
 
 ## License

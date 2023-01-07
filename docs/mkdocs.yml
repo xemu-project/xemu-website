@@ -25,7 +25,7 @@ extra:
   homepage: https://xemu.app
   social:
   - icon: fontawesome/brands/github
-    link: https://github.com/mborgerson/xemu
+    link: https://github.com/xemu-project/xemu
   - icon: fontawesome/brands/twitter
     link: https://twitter.com/xemu_project
   - icon: fontawesome/brands/patreon
@@ -73,7 +73,7 @@ nav:
   - Home: https://xemu.app
   - Compatibility: https://xemu.app/#compatibility
   - Documentation: /docs/
-  - GitHub: https://github.com/mborgerson/xemu
+  - GitHub: https://github.com/xemu-project/xemu
   - Patreon: https://www.patreon.com/mborgerson
   - About: about.md
   - FAQ: faq.md

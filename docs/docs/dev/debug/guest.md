@@ -70,7 +70,7 @@ Enter `trace-event <trace_event> on` to turn on an event, `trace-event <trace_ev
 
 Examine the console where you launched xemu; trace messages will be written to `STDERR`.
 
-The [nv2a events](https://github.com/mborgerson/xemu/blob/master/hw/xbox/nv2a/trace-events){target=_blank} are particularly interesting when debugging graphics issues, specifically the `nv2a_pgraph_*` subset. These may be toggled all at once using a wildcard. For example, `trace-event nv2a_pgraph_* on` will turn them all on.
+The [nv2a events](https://github.com/xemu-project/xemu/blob/master/hw/xbox/nv2a/trace-events){target=_blank} are particularly interesting when debugging graphics issues, specifically the `nv2a_pgraph_*` subset. These may be toggled all at once using a wildcard. For example, `trace-event nv2a_pgraph_* on` will turn them all on.
 
 #### Compile-Time Usage (alternate)
 
