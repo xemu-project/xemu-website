@@ -41,6 +41,6 @@ xemu is developed on GitHub at https://github.com/xemu-project/xemu. Contributio
 
 ## History
 
-The xemu project is a continuation of the [XQEMU project](https://xqemu.com/). The XQEMU project was started by [espes](github.com/espes/xqemu) in 2012 with significant contributions from [Jannik Vogel (JayFoxRox)](https://github.com/JayFoxRox), [Matt Borgerson (mborgerson)](https://github.com/mborgerson), and others. The xemu project was started by Matt Borgerson in 2020 and has since also received [many contributions](https://github.com/xemu-project/xemu/pulls?q=is%3Apr) from others.
+The xemu project is a continuation of the [XQEMU project](https://xqemu.com/). The XQEMU project was started by [espes](https://github.com/espes/xqemu) in 2012 with significant contributions from [Jannik Vogel (JayFoxRox)](https://github.com/JayFoxRox), [Matt Borgerson (mborgerson)](https://github.com/mborgerson), and others. The xemu project was started by Matt Borgerson in 2020 and has since also received [many contributions](https://github.com/xemu-project/xemu/pulls?q=is%3Apr) from others.
 
 xemu is built on the excellent [QEMU generic machine emulator project](https://www.qemu.org/).
