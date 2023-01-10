@@ -6,7 +6,7 @@
 
 xemu is free and open-source software that emulates the [original Microsoft Xbox game console](https://en.wikipedia.org/wiki/Xbox_(console)), enabling people to play their original Xbox games on Windows, macOS, and Linux systems.
 
-The xemu project is a continuation of the XQEMU project. The XQEMU project was started by [espes](github.com/espes) in 2011 with significant contributions from [Jannik Vogel (JayFoxRox)](https://github.com/JayFoxRox), [Matt Borgerson (mborgerson)](https://github.com/mborgerson), and others. The xemu project was started by Matt Borgerson in 2020 and has received [many contributions](https://github.com/xemu-project/xemu/pulls?q=is%3Apr) from others.
+The xemu project is a continuation of the [XQEMU project](https://xqemu.com/). The XQEMU project was started by [espes](github.com/espes/xqemu) in 2012 with significant contributions from [Jannik Vogel (JayFoxRox)](https://github.com/JayFoxRox), [Matt Borgerson (mborgerson)](https://github.com/mborgerson), and others. The xemu project was started by Matt Borgerson in 2020 and has received [many contributions](https://github.com/xemu-project/xemu/pulls?q=is%3Apr) from others.
 
 xemu is built on the excellent [QEMU generic machine emulator project](https://www.qemu.org/).
 
