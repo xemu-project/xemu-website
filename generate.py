@@ -17,6 +17,8 @@ from jinja2 import Environment, FileSystemLoader
 from tqdm import tqdm
 from minify_html import minify as minify_html
 
+gh_token = os.getenv('GH_TOKEN')
+
 output_dir = 'dist'
 repo_url_base = 'https://raw.githubusercontent.com/xemu-project/xemu-website/master/'
 compatibility_reports_url = 'https://reports.xemu.app/compatibility'
@@ -69,7 +71,7 @@ class Issue:
             return
         titles_re = re.compile(r'Titles?[:/]\s*([a-fA-f0-9,\s]+)', re.IGNORECASE)
         title_id_re = re.compile(r'([a-fA-f0-9]{8})')
-        for issue in Github().get_user('xemu-project').get_repo('xemu').get_issues(state='all'):
+        for issue in Github(gh_token).get_user('xemu-project').get_repo('xemu').get_issues(state='all'):
             # Look for a titles sequence and pull out anything that looks like
             # an id
             references = ' '.join(titles_re.findall(issue.body or ''))
@@ -275,7 +277,7 @@ def main():
         xemu_build_date = datetime(2021, 6, 4, 19, 13, 6)
     else:
         xemu_build_version = requests.get('https://raw.githubusercontent.com/xemu-project/xemu/ppa-snapshot/XEMU_VERSION').text
-        latest_release = Github().get_user('xemu-project').get_repo('xemu').get_latest_release()
+        latest_release = Github(gh_token).get_user('xemu-project').get_repo('xemu').get_latest_release()
         xemu_build_date = latest_release.created_at
 
     print('Rebuilding index...')
