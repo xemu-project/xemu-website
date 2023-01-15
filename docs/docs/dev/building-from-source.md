@@ -12,7 +12,7 @@ documentation](https://docs.docker.com/docker-for-windows/wsl/) for how to get W
 git clone --recurse-submodules https://github.com/xemu-project/xemu.git
 docker run -u $(id -u):$(id -g) --rm -v $PWD/xemu:/xemu -w /xemu \
     -e CCACHE_DIR=/xemu/ccache \
-     ghcr.io/xemu-project/xemu-win64-toolchain:latest \
+    ghcr.io/xemu-project/xemu-win64-toolchain:latest \
     ./build.sh -p win64-cross
 
 # Run
