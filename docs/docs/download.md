@@ -38,7 +38,7 @@ Supported architectures: x86_64
 
 !!! info "Running the AppImage"
 
-	Once the AppImage file is downloaded, it needs to be marked executable before it can be run. You can do this through in file browser: select the AppImage file, right-click and open file properties, navigate to permissions tab, then finally enable 'Allow executing file as program'. You can also do this in a terminal, simply with `chmod +x *.AppImage`. Once the AppImage is marked executable, it can be 'double-clicked' on to start xemu. For more information about running AppImages and integrating into your system, see [AppImage documentation](https://docs.appimage.org/user-guide/run-appimages.html#download-make-executable-run).
+	The AppImage file needs to be marked executable before it can be run. You can do this in your file browser: navigate to and select the AppImage file, right-click and open file properties, navigate to permissions tab, then enable 'Allow executing file as program'. You can also do this in a terminal, simply with `chmod +x *.AppImage`. Once the AppImage is marked executable it can be 'double-clicked' on to start xemu. See [AppImage documentation](https://docs.appimage.org/user-guide/run-appimages.html#download-make-executable-run) for more information about running AppImages and further system integration.
 
 ### Flatpak
 
