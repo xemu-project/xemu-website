@@ -34,7 +34,7 @@ There are multiple options for running xemu on your Linux system.
 
 Supported architectures: x86_64
 
-[Download AppImage for Linux (x86_64)](https://github.com/xemu-project/xemu/releases/download/v{{xemu_version}}/xemu-{{xemu_version}}-x86_64.AppImage){ .md-button .md-button--secondary }
+[Download AppImage for Linux (x86_64)](https://github.com/xemu-project/xemu/releases/download/v{{xemu_version}}/xemu-v{{xemu_version}}-x86_64.AppImage){ .md-button .md-button--secondary }
 
 !!! info "Running the AppImage"
 
