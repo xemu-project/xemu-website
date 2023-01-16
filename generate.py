@@ -324,5 +324,13 @@ def main():
                 minify_js=True, minify_css=True))
     print('  - Ok')
 
+    print('Updating download.md with latest build version')
+    with open('docs/docs/download.md', 'r', encoding='utf-8') as f:
+        t = f.read()
+    t = t.replace(r'{{xemu_version}}', xemu_build_version)
+    with open('docs/docs/download.md', 'w', encoding='utf-8') as f:
+        f.write(t)
+    print('  - Ok')
+
 if __name__ == '__main__':
     main()
