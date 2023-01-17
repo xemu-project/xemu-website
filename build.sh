@@ -19,7 +19,7 @@ echo "Compiling stylesheets"
 echo "Generating HTML pages"
 ./generate.py
 
-cp resources/* dist
+cp -r resources/* dist
 rm dist/theme.css.map
 
 mkdir -p dist/webfonts/
