@@ -5,12 +5,14 @@ This repo contains the main website contents for the xemu original Xbox emulator
 
 ### Build
 
-To build, simply run `rm -rf dist/ && ./build.sh` from within the project root
+To build, simply run `rm -rf dist/ && DEV=1 ./build.sh` from within the project root.
+
+To serve the built site, run in the `dist` directory: `python -m http.server`.
 
 #### Ubuntu
 
     $ sudo apt install wget unzip git python3 pip
-    $ pip install PyGithub tqdm minify_html
+    $ pip install -r requirements.txt
 
 #### Windows
 
