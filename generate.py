@@ -23,11 +23,11 @@ output_dir = 'dist'
 repo_url_base = 'https://raw.githubusercontent.com/xemu-project/xemu-website/master/'
 compatibility_reports_url = 'https://reports.xemu.app/compatibility'
 compatibility_reports_url_verify_certs = True
-main_url_base = 'https://xemu.app'
+main_url_base = os.environ.get('BASE_URL', 'https://xemu.app')
 # compatibility_reports_url = 'https://127.0.0.1/compatibility'
 # compatibility_reports_url_verify_certs = False
 
-develop_mode = False
+develop_mode = os.environ.get('DEV', 0) == '1'
 disable_load_issues = develop_mode
 disable_load_reports = develop_mode
 disable_load_version = develop_mode
