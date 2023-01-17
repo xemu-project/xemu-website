@@ -43,7 +43,7 @@ You can change the setting in your [dashboard](dashboard.md) or use the [EEPROM 
 For all titles the rendering resolution can be easily scaled by navigating to View&rarr;Int. Resolution Scale. For titles that natively support higher resolutions, you can enable the associated mode in your dashboard or by using the [EEPROM editor](eeprom.md).
 
 #### Q: What should I pick for 4k resolution?
-The 'Resolution Scale' number is a scaling factor applied to each surface dimension. Typical framebuffer dimensions are 640x480, so if you want a '4k resolution' (meaning around 4k horizontal res) you can select 6 to get 3840x2880.
+The 'Resolution Scale' number is a scaling factor applied to rendered surface dimensions. Which factor to select for your target resolution depends on the game resolution. When the game is rendering at 480p (typical case), if you want a '4k resolution' (meaning around 4k horizontal res) you can select 6x to get a framebuffer of 3840x2880. Performance may diminish as higher factors are selected.
 
 #### Q: Are there any plans for a mobile port of xemu?
 There are currently no plans for a mobile port of xemu on iOS or Android, the emulator hasn't reached the performance necessary to run well on iOS or Android at this time.
