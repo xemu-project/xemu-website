@@ -43,8 +43,16 @@
   <!-- Game Cover -->
   <div class="col-md-4 text-center">
     <figure class="figure">
-      <a href="{{ title.cover_url }}" class="enlarge-image"><img src="{{ title.cover_url }}" class="img-thumbnail img-fluid" width=350 /></a>
+      <a href="{{ title.cover_url }}" class="enlarge-image"><img src="{{ title.cover_url }}" class="img-thumbnail img-fluid" id="displayed_image" width=350 /></a>
     </figure>
+
+    <a href="#" onclick="return show_image('{{ title.cover_url }}')">Front</a>
+    {% if title.cover_back_url %}
+    | <a href="#" onclick="return show_image('{{ title.cover_back_url }}')">Back</a>
+    {% endif %}
+    {% if title.disc_url %}
+    | <a href="#" onclick="return show_image('{{ title.disc_url }}')">Disc</a>
+    {% endif %}
   </div>
 
   <!-- Compatibility Details -->
@@ -152,5 +160,11 @@ $(document).ready(function() {
       }
     });
   });
+
+function show_image(url) {
+  $('.enlarge-image').attr('href', url);
+  $('#displayed_image').attr('src', url);
+  return false;
+}
 </script>
 {% endblock %}

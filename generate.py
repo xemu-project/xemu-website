@@ -146,11 +146,30 @@ class Title:
             if not os.path.exists(os.path.join(self.title_path, self.cover_path)):
                 self.have_cover = False
 
+        self.cover_back_path = None
+        self.cover_back_url = None
+        self.disc_path = None
+        self.disc_path_url = None
+
+        for attr, filename in [
+            ('cover_back_path', 'cover_back.jpg'),
+            ('cover_back_path', 'cover_back.png'),
+            ('disc_path', 'media.jpg'),
+            ('disc_path', 'media.png'),
+            ]:
+            if os.path.exists(os.path.join(self.title_path, filename)):
+                setattr(self, attr, filename)
+        if self.cover_back_path:
+            self.cover_back_url = repo_url_base + self.title_path + '/' + self.cover_back_path
+        if self.disc_path:
+            self.disc_url = repo_url_base + self.title_path + '/' + self.disc_path
+
         self.have_thumbnail = True
         self.cover_thumbnail_path = 'cover_front_thumbnail.jpg'
         if not os.path.exists(os.path.join(self.title_path, self.cover_thumbnail_path)):
             assert not self.have_cover, "Please create thumbnail for %s" % self.title_name
             self.have_thumbnail = False
+
 
         if self.have_cover:
             self.cover_url = repo_url_base + self.title_path + '/' + self.cover_path
