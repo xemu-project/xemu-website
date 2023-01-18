@@ -451,7 +451,7 @@ $pre-color:                         inherit !default;
   border: 1px #86ba41 solid;
 }
 
-.btn-green:hover {
+.btn-green:hover, .btn-green:active {
   background-color: #5f7200;
   color: #091100;
   box-shadow: 0 0 11px 3px #a6c102 inset;
