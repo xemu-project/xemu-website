@@ -88,6 +88,6 @@
   width: auto;
 }
 
-h1, h2, h3, h4, .md-header__title {
+h1, h2, .md-header__title {
   font-family: "Chakra Petch", "Roboto", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;
 }
