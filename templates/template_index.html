@@ -186,47 +186,6 @@ h2 {
 {% endblock %}
 
 {% block content %}
-<h2 class="mb-4 text-center">Features</h2>
-<div class="row">
-  <div class="col-md-6 p-1">
-    <div class="feature-card">
-      <h4><i class="fab fa-github feature-icon"></i>Open Source</h4>
-      <p>The source code for xemu is publicly available. You are invited to help improve the project!</p>
-    </div>
-  </div>
-  <div class="col-md-6 p-1">
-    <div class="feature-card">
-      <h4><i class="fas fa-users feature-icon"></i>Cross Platform</h4>
-      <p>xemu runs natively on Windows, macOS, and Linux platforms. Pre-compiled binaries are available for Windows, macOS, and Linux.</p>
-    </div>
-  </div>
-  <div class="col-md-6 p-1">
-    <div class="feature-card">
-      <h4><i class="fas fa-people-arrows feature-icon"></i>Networking</h4>
-      <p>Networking is supported out of the box. Connect to other instances of xemu and even real Xboxes, locally or over the Internet.</p>
-    </div>
-  </div>
-  <div class="col-md-6 p-1">
-    <div class="feature-card">
-      <h4><i class="fas fa-gamepad feature-icon"></i>Gamepad Support</h4>
-      <p>Built on SDL2, xemu supports virtually all gamepads. Connect up to 4 controllers at any time, just like a real Xbox.</p>
-    </div>
-  </div>
-  <div class="col-md-6 p-1">
-    <div class="feature-card">
-      <h4><i class="fas fa-history feature-icon"></i>Snapshots (Save States)</h4>
-      <p>No need to wait for game checkpoints. xemu supports saving the current machine state and loading it back up at any time.</p>
-    </div>
-  </div>
-  <div class="col-md-6 p-1">
-    <div class="feature-card">
-      <h4><i class="fas fa-expand-alt feature-icon"></i>Render Scaling</h4>
-      <p>Breathe new life into your original Xbox games by easily scaling up the resolution that games render at.</p>
-    </div>
-  </div>
-</div>
-
-<h2 id="screenshots" class="mb-4 text-center">Screenshots</h2>
 <div class="screenshot-window">
 <img src="linux_title_bar_dark_2x.png" class="screenshot-titlebar" />
 <div id="screenshot-carousel" class="carousel slide" data-ride="carousel">
@@ -259,6 +218,46 @@ h2 {
     <span class="sr-only">Next</span>
   </a>
 </div>
+</div>
+
+<h2 class="mb-4 text-center">Features</h2>
+<div class="row">
+  <div class="col-md-6 p-1">
+    <div class="feature-card">
+      <h4><i class="fab fa-github feature-icon"></i>Open Source</h4>
+      <p>The source code for xemu is available on <a href="https://github.com/xemu-project/xemu">GitHub</a>. You are invited to help improve the project! There are opportunities for people of all skill levels. Learn more <a href="/docs/dev/">here</a>.</p>
+    </div>
+  </div>
+  <div class="col-md-6 p-1">
+    <div class="feature-card">
+      <h4><i class="fas fa-users feature-icon"></i>Cross Platform</h4>
+      <p>xemu runs natively on Windows, macOS, and Linux platforms. Binaries are available for all platforms, or you can build from source if desired. Learn more <a href="/docs/download/">here</a>.</p>
+    </div>
+  </div>
+  <div class="col-md-6 p-1">
+    <div class="feature-card">
+      <h4><i class="fas fa-people-arrows feature-icon"></i>Networking</h4>
+      <p>Networking is supported out of the box. Connect to other instances of xemu and even real Xboxes, locally or over the Internet. Supports connecting to tunneling services and Xbox Live recreation projects. Learn more <a href="/docs/networking/">here</a>.</p>
+    </div>
+  </div>
+  <div class="col-md-6 p-1">
+    <div class="feature-card">
+      <h4><i class="fas fa-gamepad feature-icon"></i>Controller Support</h4>
+      <p>Built on <a href="https://www.libsdl.org/">SDL2</a>, xemu supports virtually all controllers. Connect up to 4 controllers at any time, just like a real Xbox. Learn more <a href="/docs/input/">here</a>.</p>
+    </div>
+  </div>
+  <div class="col-md-6 p-1">
+    <div class="feature-card">
+      <h4><i class="fas fa-history feature-icon"></i>Snapshots (Save States)</h4>
+      <p>No need to wait for game checkpoints. xemu supports saving the current machine state and loading it back up at any time. Learn more <a href="/docs/snapshots/">here</a>.</p>
+    </div>
+  </div>
+  <div class="col-md-6 p-1">
+    <div class="feature-card">
+      <h4><i class="fas fa-expand-alt feature-icon"></i>Render Scaling</h4>
+      <p>Breathe new life into your original Xbox games by easily increasing the resolution that games render at on the fly.</p>
+    </div>
+  </div>
 </div>
 
 <h2 id="compatibility" class="mb-4 text-center">Compatibility</h2>
