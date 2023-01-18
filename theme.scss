@@ -437,21 +437,12 @@ $pre-color:                         inherit !default;
 }
 
 .btn-green {
-  @include button-variant(#8dc103, $gray-900, #8dc103, #8dc103);
-  color: rgba(0, 0, 0, 0.9);
-}
-
-.btn-green:hover {
-  color: rgba(0, 0, 0, 0.9);
-}
-
-.btn-green {
   background: linear-gradient(128deg, rgba(2,0,36,0) 0%, rgba(134, 186, 64, 0.4) 150%); 
   color: #86ba41;
   border: 1px #86ba41 solid;
 }
 
-.btn-green:hover, .btn-green:active {
+.btn-green:hover, .btn-green:active, .btn-green:focus {
   background-color: #5f7200;
   color: #091100;
   box-shadow: 0 0 11px 3px #a6c102 inset;
