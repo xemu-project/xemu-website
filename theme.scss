@@ -55,7 +55,7 @@ $body-color:                $gray-400;
 // Links
 
 $link-color:                $white !default;
-$link-hover-color:          $white !default;
+$link-hover-color:          #8dc103 !default;
 
 // Fonts
 
@@ -115,7 +115,7 @@ $nav-tabs-link-active-border-color: $nav-tabs-border-color $nav-tabs-border-colo
 /*$navbar-padding-y:                  1rem !default;*/
 
 $navbar-dark-color:                $link-color !default;
-$navbar-dark-hover-color:          $white !default;
+$navbar-dark-hover-color:          $link-hover-color !default;
 
 $navbar-light-color:                rgba($gray-900, .7) !default;
 $navbar-light-hover-color:          $gray-900 !default;
@@ -437,7 +437,25 @@ $pre-color:                         inherit !default;
 }
 
 .btn-green {
-    @include button-outline-variant(#82b540, $gray-900, #8dc103, #8dc103);
+  @include button-variant(#8dc103, $gray-900, #8dc103, #8dc103);
+  color: rgba(0, 0, 0, 0.9);
+}
+
+.btn-green:hover {
+  color: rgba(0, 0, 0, 0.9);
+}
+
+.btn-green {
+  background: linear-gradient(128deg, rgba(2,0,36,0) 0%, rgba(134, 186, 64, 0.4) 150%); 
+  color: #86ba41;
+  border: 1px #86ba41 solid;
+}
+
+.btn-green:hover {
+  background-color: #5f7200;
+  color: #091100;
+  box-shadow: 0 0 25px 5px #a6c102 inset;
+  border: 1px #93ac00 solid;
 }
 
 .nav-social {
@@ -449,4 +467,8 @@ $pre-color:                         inherit !default;
 {
   background-color: rgba(0, 0, 0, 0.6) !important;
   transition: background-color 200ms linear;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: "Chakra Petch", "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }

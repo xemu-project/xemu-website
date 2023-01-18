@@ -40,7 +40,7 @@
   --md-primary-fg-color--light:    var(--gray-800);
   --md-primary-fg-color--dark:     #00ff00;
 
-  --md-accent-fg-color:              var(--gray-600);
+  --md-accent-fg-color:              #8dc103;
   --md-accent-fg-color--transparent: var(--gray-800);
   --md-accent-bg-color:              var(--gray-200);
   --md-accent-bg-color--light:       var(--gray-200);
