@@ -20,7 +20,7 @@ from minify_html import minify as minify_html
 gh_token = os.getenv('GH_TOKEN')
 
 output_dir = 'dist'
-repo_url_base = 'https://raw.githubusercontent.com/xemu-project/xemu-website/master/'
+repo_url_base = 'https://raw.githubusercontent.com/xemu-project/xdb/master/'
 compatibility_reports_url = 'https://reports.xemu.app/compatibility'
 compatibility_reports_url_verify_certs = True
 main_url_base = os.environ.get('BASE_URL', 'https://xemu.app')
@@ -235,7 +235,7 @@ def main():
     titles = []
     title_alias_map = {}
     title_lookup = {}
-    for root, dirs, files in os.walk('titles', topdown=True):
+    for root, dirs, files in os.walk('xdb/titles', topdown=True):
         for name in files:
             if name != 'info.json': continue
             title = Title(os.path.join(root,name))
