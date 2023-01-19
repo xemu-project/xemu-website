@@ -45,7 +45,11 @@
   background-image: url('cover_front_default.png');
   background-size: cover;
   width: 100%;
-  min-height: 11rem;
+  height: 14.18rem;
+}
+.title-card-image-container img {
+  height: 100%;
+  width: 100%;
 }
 
 /* Account for the fixed header (which otherwise would occlude anchor targets) */
@@ -284,7 +288,7 @@ h2 {
 <div class="container mt-2">
   <div class="row" id="results">
   {% for title in titles %}
-    <div class="col mb-4 title-card" data-title-name="{{ title.title_name }}" data-title-status="{{ title.status }}">
+    <div class="col px-1 mb-4 title-card" data-title-name="{{ title.title_name }}" data-title-status="{{ title.status }}">
       <a href="{{ title.title_url }}">
         <div class="mx-auto title-card-container">
           <div class="title-card-image-container">
