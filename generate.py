@@ -20,7 +20,7 @@ from minify_html import minify as minify_html
 gh_token = os.getenv('GH_TOKEN')
 
 output_dir = 'dist'
-repo_url_base = 'https://raw.githubusercontent.com/xemu-project/xdb/master/'
+xdb_repo_url_base = 'https://raw.githubusercontent.com/xemu-project/xdb/master/'
 compatibility_reports_url = 'https://reports.xemu.app/compatibility'
 compatibility_reports_url_verify_certs = True
 main_url_base = os.environ.get('BASE_URL', 'https://xemu.app')
@@ -133,6 +133,7 @@ class Title:
         anchor_text = anchor_text.lstrip('-').rstrip('-')
         self.title_url = f"/titles/{self.info['title_id']}#{anchor_text}"
         self.title_path = os.path.dirname(info_path)
+        self.title_xdb_path = self.title_path[4:]
         self.full_title_id_text = '%s-%s' % (self.pubid, self.tid)
         self.full_title_id_hex = self.info['title_id']
         self.full_title_id_num = int(self.info['title_id'], 16)
@@ -160,9 +161,9 @@ class Title:
             if os.path.exists(os.path.join(self.title_path, filename)):
                 setattr(self, attr, filename)
         if self.cover_back_path:
-            self.cover_back_url = repo_url_base + self.title_path + '/' + self.cover_back_path
+            self.cover_back_url = xdb_repo_url_base + self.title_xdb_path + '/' + self.cover_back_path
         if self.disc_path:
-            self.disc_url = repo_url_base + self.title_path + '/' + self.disc_path
+            self.disc_url = xdb_repo_url_base + self.title_xdb_path + '/' + self.disc_path
 
         self.have_thumbnail = True
         self.cover_thumbnail_path = 'cover_front_thumbnail.jpg'
@@ -172,13 +173,13 @@ class Title:
 
 
         if self.have_cover:
-            self.cover_url = repo_url_base + self.title_path + '/' + self.cover_path
+            self.cover_url = xdb_repo_url_base + self.title_xdb_path + '/' + self.cover_path
         else:
             print('Note: Missing artwork for %s' % self.title_name)
-            self.cover_url = repo_url_base + '/resources/cover_front_default.png'
+            self.cover_url = xdb_repo_url_base + '/resources/cover_front_defxdb_ault.png'
 
         if self.have_thumbnail:
-            self.cover_thumbnail_url = repo_url_base + self.title_path + '/' + self.cover_thumbnail_path
+            self.cover_thumbnail_url = xdb_repo_url_base + self.title_xdb_path + '/' + self.cover_thumbnail_path
         else:
             if self.have_cover:
                 print('Note: Missing thumbnail for %s' % self.title_name)
@@ -186,7 +187,7 @@ class Title:
 
         xtimage_path = os.path.join(self.title_path, 'xtimage.png')
         if os.path.exists(xtimage_path):
-            self.xtimage_url = repo_url_base + self.title_path + '/xtimage.png'
+            self.xtimage_url = xdb_repo_url_base + self.title_xdb_path + '/xtimage.png'
         else:
             self.xtimage_url = None
 
