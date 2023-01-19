@@ -85,17 +85,16 @@
 
 <main role="main">
 {% block jumbotron %}{% endblock %}
-<div class="container">
-  <div class="col-lg-10 mx-auto mt-5">
-    {% block content %}{% endblock %}
-    <footer class="my-5 text-muted text-center text-small">
-      <p><strong>Disclaimer:</strong>
-      All product names, logos, and brands are property of their respective owners. All company, product and service names and/or images used in this website are for identification purposes only.
-      </p>
-      <p>&copy; 2020-2023 xemu Project</p>
-    </footer>
+{% block content %}{% endblock %}
+<footer>
+  <div class="container text-muted">
+    {% block append_footer %}{% endblock %}
+    <p><strong>Disclaimer:</strong>
+    All product names, logos, and brands are property of their respective owners. All company, product and service names and/or images used in this website are for identification purposes only.
+    </p>
+    <p>&copy; 2023 xemu Project</p>
   </div>
-</div>
+</footer>
 </main>
 
 {% block append_foot %}{% endblock %}

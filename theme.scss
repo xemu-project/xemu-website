@@ -49,8 +49,12 @@ $yiq-contrasted-threshold:  175 !default;
 
 // Body
 
-$body-bg:                   $gray-900 !default;
+$body-bg:                   #181818 !default;
 $body-color:                $gray-400;
+
+.body-alt-section {
+  background-color: $gray-900; 
+}
 
 // Links
 
@@ -62,10 +66,6 @@ $link-hover-color:          #8dc103 !default;
 $font-family-sans-serif:      "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;
 
 $font-size-base:              1.025rem !default;
-
-$h1-font-size:                3rem !default;
-$h2-font-size:                2.5rem !default;
-$h3-font-size:                2rem !default;
 
 $text-muted:                  $gray-500 !default;
 
@@ -463,4 +463,13 @@ $pre-color:                         inherit !default;
 
 h1, h2, h3, h4 {
   font-family: "Chakra Petch", "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  color: #fff;
+}
+
+.container {
+  padding: 2em 1em;
+}
+
+.jumbotron {
+  margin: 0;
 }
