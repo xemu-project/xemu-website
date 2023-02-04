@@ -15,6 +15,9 @@ Your MCPX and BIOS dump should be for a 1.0 Xbox. It's suggested that your MCPX 
 #### Q: Do I need to have an EEPROM file?
 A default one will be created if you do not provide one.
 
+#### Q: How do I run xemu in portable mode?
+Create a file named `xemu.toml` in the same directory as the executable (i.e. next to `xemu.exe` on Windows or `xemu` on Linux).
+
 #### Q: Why am I getting `The guest has not initialized the display`
 This is likely due to a mismatch of MCPX and BIOS images, or a corrupt MCPX boot ROM.
 
