@@ -95,3 +95,47 @@ You can do this with utilities such as `dd`, `extract-xiso` or `fallocate` on su
     ```
 
     You can then use the `game.iso` with xemu.
+
+## Converting Digital Xbox 360 backwards compatible titles
+
+You can use backwards compatible titles that are on the Xbox 360 digital marketplace. You cannot rip a physical original Xbox game without a mod on the Xbox 360 which won't be specified here. If you have digital versions of the original Xbox games then follow what’s below.
+
+You will need (windows):
+* An unmodded Xbox 360 on version 17349 or later.
+* USB Flash Drive formatted to FAT32 with enough storage
+* God2iso 
+* Velocity
+* Xiso creator program (qwix, extract-xiso, etc)
+
+**Note: Skip if you have external drive with backwards compatible titles already. But would be preferred if you use a new drive since it would be hard to tell between Xbox 360 titles and original Xbox titles at first.**
+
+### Getting games on drive from an Xbox 360
+
+1. Plug in your formatted flash drive or external hdd to the Xbox 360.
+
+2. Go to Microsoft store to install the game and select install or you can copy the game from the dashboard.
+
+3. Select your formatted storage device.
+
+4. Turn off console and unplug your external drive.
+
+
+### Windows process
+
+1. Plug in drive to the computer.
+
+**Note: If you see don’t see a contents folder then enable Show hidden files and folders in Windows Explorer.**
+
+2. Once you see the content folder you can copy that folder as a backup or use it in our case to get the files we need.
+
+3. Open the content folder and folder 0000# you should see folders with numbers and letters. 
+
+4. This is your games list and you should go into one of them until you see a file and a folder that ends with (.data).
+
+5. Open the file that’s next to the folder with god2iso and choose a area to save.
+
+6. Once the god2iso file was made you open the new file you just made and extract with velocity.
+
+Now you can use `extract-xiso ` or similar program to create a xiso for xemu or you can transfer those files to a Xbox to boot from. 
+
+(Special thanks for the how to convert backwards compatible original xbox games from xbox 360 to original xbox tutorial that helped shape this one: https://www.reddit.com/r/originalxbox/comments/f12psc/comment/fh26eiq/)
