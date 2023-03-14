@@ -28,12 +28,10 @@ jobs:
         mv dist/theme.css.min dist/theme.css
         echo "xemu.app" > dist/CNAME
     - uses: actions/upload-pages-artifact@v1
-      if: github.event_name == 'push' && startsWith(github.event.ref, 'refs/heads/master')
       with:
         path: dist
   Deploy:
-    needs: [build]
-    if: github.event_name == 'push' && startsWith(github.event.ref, 'refs/heads/master')
+    needs: [Build]
     runs-on: ubuntu-latest
     permissions:
       pages: write
