@@ -12,7 +12,7 @@ Snapshots are saved to the hard disk image that you started xemu with.
 
 	Before restoring a snapshot, you should:
 
-	* **Load your game disc image as normal.** Loading a snapshot will not re-mount the game disc, so if you load a snapshot and the game then tries to read from disc, it will fail. Launch xemu, load your game disc, then restore the snapshot.
+	* **If using the monitor, load your game disc image as normal.** Loading a snapshot from the monitor will not re-mount the game disc, so if you load a snapshot and the game then tries to read from disc, it will fail. Launch xemu, load your game disc, then restore the snapshot. Loading a snapshot from the UI will prompt to remount the disc, so this step is not needed.
 
 	* **Connect controllers to match the saved configuration.** For instance: if there was a controller connected to Port 1 when the snapshot was created, make sure there is a controller connected to Port 1 before loading the snapshot. If this configuration does not match, an error message will be displayed and the machine will be paused. Simply connect the appropriate controllers, load the snapshot again, and enter `cont` in the monitor to continue).
 
@@ -23,16 +23,11 @@ The snapshots interface is available in the settings menu, available under <kbd>
 ![Snapshots Main Menu](assets/images/snapshots-menu.png)
 
 From here, snapshots can be filtered either by the current title, or game, being played, or by entering part of the snapshot name.
-In addition, snapshots can be created with the creation field.
+In addition, snapshots can be created or overwritten.
 
 The snapshot list shows each snapshot, along with some information, in descending order of most recent creation date.
 
-Snapshots can be:
-
-* **Restored** by clicking on its snapshot button
-* **Deleted** by clicking the delete button on the right
-* **Saved** by clicking the save (floppy disc) icon
-* **Bound** to to one of the <kbd>F5</kbd>, <kbd>F6</kbd>, <kbd>F7</kbd>, or <kbd>F8</kbd> keys by clicking the keyboard button
+By right-clicking on a snapshot, or using the left gamepad button, the snapshot can be loaded, bound to a key, replaced, or deleted.
 
 !!! info "Bound Snapshots"
 
