@@ -20,6 +20,22 @@ create a game backup. You can backup your legally purchased games by:
 
 ## Creating ISOs
 
+### xdvdfs (Web or Command Line)
+
+[xdvdfs](https://github.com/antangelo/xdvdfs)
+is a tool that can manage Xbox disc images.
+It is available as a [webapp](https://xiso.antangelo.com/) or as a command line tool.
+
+!!! warning
+
+    xdvdfs does not apply media patching to xbe
+    files within the image. Some games on some
+    BIOSes will not load as a result.
+
+    For maximum compatibility, either
+    apply the patch yourself, or use a BIOS
+    that does this for you (such as m8plus).
+
 ### extract-xiso (Command Line)
 
 [extract-xiso](https://github.com/XboxDev/extract-xiso) is a command-line tool
