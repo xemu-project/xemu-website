@@ -98,7 +98,7 @@ open ./dist/xemu.app
     ```bash
     # Install DistroBox
     curl -s https://raw.githubusercontent.com/89luca89/distrobox/main/install | sh -s -- --prefix ~/.local && curl -s https://raw.githubusercontent.com/89luca89/distrobox/main/extras/install-podman | sh -s -- --prefix ~/.local
-    # Go to .bashrc in kate and add at bottom line below.
+    # Go to home/deck/ and create a gile named .distroboxrc and in kate add whats below.
     export PATH=$PATH:/home/deck/.local/bin/
     export PATH=$PATH:/home/deck/.local/podman/bin/
     xhost +si:localuser:$USER
