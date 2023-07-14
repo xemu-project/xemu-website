@@ -103,8 +103,6 @@ open ./dist/xemu.app
     export PATH=$PATH:/home/deck/.local/bin/
     export PATH=$PATH:/home/deck/.local/podman/bin/
     xhost +si:localuser:$USER
-
-    # !xhost is used to display programs with graphical interfaces. This only activates when running konsole. 
     
     # Installing Container 
     distrobox-create -i docker.io/library/archlinux:latest --name arch
