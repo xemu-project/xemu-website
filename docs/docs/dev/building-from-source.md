@@ -111,7 +111,7 @@ open ./dist/xemu.app
     distrobox-enter arch
     
     # Install dependencies
-    sudo pacman -S --needed --noconfirm git base-devel sdl2 libepoxy pixman gtk3 openssl libsamplerate libpcap ninja glu python-yaml && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si && sudo pacman -S pipewire-pulse
+    sudo pacman -S --needed --noconfirm git base-devel sdl2 libepoxy pixman gtk3 openssl libsamplerate libpcap ninja glu python-yaml libslirp && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si && sudo pacman -S pipewire-pulse
 
     # !During pulse audio install Select wireplumber
 
