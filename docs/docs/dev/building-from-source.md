@@ -67,7 +67,7 @@ open ./dist/xemu.app
 
     ```bash
     # Install dependencies
-    sudo pacman -S --noconfirm git base-devel sdl2 libepoxy pixman gtk3 openssl libsamplerate libpcap ninja glu python-yaml
+    sudo pacman -S --noconfirm git base-devel sdl2 libepoxy pixman gtk3 openssl libsamplerate libpcap ninja glu python-yaml libslirp
 
     # Clone and build
     git clone --recurse-submodules https://github.com/xemu-project/xemu.git
