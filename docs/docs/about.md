@@ -21,6 +21,8 @@ xemu is free and open-source software that emulates the [original Microsoft Xbox
 
 xemu runs on Windows, macOS, and Linux systems. An OpenGL 4.0-compatible GPU is required. Most recent integrated GPUs will work.
 
+Operating System releases that are no longer supported by their vendor are not officially supported by xemu. This means that releases of Windows prior to Windows 10 are not officially supported for xemu. Best-effort support is provided for in-service releases.
+
 Please note that xemu is an evolving project and, although xemu can run on large number of systems, actual game performance is in flux and will vary based on the characteristics of your system.
 
 ## Compatibility
