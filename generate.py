@@ -62,7 +62,7 @@ class Issue:
         return self.title
 
     @classmethod
-    def load_issues(cls, title_alias_map):
+    def load_issues(cls, title_alias_map, title_lookup):
         """
         Search through all GitHub issues for any title tags to construct a
         list of titles and their associated issues
@@ -75,8 +75,14 @@ class Issue:
             # Look for a titles sequence and pull out anything that looks like
             # an id
             references = ' '.join(titles_re.findall(issue.body or ''))
-            affected_titles = title_id_re.findall(references)
-            cls.all_issues.append(cls(
+            affected_titles = set()
+            for title_id in title_id_re.findall(references):
+                if title_id not in title_alias_map:
+                    print('Warning: Issue %s references unknown title id "%s"' % (issue.url, title_id))
+                    continue
+                affected_titles.add(title_lookup[title_alias_map[title_id]])
+
+            issue = cls(
                 issue.number,
                 issue.html_url,
                 issue.title,
@@ -84,16 +90,17 @@ class Issue:
                 issue.created_at.replace(tzinfo=timezone.utc),
                 issue.updated_at.replace(tzinfo=timezone.utc),
                 issue.closed_at.replace(tzinfo=timezone.utc) if issue.state == 'closed' else None,
-                issue.state))
+                issue.state)
 
-        # Organize issues by title
-        for issue in cls.all_issues:
-            for title_id in issue.affected_titles:
-                if title_id not in title_alias_map:
-                    print('Warning: Issue %s references unknown title id "%s"' % (issue.url, title_id))
-                    continue
-                if issue not in cls.issues_by_title[title_alias_map[title_id]]:
-                    cls.issues_by_title[title_alias_map[title_id]].append(issue)
+            cls.all_issues.append(issue)
+
+            for title in issue.affected_titles:
+                if issue not in cls.issues_by_title[title.tid]:
+                    cls.issues_by_title[title.tid].append(issue)
+
+    @property
+    def blocked_titles(self):
+        return {t for t in self.affected_titles if t.status in {'Broken', 'Intro', 'Starts'}}
 
 
 class CompatibilityReport:
@@ -248,7 +255,7 @@ def main():
     print('  - Found %d' % (len(titles)))
 
     print('Getting GitHub Issues List...')
-    Issue.load_issues(title_alias_map)
+    Issue.load_issues(title_alias_map, title_lookup)
     print('  - Ok. %d issues total' % len(Issue.all_issues))
 
     print('Getting compatibility report list...')
@@ -341,6 +348,20 @@ def main():
             minify_html(
                 template.render(
                     titles=sorted([t for t in titles if filter_(t)], key=rank)),
+                minify_js=True, minify_css=True))
+    print('  - Ok')
+
+    print('Building top issues table')
+    issues_by_num_affected = [i for i in Issue.all_issues if i.state != 'closed' and i.affected_titles]
+    issues_by_num_affected.sort(key=lambda i: len(i.affected_titles), reverse=True)
+    issues_by_num_blocking = [i for i in issues_by_num_affected if len(i.blocked_titles)]
+    issues_by_num_blocking.sort(key=lambda i: len(i.blocked_titles), reverse=True)
+
+    template = env.get_template('top_issues.html')
+    with open(os.path.join(output_dir, 'top_issues.html'), 'w') as f:
+        f.write(
+            minify_html(
+                template.render(issues_by_num_affected=issues_by_num_affected, issues_by_num_blocking=issues_by_num_blocking),
                 minify_js=True, minify_css=True))
     print('  - Ok')
 
