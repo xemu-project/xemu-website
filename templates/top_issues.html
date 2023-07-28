@@ -1,0 +1,63 @@
+{% extends "template_base.html" %}
+{% block title %}Top Issues{% endblock %}
+
+{% block append_head %}
+<style type="text/css">
+.table td {
+  vertical-align: middle !important;
+}
+</style>
+
+{% endblock %}
+
+{% block content %}
+<div class="pt-5">
+  <h1>Top Blocking Issues</h1>
+  <p>
+    The following lists top issues by blocked titles.
+  </p>
+</div>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Title</th>
+      <th scope="col">Blocked Titles</th>
+      <th scope="col">Affected Titles</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for issue in issues_by_num_blocking %}
+    <tr>
+      <td><a href="{{ issue.url }}" title="{{ issue.title|e }}">#{{ issue.number }}: {{ issue.title|e }}</a></td>
+      <td>{{ issue.blocked_titles|length }}</td>
+      <td>{{ issue.affected_titles|length }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<div class="pt-5">
+  <h1>Top Issues</h1>
+  <p>
+    The following lists top issues by affected titles.
+  </p>
+</div>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Title</th>
+      <th scope="col">Affected Titles</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for issue in issues_by_num_affected %}
+    <tr>
+      <td><a href="{{ issue.url }}" title="{{ issue.title|e }}">#{{ issue.number }}: {{ issue.title|e }}</a></td>
+      <td>{{ issue.affected_titles|length }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
