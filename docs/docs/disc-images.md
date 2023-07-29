@@ -85,9 +85,19 @@ you more than likely have this format. As a sanity check, these images are
 typically ~7GB in size.
 
 xemu is not currently compatible with this format, but you can extract the
-second partition of the disc image for use with xemu. Unfortunately there is not
-a GUI-friendly solution for this yet. You will need to use a command-line tool.
-You can do this with utilities such as `dd`, `extract-xiso` or `fallocate` on supported systems.
+second partition of the disc image for use with xemu.
+You can do this with utilities such as `xdvdfs`, `dd`, `extract-xiso` or `fallocate` on supported systems.
+
+=== "Using `xdvdfs`"
+    The [webapp](https://xiso.antangelo.com/) tool is capable of repacking or extracting most redump ISO images
+    by selecting an ISO file as the input. The output file can then be used with xemu.
+
+    The command line tool is also able to repack or extract redump ISO images:
+    ```
+    xdvdfs pack game-redump.iso
+    ```
+
+    You can then use `game-redump.xiso.iso` with xemu.
 
 === "Using `dd`"
     ```
