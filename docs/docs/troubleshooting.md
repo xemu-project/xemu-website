@@ -24,6 +24,22 @@ If you want to allow xemu access to other folders, then:
 2. Select <kbd>app.xemu.xemu</kbd>
 3. In the <kbd>Filesystem</kbd> section, allow access to the folders your BIOS / MCPX / Hard Drive Image are in
 
+## Windows Compatibility Issues
+
+### Windows 11
+
+**Crash on startup after configuration:** On Windows 11 Insider 23H2, there is an issue with Control Flow Guard being mistakenly enabled. See issue description and workaround [filed here](https://github.com/xemu-project/xemu/issues/1486#issuecomment-1647132796).
+
+### Windows 7
+
+!!! warning "Windows 7 is not officially supported"
+
+    Windows 7 is no longer officially supported. xemu is not officially supported on Windows 7.
+
+That said, xemu has been run on Windows 7 in the past. If you simply must run xemu on Windows 7, here are some tips that may help you:
+
+**api-ms-win-core-path-l1-1-0.dll:** If you get a message for this missing DLL, see the workaround [filed here](https://github.com/xemu-project/xemu/issues/1482).
+
 ## Windows Performance Considerations
 
 ### Powersave vs Performance Power Management Profile

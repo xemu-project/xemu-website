@@ -67,7 +67,7 @@ open ./dist/xemu.app
 
     ```bash
     # Install dependencies
-    sudo pacman -S --noconfirm git base-devel sdl2 libepoxy pixman gtk3 openssl libsamplerate libpcap ninja glu python-yaml
+    sudo pacman -S --noconfirm git base-devel sdl2 libepoxy pixman gtk3 openssl libsamplerate libpcap ninja glu python-yaml libslirp
 
     # Clone and build
     git clone --recurse-submodules https://github.com/xemu-project/xemu.git
@@ -83,6 +83,43 @@ open ./dist/xemu.app
     ```bash
     # Install dependencies
     sudo dnf install libdrm-devel libslirp-devel mesa-libGLU-devel gtk3-devel libpcap-devel libsamplerate-devel libaio-devel SDL2-devel libepoxy-devel pixman-devel gcc-c++ ninja-build openssl-devel python3-pyyaml
+
+    # Clone and build
+    git clone --recurse-submodules https://github.com/xemu-project/xemu.git
+    cd xemu
+    ./build.sh
+
+    # Run
+    ./dist/xemu
+    ```
+
+=== "SteamOS 3+ (Rootless)"
+
+    ```bash
+    # Install DistroBox
+    curl -s https://raw.githubusercontent.com/89luca89/distrobox/main/install | sh -s -- --prefix ~/.local && curl -s https://raw.githubusercontent.com/89luca89/distrobox/main/extras/install-podman | sh -s -- --prefix ~/.local
+    
+    # Go to home/deck/ and create a gile named .distroboxrc and in kate add whats below.
+    export PATH=$PATH:/home/deck/.local/bin/
+    export PATH=$PATH:/home/deck/.local/podman/bin/
+    xhost +si:localuser:$USER
+    
+    # Installing Container 
+    distrobox-create -i docker.io/library/archlinux:latest --name arch
+
+    # Launch arch container.
+    distrobox-enter arch
+    
+    # Install dependencies
+    sudo pacman -S --needed --noconfirm git base-devel sdl2 libepoxy pixman gtk3 openssl libsamplerate libpcap ninja glu python-yaml libslirp && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si && sudo pacman -S pipewire-pulse
+
+    # !During pulse audio install Select wireplumber
+
+    # Install an IDE/code editor (vscode)
+    yay -S visual-studio-code-bin --noconfirm
+
+    # export Code editor if it has a .desktop
+    distrobox-export --app code
 
     # Clone and build
     git clone --recurse-submodules https://github.com/xemu-project/xemu.git
