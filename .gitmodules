@@ -1,0 +1,3 @@
+[submodule "xdb"]
+	path = xdb
+	url = git@github.com:xemu-project/xdb.git
