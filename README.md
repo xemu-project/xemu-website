@@ -3,6 +3,16 @@ xemu-website
 
 This repo contains the main website contents for the xemu original Xbox emulator with accompanying documentation and title information for compatibility reporting.
 
+### Cloning
+
+This repository must be cloned with submodules to pull the Xbox title repository.
+
+```sh
+$ git clone git@github.com:xemu-project/xemu-website.git --recurse-submodules
+```
+
+Or if already cloned, run `git submodules update --init --recursive`
+
 ### Build
 
 To build, simply run `rm -rf dist/ && DEV=1 ./build.sh` from within the project root.
