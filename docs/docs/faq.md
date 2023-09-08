@@ -59,3 +59,9 @@ Generally, no. You will need to create a backup of your game disc. Please [see h
 
 #### Q: Why does xemu crash when I enable Surround Sound in my EEPROM?
 This is because Surround Sound isn't implemented in xemu yet, please disable this in your [EEPROM](eeprom.md) if you have it enabled.
+
+#### Q: Where does xemu store game saves?
+Just like on a real Xbox, they are stored on the E partition of the virtual hard drive. The drive contents can be accessed with [FTP](ftp.md).
+
+#### Q: Where does xemu store snapshot (save state) data?
+Snapshot data is stored on the hard drive image, and is not easily extractible.
