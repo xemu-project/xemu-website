@@ -52,7 +52,7 @@ The 'Resolution Scale' number is a scaling factor applied to rendered surface di
 There are currently no plans for a mobile port of xemu on iOS or Android, the emulator hasn't reached the performance necessary to run well on iOS or Android at this time.
 
 #### Q: Are there any plans for a Vulkan backend?
-There are currently no plans for a Vulkan backend. OpenGL has several benefits over Vulkan at this time, being closer to the Xbox GPU instruction set, and it is capable of meeting xemu's performance targets. More work needs to be done on the current implementation before the addition of another video backend becomes worthwhile.
+It is in development.
 
 #### Q: Can xemu load an Xbox game disc from my computer's DVD drive?
 Generally, no. You will need to create a backup of your game disc. Please [see here](disc-images.md) for more information about creating and using disc images.
