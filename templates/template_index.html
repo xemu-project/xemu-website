@@ -44,9 +44,27 @@
   left: 0;
   top: 0;
 }
-
 .jumbotron {
   position: relative;
+  display:flex;
+  flex-direction:column;
+}
+
+
+.disclaimer-container {
+  align-self: bottom;
+  z-index: 10;
+}
+
+.disclaimer {
+  color:  #bbb;
+  background-color: rgba(0.2,0.2,0.2,0.6);
+  padding: 0.5em;
+  font-size: 0.9em;
+}
+
+.project-info {
+  margin: auto;
 }
 
 @media only screen and (min-width: 768px)
@@ -154,7 +172,7 @@
 {% block jumbotron %}
 <div class="jumbotron d-flex align-items-center min-vh-100">
   <div id="bg-scene"></div>
-  <div class="container">
+  <div class="container project-info py-5">
   <div class="row mt-5">
     <div class="col-md-6 mt-4 pb-5 pb-md-0 text-center">
       <div id="xbox-scene"></div>
@@ -191,8 +209,17 @@
           <br />
           <a href="/docs/download" id="download-options" style="display: none">Alternative download options</a>
         </div>
+
       </div>
+
+
     </div>
+  </div>
+  </div>
+
+  <div class="disclaimer-container">
+    <div class="container text-center mx-auto disclaimer">
+    <b>Disclaimer:</b> This project is an independent open source emulation effort and is not endorsed by, directly affiliated with, maintained, authorized, or sponsored by Microsoft Corporation. All product and company names are the registered trademarks of their original owners. The use of any trade name or trademark is for identification and reference purposes only and does not imply any association with the trademark holder of their product brand.
   </div>
   </div>
 </div>
