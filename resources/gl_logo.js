@@ -313,6 +313,8 @@ function setupWebGL (evt) {
   time_loc = gl.getUniformLocation(program, "iTime");
   gl.useProgram(program);
   gl.viewport(0, 0, gl.canvas.width, gl.canvas.height);
+  gl.finish();
+
   requestAnimationFrame(render);
 }
 
