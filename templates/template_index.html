@@ -369,6 +369,8 @@ if (platform != undefined) {
   }
 </script>
 
+<script type="text/javascript" src="gl_logo.js"></script>
+
 <script type="module">
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
@@ -407,14 +409,12 @@ camera.position.z = 0.65;
 camera.position.x = 0.12;
 
 var clock = new THREE.Clock();
-var render = function () {
-  requestAnimationFrame( render );
+var sphere_render = function () {
   var t = clock.getElapsedTime();
   var s = Math.sin(t * Math.PI / 50);
   sphere.rotation.y = (Math.PI/10) * s;
   renderer.render(scene, camera);
 };
-render();
 window.addEventListener('resize', function(){
     camera.aspect = canvas.offsetWidth/canvas.offsetHeight;
     camera.updateProjectionMatrix();
@@ -502,9 +502,7 @@ xbox_scene.add(point_light);
 
 xbox_camera.position.z = 0.65;
 
-var clock = new THREE.Clock();
 var xbox_render = function () {
-  requestAnimationFrame( xbox_render );
   var t = clock.getElapsedTime();
   var s = Math.sin(t * Math.PI / 50);
   if (xbox != null) {
@@ -515,7 +513,14 @@ var xbox_render = function () {
   }
   xbox_renderer.render(xbox_scene, xbox_camera);
 };
-xbox_render();
+
+var render = function () {
+  requestAnimationFrame( render );
+  sphere_render();
+  xbox_render();
+  logo_render(clock.getElapsedTime());
+};
+render();
 
 const controls = new ArcballControls( xbox_camera, xbox_renderer.domElement, xbox_scene );
 
@@ -532,7 +537,6 @@ window.addEventListener('resize', function(){
   }, false);
 </script>
 
-<script type="text/javascript" src="gl_logo.js"></script>
 <script type="text/javascript">
 function updateNavbarTransparency() {
   var nav = $(".navbar");
