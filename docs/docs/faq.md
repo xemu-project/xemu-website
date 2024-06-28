@@ -68,3 +68,6 @@ Just like on a real Xbox, they are stored on the E partition of the virtual hard
 
 #### Q: Where does xemu store snapshot (save state) data?
 Snapshot data is stored on the hard drive image, and is not easily extractible.
+
+#### Q: How do I use my computer's microphone in game?
+Xbox Live Communicator peripheral emulation is not officially supported yet, but it is in development and will be added soon.
