@@ -106,6 +106,7 @@ nav:
         - Host Debugging: dev/debug/host.md
         - Guest Debugging: dev/debug/guest.md
         - Graphics Debugging: dev/debug/graphics.md
+    - Testing: testing.md
 
 plugins:
   - search
