@@ -2,6 +2,8 @@ xemu is free and open-source software that emulates the [original Microsoft Xbox
 
 !!! warning "Disclaimer"
 
+    This project is an independent open source emulation effort and is not endorsed by, directly affiliated with, maintained, authorized, or sponsored by Microsoft Corporation. All product and company names are the registered trademarks of their original owners. The use of any trade name or trademark is for identification and reference purposes only and does not imply any association with the trademark holder of their product brand.
+
     This project is for educational purposes only, with the goal of researching
     and understanding the inner-workings of the original Xbox and its games, and
     then building a platform to play those legally purchased games.
