@@ -51,8 +51,8 @@ For all titles the rendering resolution can be easily scaled by navigating to Vi
 #### Q: What should I pick for 4k resolution?
 The 'Resolution Scale' number is a scaling factor applied to rendered surface dimensions. Which factor to select for your target resolution depends on the game resolution. When the game is rendering at 480p (typical case), if you want a '4k resolution' (meaning around 4k horizontal res) you can select 6x to get a framebuffer of 3840x2880. Performance may diminish as higher factors are selected.
 
-#### Q: Are there any plans for a mobile port of xemu?
-There are currently no plans for a mobile port of xemu on iOS or Android, the emulator hasn't reached the performance necessary to run well on iOS or Android at this time.
+#### Q: Are there any plans for an Android or iOS port?
+There are currently no plans for a mobile port of xemu on Android or iOS, but possibly in the future.
 
 #### Q: Are there any plans for a Vulkan backend?
 It is in development.
