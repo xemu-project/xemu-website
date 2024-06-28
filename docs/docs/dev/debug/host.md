@@ -75,7 +75,7 @@ Install [VSCode](https://code.visualstudio.com/download){target=_blank} and the 
 
 ## Build & Run
 
-Follow the [build](../../building-from-source/) instructions appending `--debug` to the CLI arguments, open the xemu project directory in VSCode via <kbd>File</kbd> &rarr; <kbd>Open folder...</kbd>, and press `F5` to start debugging.
+Follow the [build](../building-from-source.md) instructions appending `--debug` to the CLI arguments, open the xemu project directory in VSCode via <kbd>File</kbd> &rarr; <kbd>Open folder...</kbd>, and press `F5` to start debugging.
 
 !!! tip "Tip: Arguments"
 
