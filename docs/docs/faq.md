@@ -22,7 +22,7 @@ A default one will be created if you do not provide one.
 Create a file named `xemu.toml` in the same directory as the executable (i.e. next to `xemu.exe` on Windows or `xemu` on Linux).
 
 #### Q: Why am I getting `The guest has not initialized the display`
-This is likely due to a mismatch of MCPX and BIOS images, or a corrupt MCPX boot ROM.
+This is likely due to missing, mismatched, or corrupt MCPX and BIOS images. See [this page](required-files.md) for details about required files.
 
 #### Q: Why am I getting `Please insert an Xbox disc...`? Where's the classic Xbox menu?
 Unfortunately we can't legally ship the original Xbox dashboard, so what you're seeing is the placeholder. See [this page](dashboard.md) for more information about dashboards, including details on how to install the one you want.
