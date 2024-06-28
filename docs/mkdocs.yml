@@ -19,7 +19,7 @@ theme:
   include_search_page: false
   search_index_only: true
   logo:
-  favicon:
+  favicon: /xemu_192x192.png
 
 extra:
   homepage: https://xemu.app
