@@ -25,7 +25,7 @@ Create a file named `xemu.toml` in the same directory as the executable (i.e. ne
 This is likely due to a mismatch of MCPX and BIOS images, or a corrupt MCPX boot ROM.
 
 #### Q: Why am I getting `Please insert an Xbox disc...`? I already loaded an ISO.
-Try restarting xemu. If you continue to get the message, your ISO may not be dumped in a compatible way. Try using [extract-xiso](https://github.com/xboxdev/extract-xiso) to pack your ISO.
+Try restarting xemu. If you continue to get the message, your ISO may not be dumped in a compatible way. See [this page](disc-images.md) for instructions on how to create a compatible disc image.
 
 #### Q: Is there a game compatibility list?
 Yes, visit https://xemu.app
@@ -34,7 +34,7 @@ Yes, visit https://xemu.app
 Possibly. [Check the compatibility list](https://xemu.app) first if you're curious, or try it out for yourself. You are invited to submit a compatibility report too.
 
 #### Q: Does xemu run my game's `default.xbe`?
-No, not directly. xemu emulates the hardware of the system, so you'll need to have a disc image of your game backup. You can use [extract-xiso](https://github.com/xboxdev/extract-xiso) or qwix to create an image.
+No, not directly. xemu emulates the hardware of the system, so you'll need to have a disc image of your game backup. See [this page](disc-images.md) for instructions on how to create a compatible disc image.
 
 #### Q: Does xemu support "redump" style ISOs?
 No, not yet. You can however convert a redump style ISO to a compatible ISO. More info [here](<https://xemu.app/docs/disc-images/#about-redump-isos>).
