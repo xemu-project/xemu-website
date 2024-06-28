@@ -36,7 +36,7 @@ Yes, visit https://xemu.app
 #### Q: Does game `x`  work?
 Possibly. [Check the compatibility list](https://xemu.app) first if you're curious, or try it out for yourself. You are invited to submit a compatibility report too.
 
-#### Q: The compatibility list says my game is Playable, but it's not working (freezes, dirty disc).
+#### Q: The compatibility list says my game is Playable, why is it not working (freezes, dirty disc)?
 There are multiple reasons why a game might not work, including various system issues, corrupted cache, bad disc dump, or regression in xemu compatibility. First try [downloading the version of xemu](https://github.com/xemu-project/xemu/releases) mentioned on the compatibility page. If the old version of xemu works and the latest does not, please report the issue to us.
 
 #### Q: Does xemu run my game's `default.xbe`?
@@ -89,11 +89,11 @@ If you're looking for split-screen play over the internet, xemu itself does not 
 
 Many Xbox games also support System Link for LAN-based multiplayer. xemu does support networking, and this is another way to play with others over the Internet. See [this page](networking.md) for details about networking xemu to other instances of xemu, or even real Xboxes.
 
-#### Q: I can't join a System Link lobby
-Make sure you and the people you're playing with have the same version of a game AND each console has a unique MAC addresses. The console's MAC address is stored in the EEPROM, so you can edit the EEPROM or delete it to have xemu generate a new one with a randomized MAC address. Warning: Game saves may be tied to the HDD key, so create a backup before deleting the EEPROM.
+#### Q: Why do I see a System Link lobby but can't join it?
+Make sure you and the people you're playing with have the same version of a game AND each console has a unique MAC address. The console's MAC address is stored in the EEPROM, so you can edit the EEPROM or delete it to have xemu generate a new one with a randomized MAC address. Warning: Game saves may be tied to the HDD key, so create a backup before deleting the EEPROM.
 
 #### Q: Does xemu work with Xbox Live recreation projects, like "Insigina"?
 Yes. See [this page](networking.md) for details about networking. See respective project pages for details about getting set up on their network.
 
-#### Q: My game saves are not working
+#### Q: Why are my game saves not working?
 Some game saves are tied to the console they were created on. Try using the EEPROM from the console they were created on.
