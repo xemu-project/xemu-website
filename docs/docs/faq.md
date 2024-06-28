@@ -45,6 +45,9 @@ No, not directly. xemu emulates the hardware of the system, so you'll need to ha
 #### Q: Does xemu support "redump" style ISOs?
 No, not yet. You can however convert a redump style ISO to a compatible ISO. More info [here](<https://xemu.app/docs/disc-images/#about-redump-isos>).
 
+#### Q: Does xemu support compressed ISO formats like "CHD"?
+No, it does not. You can try enabling filesystem level compression if you'd like to save some space.
+
 #### Q: Why am I getting an `Assertion failed!` message?
 When a game exercises a piece of code in xemu that has not yet been implemented or verified, xemu will `assert`  which forces execution to stop. The reason for this is that anything happening beyond that point may be unpredictable and significantly increase the debugging burden.
 
