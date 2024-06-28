@@ -35,6 +35,8 @@ extra:
     link: https://www.patreon.com/mborgerson
   - icon: fontawesome/brands/discord
     link: https://discord.gg/ayyjsuM
+  - icon: fontawesome/brands/youtube
+    link: https://www.youtube.com/channel/UCrT8NawDTt5gJnMMe9uUg-Q/featured
 
 markdown_extensions:
   - admonition
