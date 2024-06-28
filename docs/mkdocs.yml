@@ -75,7 +75,7 @@ markdown_extensions:
 nav:
   - Home: https://xemu.app
   - Compatibility: https://xemu.app/#compatibility
-  - Documentation: /docs/
+  - Documentation: https://xemu.app/docs/
   - GitHub: https://github.com/xemu-project/xemu
   - Patreon: https://www.patreon.com/mborgerson
   - About: about.md
