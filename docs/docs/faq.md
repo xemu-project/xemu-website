@@ -36,6 +36,9 @@ Yes, visit https://xemu.app
 #### Q: Does game `x`  work?
 Possibly. [Check the compatibility list](https://xemu.app) first if you're curious, or try it out for yourself. You are invited to submit a compatibility report too.
 
+#### Q: The compatibility list says my game is Playable, but it's not working (freezes, dirty disc).
+There are multiple reasons why a game might not work, including various system issues, corrupted cache, bad disc dump, or regression in xemu compatibility. First try [downloading the version of xemu](https://github.com/xemu-project/xemu/releases) mentioned on the compatibility page. If the old version of xemu works and the latest does not, please report the issue to us.
+
 #### Q: Does xemu run my game's `default.xbe`?
 No, not directly. xemu emulates the hardware of the system, so you'll need to have a disc image of your game backup. See [this page](disc-images.md) for instructions on how to create a compatible disc image.
 
