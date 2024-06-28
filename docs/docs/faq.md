@@ -88,3 +88,6 @@ Make sure you and the people you're playing with have the same version of a game
 
 #### Q: Does xemu work with Xbox Live recreation projects, like "Insigina"?
 Yes. See [this page](networking.md) for details about networking. See respective project pages for details about getting set up on their network.
+
+#### Q: My game saves are not working
+Some game saves are tied to the console they were created on. Try using the EEPROM from the console they were created on.
