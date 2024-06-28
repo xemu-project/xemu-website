@@ -6,6 +6,8 @@ site_description: >-
   Xbox game console, enabling people to play their original Xbox games on
   Windows, macOS, and Linux systems.
 copyright: Copyright &copy; 2020 - 2024 xemu Project
+repo_url: https://github.com/xemu-project/xemu
+edit_uri: https://github.com/xemu-project/xemu-website/edit/master/docs/docs/
 
 extra_css:
   - stylesheets/extra.css
@@ -15,6 +17,7 @@ theme:
   features:
     - navigation.sections
     - navigation.instant
+    - content.action.edit
   # Don't include MkDocs' JavaScript
   include_search_page: false
   search_index_only: true
