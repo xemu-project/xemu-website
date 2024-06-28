@@ -24,7 +24,10 @@ Create a file named `xemu.toml` in the same directory as the executable (i.e. ne
 #### Q: Why am I getting `The guest has not initialized the display`
 This is likely due to a mismatch of MCPX and BIOS images, or a corrupt MCPX boot ROM.
 
-#### Q: Why am I getting `Please insert an Xbox disc...`? I already loaded an ISO.
+#### Q: Why am I getting `Please insert an Xbox disc...`? Where's the classic Xbox menu?
+Unfortunately we can't legally ship the original Xbox dashboard, so what you're seeing is the placeholder. See [this page](dashboard.md) for more information about dashboards, including details on how to install the one you want.
+
+#### Q: I loaded an ISO, but I'm still getting `Please insert an Xbox disc...`
 Try restarting xemu. If you continue to get the message, your ISO may not be dumped in a compatible way. See [this page](disc-images.md) for instructions on how to create a compatible disc image.
 
 #### Q: Is there a game compatibility list?
