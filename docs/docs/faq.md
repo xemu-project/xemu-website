@@ -74,3 +74,17 @@ Snapshot data is stored on the hard drive image, and is not easily extractible.
 
 #### Q: How do I use my computer's microphone in game?
 Xbox Live Communicator peripheral emulation is not officially supported yet, but it is in development and will be added soon.
+
+#### Q: Can I play local multiplayer?
+Yes, you can connect multiple controllers just like a real Xbox.
+
+#### Q: Can I play local multiplayer with my friends over the Internet?
+If you're looking for split-screen play over the internet, xemu itself does not support this feature. However, there are 3rd party solutions like [Parsec](https://parsec.app/local-co-op-online) which can do this.
+
+Many Xbox games also support System Link for LAN-based multiplayer. xemu does support networking, and this is another way to play with others over the Internet. See [this page](networking.md) for details about networking xemu to other instances of xemu, or even real Xboxes.
+
+#### Q: I can't join a System Link lobby
+Make sure you and the people you're playing with have the same version of a game AND each console has a unique MAC addresses. The console's MAC address is stored in the EEPROM, so you can edit the EEPROM or delete it to have xemu generate a new one with a randomized MAC address. Warning: Game saves may be tied to the HDD key, so create a backup before deleting the EEPROM.
+
+#### Q: Does xemu work with Xbox Live recreation projects, like "Insigina"?
+Yes. See [this page](networking.md) for details about networking. See respective project pages for details about getting set up on their network.
