@@ -8,7 +8,7 @@ should be created following the instructions below.
     of games on any channel. The only legal way to acquire these files is
     to dump them from your real, physical media.
 
-## Backing Up
+## Backing Up Your Games
 
 Fortunately games can be acquired for relatively cheap and it is very easy to
 create a game backup. You can backup your legally purchased games by:
@@ -18,11 +18,13 @@ create a game backup. You can backup your legally purchased games by:
   `D` directory to your computer.
 * Purchasing and using a special, reflashed DVD drive. [More details here](http://wiki.redump.org/index.php?title=Microsoft_Xbox_and_Xbox_360_Dumping_Guide).
 
-## Creating ISOs
+## Creating XISOs
+
+There are multiple tools available that can both create and extract XISO images.
 
 ### xdvdfs (Web or Command Line)
 
-The recommended tool for creating and extracting XISO images is xdvdfs, which can run entirely locally and within your web browser.
+The recommended tool for creating and extracting XISO images is xdvdfs. This tool can run entirely locally and within your web browser.
 
 [Open xdvdfs :fontawesome-solid-arrow-up-right-from-square:](https://xiso.antangelo.com){ .md-button .md-button--secondary target="_blank" }
 
