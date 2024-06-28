@@ -1,13 +1,16 @@
 #### Q: Can I get some help?
 Of course, but first please read through the [setup guide](download.md). If you still have questions, please read the following FAQs. If you're still having problems, head to #help in the xemu Discord server.
 
-[![Chat Badge](https://img.shields.io/badge/Chat-xemu%20Discord%20Server-7289DA?logo=Discord&logoColor=white)](https://discord.gg/ayyjsuM)
+[Join xemu community on :fontawesome-brands-discord: Discord](https://discord.gg/ayyjsuM){ .md-button .md-button--secondary target="_blank" }
 
 #### Q: I think I've found a bug, what do I do?
 Join the Discord server and chat about what you're seeing in #general, maybe it's a known issue. We can work together to get it recorded and fixed.
 
 #### Q: Are there system requirements?
 See [here](about.md#system-requirements).
+
+#### Q: Performance is bad...what can I do about it?
+See [this page](troubleshooting.md/#windows-performance-considerations) for tips to improve performance. Note that xemu is evolving and performance is subject to change.
 
 #### Q: What BIOS do I need to use?
 Your MCPX and BIOS dump should be for a 1.0 Xbox. It's suggested that your MCPX dump be 1.0 and that a compatible BIOS image be used (users have reported success with "COMPLEX 4627").
