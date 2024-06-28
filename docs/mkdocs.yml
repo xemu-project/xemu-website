@@ -22,7 +22,7 @@ theme:
   include_search_page: false
   search_index_only: true
   logo:
-  favicon: /xemu_192x192.png
+  favicon: https://github.com/xemu-project/xemu-website/raw/master/resources/xemu_192x192.png
 
 extra:
   homepage: https://xemu.app
