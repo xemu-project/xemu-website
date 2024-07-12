@@ -30,6 +30,15 @@ Unfortunately we can't legally ship the original Xbox dashboard, so what you're 
 #### Q: I loaded an ISO, but I'm still getting `Please insert an Xbox disc...`
 Try restarting xemu. If you continue to get the message, your ISO may not be dumped in a compatible way. See [this page](disc-images.md) for instructions on how to create a compatible disc image.
 
+#### Q: I loaded an ISO, but I'm getting `You need to connect the DVD Playback Kit receiver kit to a controller port to watch movies` on the Xbox dashboard.
+You've loaded a "redump" style ISO. xemu does not support this format yet. You can however convert a redump style ISO to a compatible ISO. More info [here](<https://xemu.app/docs/disc-images/#about-redump-isos>).
+
+#### Q: Does xemu support "redump" style ISOs?
+No, not yet. You can however convert a redump style ISO to a compatible ISO. More info [here](<https://xemu.app/docs/disc-images/#about-redump-isos>).
+
+#### Q: Does xemu support compressed ISO formats like "CHD"?
+No, it does not. You can try enabling filesystem level compression if you'd like to save some space.
+
 #### Q: Is there a game compatibility list?
 Yes, visit https://xemu.app
 
@@ -41,12 +50,6 @@ There are multiple reasons why a game might not work, including various system i
 
 #### Q: Does xemu run my game's `default.xbe`?
 No, not directly. xemu emulates the hardware of the system, so you'll need to have a disc image of your game backup. See [this page](disc-images.md) for instructions on how to create a compatible disc image.
-
-#### Q: Does xemu support "redump" style ISOs?
-No, not yet. You can however convert a redump style ISO to a compatible ISO. More info [here](<https://xemu.app/docs/disc-images/#about-redump-isos>).
-
-#### Q: Does xemu support compressed ISO formats like "CHD"?
-No, it does not. You can try enabling filesystem level compression if you'd like to save some space.
 
 #### Q: Why am I getting an `Assertion failed!` message?
 When a game exercises a piece of code in xemu that has not yet been implemented or verified, xemu will `assert`  which forces execution to stop. The reason for this is that anything happening beyond that point may be unpredictable and significantly increase the debugging burden.
