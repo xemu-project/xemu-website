@@ -95,7 +95,7 @@ Many Xbox games also support System Link for LAN-based multiplayer. xemu does su
 #### Q: Why do I see a System Link lobby but can't join it?
 Make sure you and the people you're playing with have the same version of a game AND each console has a unique MAC address. The console's MAC address is stored in the EEPROM, so you can edit the EEPROM or delete it to have xemu generate a new one with a randomized MAC address. Warning: Game saves may be tied to the HDD key, so create a backup before deleting the EEPROM.
 
-#### Q: Does xemu work with Xbox Live recreation projects, like "Insigina"?
+#### Q: Does xemu work with Xbox Live recreation projects, like "Insignia"?
 Yes. See [this page](networking.md) for details about networking. See respective project pages for details about getting set up on their network.
 
 #### Q: Why are my game saves not working?
