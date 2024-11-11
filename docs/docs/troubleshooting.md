@@ -22,7 +22,7 @@ To enable write permissions for the hard drive file xbox_hdd.qcow2, you need to 
 
 `sudo flatpak override app.xemu.xemu --filesystem="$HOME/savedgames/xemu/`
 
-Notes: This step is not necessary for other system files, such as the BIOS or the MCPX ROM. Additionally, root permission is required when executing the `flatpak override` command; therefore `flatpak override app.xemu.xemu --user --filesystem="$HOME/savedgames/xemu/` will be effective.
+Notes: This step is not necessary for other system files, such as the BIOS or the MCPX ROM. Additionally, root permission is required when executing the `flatpak override` command; therefore `flatpak override app.xemu.xemu --user --filesystem="$HOME/savedgames/xemu/` will not be effective.
 
 ## Windows Compatibility Issues
 
