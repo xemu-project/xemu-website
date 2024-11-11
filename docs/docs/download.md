@@ -57,8 +57,7 @@ Supported architectures: x86_64 and aarch64
 !!! warning "Accessible Directories"
 
 	When using the flatpak installation method, only the `~/.var/app/app.xemu.xemu/data/xemu/xemu` directory can be written to by xemu. The Hard Disk image must be placed there, for example at `~/.var/app/app.xemu.xemu/data/xemu/xemu/xbox_hdd.qcow2`.
-	
-	If you want to whitelist additional directories, you can do so with `sudo flatpak override app.xemu.xemu --filesystem="$HOME/savedgames/xemu/`, replacing it with your specific path.
+	If you want to whitelist additional directories, you can do so with [do so with `flatpak override`](troubleshooting.md#flatpak-release-will-not-load-the-hard-drive).
 
 ### Ubuntu PPA
 
