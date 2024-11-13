@@ -25,7 +25,7 @@ Notes: This step is not necessary for other system files, such as the BIOS or th
 With flatpak:
 1. `sudo flatpak override app.xemu.xemu --filesystem="$HOME/savedgames/xemu/`
 
-Note: Root permission is required when executing the `flatpak override` command; therefore `flatpak override app.xemu.xemu --user --filesystem="$HOME/savedgames/xemu/` will not be effective.
+Note: Using the same command non-root with the `flatpak --user` parameter will not work.
 
 With flatseal:
 1. Install [Flatseal](https://flathub.org/apps/details/com.github.tchx84.Flatseal)
