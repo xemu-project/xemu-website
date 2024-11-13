@@ -14,20 +14,16 @@ Please check the [list of frequently asked questions](faq.md).
 
 ## Flatpak release will not load the Hard Drive
 
-Flatpak programs are normally sandboxed, restricting their access to the filesystem.
+As explained in the [readme](https://github.com/flathub/app.xemu.Xemu?tab=readme-ov-file#usage): Only `$HOME/.var/app/app.xemu.xemu/data/xemu/xemu` can be written by xemu. The Hard Disk image has to be placed there, for example, at `$HOME/.var/app/app.xemu.xemu/data/xemu/xemu/xbox_hdd.qcow2`. To enable write permissions for the xbox_hdd.qcow2 hard drive file located outside xemu's flatpak system directory, you must grant xemu access to write in an alternative directory. This can be accomplished using either flatpak or flatseal.
 
-By default, xemu can only access `~/.var/app/app.xemu.xemu/data/xemu/xemu`
+Note: This step is not necessary for other system files, such as the BIOS or the MCPX ROM.
 
-To enable write permissions for the hard drive file xbox_hdd.qcow2, you need to grant xemu access to write in a different directory. To proceed, use either flatpak or flatseal, described below:
-
-Notes: This step is not necessary for other system files, such as the BIOS or the MCPX ROM.
-
-With flatpak:
+### Flatpak
 1. `sudo flatpak override app.xemu.xemu --filesystem="$HOME/savedgames/xemu/`
 
 Note: Using the same command non-root with the `flatpak --user` parameter will not work.
 
-With flatseal:
+### Flatseal
 1. Install [Flatseal](https://flathub.org/apps/details/com.github.tchx84.Flatseal)
 2. Select <kbd>app.xemu.xemu</kbd>
 3. In the <kbd>Filesystem</kbd> section, allow access to the folders your BIOS / MCPX / Hard Drive Image are in
