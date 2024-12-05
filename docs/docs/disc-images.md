@@ -38,24 +38,6 @@ The recommended tool for creating and extracting XISO images is xdvdfs. This too
     apply the patch yourself, or use a BIOS
     that does this for you (such as m8plus).
 
-If you have downloaded your game files over FTP to a directory, the directory
-structure will look something like this:
-
-```
-game/
-  default.xbe
-  data/
-    image.tga
-```
-
-You can run:
-
-```bash
-extract-xiso -c game
-```
-
-game.iso will be produced. This can be used with xemu.
-
 ### Qwix (GUI)
 
 [Qwix](https://avalaunch.net/qwix/) is a popular GUI based tool for creating
@@ -78,7 +60,7 @@ typically ~7GB in size.
 
 xemu is not currently compatible with this format, but you can extract the
 second partition of the disc image for use with xemu.
-You can do this with utilities such as `xdvdfs`, `dd`, `extract-xiso` or `fallocate` on supported systems.
+You can do this with utilities such as `xdvdfs`, `dd`, or `fallocate` on supported systems.
 
 === "Using `xdvdfs`"
     The [webapp](https://xiso.antangelo.com/) tool is capable of repacking or extracting most redump ISO images
@@ -97,14 +79,6 @@ You can do this with utilities such as `xdvdfs`, `dd`, `extract-xiso` or `falloc
     ```
 
     You can then use the `game.iso` with xemu.
-
-=== "Using `extract-xiso`"
-    ```
-    extract-xiso -r game-redump.iso
-    ```
-
-    You can then use `game-redump.iso` with xemu. Your original will be
-    `game-redump.iso.old`.
 
 === "Using `fallocate`"
     This will truncate the original file in-place:
