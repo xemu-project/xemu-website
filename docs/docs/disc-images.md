@@ -38,16 +38,6 @@ The recommended tool for creating and extracting XISO images is xdvdfs. This too
     apply the patch yourself, or use a BIOS
     that does this for you (such as m8plus).
 
-### extract-xiso (Command Line)
-
-[extract-xiso](https://github.com/XboxDev/extract-xiso) is a command-line tool
-to create Xbox-compatible disc images.
-
-!!! warning
-
-    Use only 32-bit builds of extract-xiso. 64-bit builds can cause subtle
-    issues resulting in dirty disc errors.
-
 If you have downloaded your game files over FTP to a directory, the directory
 structure will look something like this:
 
