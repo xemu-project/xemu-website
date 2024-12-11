@@ -19,7 +19,7 @@ As explained in the [readme](https://github.com/flathub/app.xemu.Xemu?tab=readme
 Note: This step is not necessary for other system files, such as the BIOS or the MCPX ROM.
 
 ### Flatpak
-1. `sudo flatpak override app.xemu.xemu --filesystem="$HOME/savedgames/xemu/`
+1. `flatpak override app.xemu.xemu --user --filesystem="$HOME/savedgames/xemu/`
 
 Note: Using the same command non-root with the `flatpak --user` parameter will not work.
 
