@@ -87,3 +87,49 @@ You can do this with utilities such as `xdvdfs`, `dd`, or `fallocate` on support
     ```
 
     You can then use the `game.iso` with xemu.
+
+## Converting Digital Xbox 360 backwards compatible titles
+
+You can use backwards compatible titles that are on the Xbox 360 digital marketplace. You cannot rip a physical original Xbox game without a mod on the Xbox 360 which won't be specified here. If you have digital versions of the original Xbox games then follow what’s below.
+
+(Windows Requirements) You will need:
+* Xbox 360 on version 17349 or later.
+* USB Flash Drive formatted to FAT32 with enough storage
+* [God2iso](https://github.com/raburton/god2iso/releases) 
+* [Velocity](https://github.com/hetelek/Velocity/releases)
+* [Xiso Creation Software](https://xemu.app/docs/disc-images/#creating-xisos)
+
+**Note: Skip if you have external drive with backwards compatible titles already. But would be preferred if you use a fresh drive since it would be hard to tell between Xbox 360 titles and original Xbox titles at first.**
+
+### Getting games on drive from an Xbox 360
+
+1. Plug in your formatted flash drive or external hdd to the Xbox 360.
+
+2. Copy the game from the dashboard under stoarge in settings or go to the Xbox Marketplace/Purchae History to install the game and select install.
+
+3. Select your formatted storage device and wait until its finished.
+
+4. Preferably with the console powered off, Unplug your external drive.
+
+
+### Windows
+
+1. Plug in drive to the computer.
+
+**Note: If you don’t see a contents folder. Then enable Show hidden files and folders in Windows Explorer.**
+
+2. Once you see the content folder you can copy that folder as a backup or use it in our case to get the files we need.
+
+3. Open the content folder and folder 0000#. You should see folders with numbers and letters. 
+
+**Note: Alternatively, you can avoid this by only storing backward compatible titles in the drive or by copying each game individually.**
+
+4. This is your games list. To proceed, select one of the games and look for a file and a folder that ends with (.data). 
+
+5. Open the file next to the folder with god2iso and select a save location.
+
+6. Once you create the god2iso file, you open the new file you just made and extract it using Velocity.
+
+Now you can use `extract-xiso` or any similar program in [Creating XISOs Section](https://xemu.app/docs/disc-images/#creating-xisos) to create a xiso for xemu or you can transfer those files to a Xbox to boot from. 
+
+**Special thanks to the tutorial on how to convert backwards compatible original Xbox games from Xbox 360 to original Xbox that provided the basis for this [guide](https://www.reddit.com/r/originalxbox/comments/f12psc/comment/fh26eiq/)**
