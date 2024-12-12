@@ -5,7 +5,9 @@ site_description: >-
   A free and open-source application that emulates the original Microsoft
   Xbox game console, enabling people to play their original Xbox games on
   Windows, macOS, and Linux systems.
-copyright: Copyright &copy; 2020 - 2023 xemu Project
+copyright: Copyright &copy; 2020 - 2024 xemu Project
+repo_url: https://github.com/xemu-project/xemu
+edit_uri: https://github.com/xemu-project/xemu-website/edit/master/docs/docs/
 
 extra_css:
   - stylesheets/extra.css
@@ -15,11 +17,12 @@ theme:
   features:
     - navigation.sections
     - navigation.instant
+    - content.action.edit
   # Don't include MkDocs' JavaScript
   include_search_page: false
   search_index_only: true
   logo:
-  favicon:
+  favicon: https://github.com/xemu-project/xemu-website/raw/master/resources/xemu_192x192.png
 
 extra:
   homepage: https://xemu.app
@@ -32,6 +35,8 @@ extra:
     link: https://www.patreon.com/mborgerson
   - icon: fontawesome/brands/discord
     link: https://discord.gg/ayyjsuM
+  - icon: fontawesome/brands/youtube
+    link: https://www.youtube.com/channel/UCrT8NawDTt5gJnMMe9uUg-Q/featured
 
 markdown_extensions:
   - admonition
@@ -51,8 +56,8 @@ markdown_extensions:
   - pymdownx.critic
   - pymdownx.details
   - pymdownx.emoji:
-      emoji_index: !!python/name:materialx.emoji.twemoji
-      emoji_generator: !!python/name:materialx.emoji.to_svg
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
   - pymdownx.highlight
   - pymdownx.inlinehilite
   - pymdownx.keys
@@ -72,7 +77,7 @@ markdown_extensions:
 nav:
   - Home: https://xemu.app
   - Compatibility: https://xemu.app/#compatibility
-  - Documentation: /docs/
+  - Documentation: https://xemu.app/docs/
   - GitHub: https://github.com/xemu-project/xemu
   - Patreon: https://www.patreon.com/mborgerson
   - About: about.md
@@ -101,6 +106,7 @@ nav:
         - Host Debugging: dev/debug/host.md
         - Guest Debugging: dev/debug/guest.md
         - Graphics Debugging: dev/debug/graphics.md
+    - Testing: testing.md
 
 plugins:
   - search

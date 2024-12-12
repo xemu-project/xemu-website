@@ -1,12 +1,8 @@
-<center>
-[![Chat Badge](https://img.shields.io/badge/Chat-xemu%20Discord%20Server-7289DA?logo=Discord&logoColor=white)](https://discord.gg/ayyjsuM)
-[![YouTube Badge](https://img.shields.io/badge/Videos-YouTube-red?logo=YouTube&logoColor=white)](https://www.youtube.com/channel/UCrT8NawDTt5gJnMMe9uUg-Q/featured)
-[![Twitter Badge](https://img.shields.io/badge/Twitter-%40xemu__project-blue?logo=Twitter&logoColor=white)](https://twitter.com/xemu_project)
-</center>
-
 xemu is free and open-source software that emulates the [original Microsoft Xbox game console](https://en.wikipedia.org/wiki/Xbox_(console)), enabling people to play their original Xbox games on Windows, macOS, and Linux systems.
 
 !!! warning "Disclaimer"
+
+    This project is an independent open source emulation effort and is not endorsed by, directly affiliated with, maintained, authorized, or sponsored by Microsoft Corporation. All product and company names are the registered trademarks of their original owners. The use of any trade name or trademark is for identification and reference purposes only and does not imply any association with the trademark holder of their product brand.
 
     This project is for educational purposes only, with the goal of researching
     and understanding the inner-workings of the original Xbox and its games, and

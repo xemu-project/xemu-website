@@ -34,7 +34,7 @@ There are multiple options for running xemu on your Linux system.
 
 Supported architectures: x86_64
 
-[Download AppImage for Linux (x86_64)](https://github.com/xemu-project/xemu/releases/download/v{{xemu_version}}/xemu-v{{xemu_version}}-x86_64.AppImage){ .md-button .md-button--secondary }
+[Download AppImage for :fontawesome-brands-linux: Linux (x86_64)](https://github.com/xemu-project/xemu/releases/download/v{{xemu_version}}/xemu-v{{xemu_version}}-x86_64.AppImage){ .md-button .md-button--secondary }
 
 !!! info "Running the AppImage"
 
@@ -57,14 +57,13 @@ Supported architectures: x86_64 and aarch64
 !!! warning "Accessible Directories"
 
 	When using the flatpak installation method, only the `~/.var/app/app.xemu.xemu/data/xemu/xemu` directory can be written to by xemu. The Hard Disk image must be placed there, for example at `~/.var/app/app.xemu.xemu/data/xemu/xemu/xbox_hdd.qcow2`.
-	
-	If you want to whitelist additional directories, you can [do so with Flatseal](troubleshooting.md#flatpak-release-will-not-load-bios-mcpx-rom-hard-drive).
+	If you want to whitelist additional directories, you can [do so with `flatseal` or `flatpak override`](troubleshooting.md#flatpak-release-will-not-load-the-hard-drive).
 
 ### Ubuntu PPA
 
 Supported architectures: x86_64 and aarch64
 
-Users running recent versions of Ubuntu (20.04 and newer) are recommended to install through the daily build PPA repository. At the command line, run the following:
+Users running recent versions of Ubuntu (22.04 and newer) are recommended to install through the daily build PPA repository. At the command line, run the following:
 
 ```sh
 sudo add-apt-repository ppa:mborgerson/xemu

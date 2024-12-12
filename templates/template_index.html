@@ -13,6 +13,17 @@
   margin: -5rem 0 0; /* negative fixed header height */
 }
 
+#xbox-scene {
+  position: relative;
+  padding-bottom: 100%;
+  border: none;
+}
+
+#xbox-scene canvas {
+  position: absolute;
+  max-width: 100%;
+  height: auto;
+}
 
 #logo-canvas {
   display: block;
@@ -33,9 +44,27 @@
   left: 0;
   top: 0;
 }
-
 .jumbotron {
   position: relative;
+  display:flex;
+  flex-direction:column;
+}
+
+
+.disclaimer-container {
+  align-self: bottom;
+  z-index: 10;
+}
+
+.disclaimer {
+  color:  #bbb;
+  background-color: rgba(0.2,0.2,0.2,0.6);
+  padding: 0.5em;
+  font-size: 0.9em;
+}
+
+.project-info {
+  margin: auto;
 }
 
 @media only screen and (min-width: 768px)
@@ -143,12 +172,12 @@
 {% block jumbotron %}
 <div class="jumbotron d-flex align-items-center min-vh-100">
   <div id="bg-scene"></div>
-  <div class="container">
+  <div class="container project-info py-5">
   <div class="row mt-5">
     <div class="col-md-6 mt-4 pb-5 pb-md-0 text-center">
-      <img src="xbox_logo.png" id="xbox-logo" class="img-fluid" width=450 />
+      <div id="xbox-scene"></div>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-6 my-auto">
       <h1 class="display-3">
         <canvas id="logo-canvas" class="gl-logo"></canvas>
         <img id="logo-fallback" alt="xemu logo" src="/logo-green-jumbotron.svg" style="height: 1.03em;">
@@ -180,8 +209,17 @@
           <br />
           <a href="/docs/download" id="download-options" style="display: none">Alternative download options</a>
         </div>
+
       </div>
+
+
     </div>
+  </div>
+  </div>
+
+  <div class="disclaimer-container">
+    <div class="container text-center mx-auto disclaimer">
+    <b>Disclaimer:</b> This project is an independent open source emulation effort and is not endorsed by, directly affiliated with, maintained, authorized, or sponsored by Microsoft Corporation. All product and company names are the registered trademarks of their original owners. The use of any trade name or trademark is for identification and reference purposes only and does not imply any association with the trademark holder of their product brand.
   </div>
   </div>
 </div>
@@ -194,7 +232,7 @@
     <img src="linux_title_bar_dark_2x.png" class="screenshot-titlebar" />
     <div id="screenshot-carousel" class="carousel slide" data-ride="carousel">
       <div class="carousel-inner">
-        {% for i in range(6) %}
+        {% for i in range(7) %}
         <div class="carousel-item {% if i<1 %}active{% endif %}">
           <img src="/screenshots/{{ i }}.jpg" class="img-fluid lazy" />
         </div>
@@ -321,20 +359,43 @@ if (platform != undefined) {
 }
 </script>
 
-<script type="text/javascript" src="three.min.js"></script>
-<script type="text/javascript">
+
+<script type="importmap">
+  {
+    "imports": {
+      "three": "./three/three.module.js",
+      "three/addons/": "./three/"
+    }
+  }
+</script>
+
+<script type="text/javascript" src="gl_logo.js"></script>
+
+<script type="module">
+import * as THREE from 'three';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { DRACOLoader } from 'three/addons/loaders/DRACOLoader.js';
+import { ArcballControls } from 'three/addons/controls/ArcballControls.js';
+
+const gltf_loader = new GLTFLoader();
+const draco_loader = new DRACOLoader();
+draco_loader.setDecoderPath( 'three/loaders/' );
+draco_loader.setDecoderConfig( { type: 'js' } );
+gltf_loader.setDRACOLoader( draco_loader );
+
 var canvas = document.querySelector('#bg-scene');
 var scene = new THREE.Scene();
 var camera = new THREE.PerspectiveCamera( 74.5, canvas.offsetWidth/canvas.offsetHeight, 0.1, 1000 );
 scene.fog = new THREE.Fog('black', 0.2, 2.45);
 scene.background = new THREE.Color('black');
 
-var renderer = new THREE.WebGLRenderer();
+var renderer = new THREE.WebGLRenderer({ antialias: true });
 renderer.setSize( canvas.offsetWidth, canvas.offsetHeight );
 renderer.setPixelRatio( window.devicePixelRatio );
 canvas.appendChild( renderer.domElement );
 
 const texture = new THREE.TextureLoader().load("mesh_pattern.svg");
+texture.colorSpace = THREE.SRGBColorSpace;
 texture.wrapS = THREE.RepeatWrapping;
 texture.wrapT = THREE.RepeatWrapping;
 texture.repeat.set( 50, -25 );
@@ -343,28 +404,143 @@ const geometry = new THREE.SphereGeometry( 1, 50, 25 );
 var material = new THREE.MeshBasicMaterial( { map: texture, side: THREE.BackSide } );
 var sphere = new THREE.Mesh( geometry, material );
 scene.add( sphere );
+
 camera.position.z = 0.65;
 camera.position.x = 0.12;
 
 var clock = new THREE.Clock();
-var render = function () {
-  requestAnimationFrame( render );
+var sphere_render = function () {
   var t = clock.getElapsedTime();
-  sphere.rotation.y = (Math.PI/10) * Math.sin(t * Math.PI / 50);
+  var s = Math.sin(t * Math.PI / 50);
+  sphere.rotation.y = (Math.PI/10) * s;
   renderer.render(scene, camera);
 };
-render();
 window.addEventListener('resize', function(){
     camera.aspect = canvas.offsetWidth/canvas.offsetHeight;
     camera.updateProjectionMatrix();
     renderer.setSize(canvas.offsetWidth, canvas.offsetHeight);
   }, false);
+
+var xbox_canvas = document.querySelector('#xbox-scene');
+var xbox_scene = new THREE.Scene();
+// xbox_scene.background = new THREE.Color('black');
+
+var xbox_camera = new THREE.PerspectiveCamera( 42.5, xbox_canvas.offsetWidth/xbox_canvas.offsetHeight, 0.1, 1000 );
+
+var xbox_renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+xbox_renderer.setSize( xbox_canvas.offsetWidth, xbox_canvas.offsetHeight );
+xbox_renderer.setPixelRatio( window.devicePixelRatio );
+xbox_canvas.appendChild( xbox_renderer.domElement );
+
+var xbox = null;
+var xbox_scale = 1;
+var xbox_sphere_radius = 0.23 * xbox_scale;
+var xbox_base_color = new THREE.Color(0xA0B020);
+var xbox_bright_color = new THREE.Color(0xD4E830);
+var xbox_material = new THREE.MeshStandardMaterial( {
+  color: xbox_base_color,
+  transparent: true,
+  opacity: 0.25,
+  depthTest: false,
+  roughness: 0,
+});
+
+gltf_loader.load('xbox.glb', function ( gltf ) {
+  xbox = gltf.scene;
+  xbox.renderOrder = 10;
+  xbox.scale.set(xbox_scale, xbox_scale, xbox_scale);
+  xbox.position.set(0,0.05,0);
+  xbox.rotation.x = 0.14 * Math.PI;
+  xbox.rotation.z = -0.02 * Math.PI;
+  var order = 0;
+  xbox.traverse((o) => {
+    if (o.isMesh) {
+      o.material = xbox_material;
+      o.renderOrder = order;
+      order += 1;
+    }
+  });
+  xbox_scene.add(xbox);
+});
+
+const xbox_orb_geometry = new THREE.SphereGeometry( xbox_sphere_radius, 50, 25 );
+var xbox_orb_material = new THREE.ShaderMaterial( {
+      // https://jsfiddle.net/8n36c47p/4/
+      vertexShader: `
+        varying vec3 vPositionW;
+        varying vec3 vNormalW;
+        void main() {
+         vPositionW = vec3( vec4( position, 1.0 ) * modelMatrix);
+         vNormalW = normalize( vec3( vec4( normal, 0.0 ) * modelMatrix ) );
+         gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );
+        }`,
+      fragmentShader: `
+        varying vec3 vPositionW;
+        varying vec3 vNormalW;
+        void main() {
+         vec3 color = vec3(0.5, 1.0, 0.3);
+         vec3 base = vec3(0.1, 0.6, 0.05);
+         vec3 viewDirectionW = normalize(cameraPosition - vPositionW);
+         float f = clamp(pow(1.0 - dot(viewDirectionW, vNormalW), 1.3), 0.0, 1.);
+         gl_FragColor = vec4(mix(base, color, f), f * 0.5);
+        }`,
+      transparent: true,
+    });
+
+var xbox_orb = new THREE.Mesh( xbox_orb_geometry, xbox_orb_material );
+xbox_orb.renderOrder = 0;
+xbox_scene.add( xbox_orb );
+
+var light_color = new THREE.Color(1,1,1);
+
+const ambient_light = new THREE.AmbientLight(light_color, 2);
+xbox_scene.add(ambient_light);
+
+var point_light = new THREE.PointLight(light_color, 5);
+point_light.position.set(-1, -0.5, 0.25);
+xbox_scene.add(point_light);
+
+xbox_camera.position.z = 0.65;
+
+var xbox_render = function () {
+  var t = clock.getElapsedTime();
+  var s = Math.sin(t * Math.PI / 50);
+  if (xbox != null) {
+    xbox.rotation.y = Math.PI * (0.1 + s / 10);
+    var new_color = new THREE.Color(xbox_base_color);
+    new_color.lerp(xbox_bright_color, Math.abs(Math.sin(t * Math.PI / 4 )));
+    xbox_material.color.set(new_color);
+  }
+  xbox_renderer.render(xbox_scene, xbox_camera);
+};
+
+var render = function () {
+  requestAnimationFrame( render );
+  sphere_render();
+  xbox_render();
+  logo_render(clock.getElapsedTime());
+};
+render();
+
+const controls = new ArcballControls( xbox_camera, xbox_renderer.domElement, xbox_scene );
+
+controls.addEventListener( 'change', function () {
+  xbox_renderer.render( xbox_scene, xbox_camera );
+} );
+
+controls.update();
+
+window.addEventListener('resize', function(){
+    xbox_camera.aspect = xbox_canvas.offsetWidth/xbox_canvas.offsetHeight;
+    xbox_camera.updateProjectionMatrix();
+    xbox_renderer.setSize(xbox_canvas.offsetWidth, xbox_canvas.offsetHeight);
+  }, false);
 </script>
-<script type="text/javascript" src="gl_logo.js"></script>
+
 <script type="text/javascript">
 function updateNavbarTransparency() {
   var nav = $(".navbar");
-  var t = $(document).scrollTop() < $("#xbox-logo").offset().top - nav.height();
+  var t = $(document).scrollTop() < $("#xbox-scene").offset().top - nav.height();
   nav.toggleClass('navbar-transparent', t);
 }
 $(document).scroll(updateNavbarTransparency);

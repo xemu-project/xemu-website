@@ -60,11 +60,11 @@ forwarding and FTP access [here](ftp.md).
 
 * Ensure all MAC addresses are unique. If you are using an EEPROM dumped from your real Xbox, xemu and your Xbox will have the same MAC address. You'll need to change one of them. You can blank the EEPROM line in xemu's Settings window to have it generate a new one for you, or you can use the [EEPROM editor](https://github.com/Ernegien/XboxEepromEditor) to change it.
 * Ensure the game versions/regions/updates between the people playing are the same.
-* If you are on Windows, ensure you're using the new [npcap](https://nmap.org/npcap/), not the older WinPcap.
+* If you are on Windows, ensure you're using the new [npcap](https://nmap.org/npcap/) with WinPcap API-compatible mode, not the older WinPcap.
 * Some Realtek cards have been known to be problematic. Try reinstalling your driver or use an alternative adapter.
 
 ### My network adapter is not listed
-* If you are on Windows, ensure you're using the new [npcap](https://nmap.org/npcap/), not the older WinPcap.
+* If you are on Windows, ensure you're using the new [npcap](https://nmap.org/npcap/) with WinPcap API-compatible mode, not the older WinPcap.
 
 ### Bridged Adapter Permission Problems
 

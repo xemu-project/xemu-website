@@ -12,14 +12,16 @@ Please check the [list of frequently asked questions](faq.md).
 
 * Surround Sound isn't supported in xemu yet, you should disable this in your [EEPROM](eeprom.md) if you have enabled it.
 
-## Flatpak release will not load BIOS / MCPX ROM / Hard Drive
+## Flatpak release will not load the Hard Drive
 
-Flatpak programs are normally sandboxed, restricting their access to the filesystem.
+As explained in the [readme](https://github.com/flathub/app.xemu.Xemu?tab=readme-ov-file#usage): Only `$HOME/.var/app/app.xemu.xemu/data/xemu/xemu` can be written by xemu. The Hard Disk image has to be placed there, for example, at `$HOME/.var/app/app.xemu.xemu/data/xemu/xemu/xbox_hdd.qcow2`. To enable write permissions for the xbox_hdd.qcow2 hard drive file located outside xemu's flatpak system directory, you must grant xemu access to write in an alternative directory. This can be accomplished using either flatpak or flatseal.
 
-By default, xemu can only access `~/.var/app/app.xemu.xemu/data/xemu/xemu`
+Note: This step is not necessary for other system files, such as the BIOS or the MCPX ROM.
 
-If you want to allow xemu access to other folders, then:
+### Flatpak
+1. `flatpak override app.xemu.xemu --user --filesystem="$HOME/savedgames/xemu/`
 
+### Flatseal
 1. Install [Flatseal](https://flathub.org/apps/details/com.github.tchx84.Flatseal)
 2. Select <kbd>app.xemu.xemu</kbd>
 3. In the <kbd>Filesystem</kbd> section, allow access to the folders your BIOS / MCPX / Hard Drive Image are in

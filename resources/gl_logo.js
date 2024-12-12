@@ -1,7 +1,3 @@
-;(function(){
-"use strict"
-window.addEventListener("load", setupWebGL, false);
-
 var gl, program;
 var time_loc;
 var buffer;
@@ -11,7 +7,7 @@ var restart_anim = true;
 var last_started = 0;
 var loaded = false;
 
-var vert_src = `
+var logo_vert_src = `
 
 #version 100
 attribute vec2 in_Position;
@@ -24,7 +20,7 @@ void main() {
 
 `;
 
-var frag_src = `
+var logo_frag_src = `
 
 #version 100
 precision highp float;
@@ -210,12 +206,12 @@ void main()
 
 `;
 
-function reset_time() {
+function logo_reset_time() {
   restart_anim = true;
 }
 
 // https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API/Tutorial/Using_textures_in_WebGL
-function loadTexture(gl, url) {
+function logo_loadTexture(gl, url) {
   const texture = gl.createTexture();
   gl.bindTexture(gl.TEXTURE_2D, texture);
   const level = 0;
@@ -260,13 +256,23 @@ function isPowerOf2(value) {
   return (value & (value - 1)) == 0;
 }
 
-function setupWebGL (evt) {
-  window.removeEventListener(evt.type, setupWebGL, false);
-  if (!(gl = getRenderingContext()))
+function logo_getRenderingContext() {
+  var canvas = document.querySelector("#logo-canvas");
+  canvas.width = 512;
+  canvas.height = 512;
+  var gl = canvas.getContext("webgl");
+  if (!gl) {
+    return null;
+  }
+  return gl;
+}
+
+function logo_setupWebGL() {
+  if (!(gl = logo_getRenderingContext()))
     return;
 
   var vertexShader = gl.createShader(gl.VERTEX_SHADER);
-  gl.shaderSource(vertexShader, vert_src);
+  gl.shaderSource(vertexShader, logo_vert_src);
   gl.compileShader(vertexShader);
   if (!gl.getShaderParameter(vertexShader, gl.COMPILE_STATUS)) {
     var err_str = gl.getShaderInfoLog(vertexShader);
@@ -275,7 +281,7 @@ function setupWebGL (evt) {
   }
 
   var fragmentShader = gl.createShader(gl.FRAGMENT_SHADER);
-  gl.shaderSource(fragmentShader, frag_src);
+  gl.shaderSource(fragmentShader, logo_frag_src);
   gl.compileShader(fragmentShader);
   if (!gl.getShaderParameter(fragmentShader, gl.COMPILE_STATUS)) {
     var err_str = gl.getShaderInfoLog(fragmentShader);
@@ -308,25 +314,27 @@ function setupWebGL (evt) {
   var pos_attr_loc = gl.getAttribLocation(program, "in_Position");
   gl.vertexAttribPointer(pos_attr_loc, 2, gl.FLOAT, false, 2*4, 0);
   gl.enableVertexAttribArray(pos_attr_loc);
-  var tex = loadTexture(gl, "logo_sdf.png")
+  var tex = logo_loadTexture(gl, "logo_sdf.png")
   var tex_loc = gl.getUniformLocation(program, "tex");
   time_loc = gl.getUniformLocation(program, "iTime");
   gl.useProgram(program);
   gl.viewport(0, 0, gl.canvas.width, gl.canvas.height);
-  requestAnimationFrame(render);
 }
 
-function render(ts) {
-  if (!loaded) {
-    requestAnimationFrame(render);
+var initialized = false;
+
+function logo_render(ts) {
+  if (!initialized) {
+    logo_setupWebGL();
+    initialized = true;
+  }
+  if (!(gl = logo_getRenderingContext())) {
     return;
   }
-  if (!(gl = getRenderingContext()))
-    return;
   if (pending_disable_fallback) {
     document.getElementById("logo-canvas").style.visibility = "visible";
     document.getElementById("logo-fallback").style.visibility = "hidden";
-    document.getElementById("logo-canvas").onclick = reset_time;
+    document.getElementById("logo-canvas").onclick = logo_reset_time;
     pending_disable_fallback = false;
   }
   gl.clearColor(0, 0, 0, 0);
@@ -335,19 +343,7 @@ function render(ts) {
     last_started = ts;
     restart_anim = false;
   }
-  gl.uniform1f(time_loc, (ts-last_started)/1000.0);
+  gl.uniform1f(time_loc, (ts-last_started));
   gl.drawElements(gl.TRIANGLE_FAN, 4, gl.UNSIGNED_BYTE, 0);
-  requestAnimationFrame(render);
+  gl.finish();
 }
-
-function getRenderingContext() {
-  var canvas = document.querySelector("#logo-canvas");
-  canvas.width = 512;
-  canvas.height = 512;
-  var gl = canvas.getContext("webgl");
-  if (!gl) {
-    return null;
-  }
-  return gl;
-}
-})();
