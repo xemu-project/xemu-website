@@ -93,10 +93,10 @@ You can do this with utilities such as `xdvdfs`, `dd`, or `fallocate` on support
 You can use backwards compatible titles that are on the Xbox 360 digital marketplace. You cannot rip a physical original Xbox game without a mod on the Xbox 360 which won't be specified here. If you have digital versions of the original Xbox games then follow what’s below.
 
 (Windows Requirements) You will need:
-* An unmodded Xbox 360 on version 17349 or later.
+* Xbox 360 on version 17349 or later.
 * USB Flash Drive formatted to FAT32 with enough storage
-* God2iso 
-* Velocity
+* [God2iso](https://github.com/raburton/god2iso/releases) 
+* [Velocity](https://github.com/hetelek/Velocity/releases)
 * Xiso creator program (qwix, extract-xiso, etc)
 
 **Note: Skip if you have external drive with backwards compatible titles already. But would be preferred if you use a fresh drive since it would be hard to tell between Xbox 360 titles and original Xbox titles at first.**
@@ -105,14 +105,14 @@ You can use backwards compatible titles that are on the Xbox 360 digital marketp
 
 1. Plug in your formatted flash drive or external hdd to the Xbox 360.
 
-2. Go to the Xbox Marketplace to install the game and select install or you can copy the game from the dashboard.
+2. Copy the game from the dashboard under stoarge in settings or go to the Xbox Marketplace/Purchae History to install the game and select install.
 
-3. Select your formatted storage device.
+3. Select your formatted storage device and wait until its finished.
 
-4. Turn off console and unplug your external drive.
+4. Preferably with the console powered off, Unplug your external drive.
 
 
-### Windows process
+### Windows
 
 1. Plug in drive to the computer.
 
@@ -122,12 +122,14 @@ You can use backwards compatible titles that are on the Xbox 360 digital marketp
 
 3. Open the content folder and folder 0000#. You should see folders with numbers and letters. 
 
-4. This is your games list and you should go into one of them until you see a file and a folder that ends with (.data).
+**Note: Alternatively, you can avoid this by only storing backward compatible titles in the drive or by copying each game individually.**
 
-5. Open the file that’s next to the folder with god2iso and choose a area to save.
+4. This is your games list. To proceed, select one of the games and look for a file and a folder that ends with (.data). 
 
-6. Once the god2iso file was made, you open the new file you just made and extract with velocity.
+5. Open the file next to the folder with god2iso and select a save location.
+
+6. Once you create the god2iso file, you open the new file you just made and extract it using Velocity.
 
 Now you can use `extract-xiso ` or similar program to create a xiso for xemu or you can transfer those files to a Xbox to boot from. 
 
-(Special thanks for the how to convert backwards compatible original xbox games from xbox 360 to original xbox tutorial that helped shape this one: https://www.reddit.com/r/originalxbox/comments/f12psc/comment/fh26eiq/)
+((Special thanks to the tutorial on how to convert backwards compatible original Xbox games from Xbox 360 to original Xbox that provided the basis for this guide: https://www.reddit.com/r/originalxbox/comments/f12psc/comment/fh26eiq/)
