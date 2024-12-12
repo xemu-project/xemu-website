@@ -97,7 +97,7 @@ You can use backwards compatible titles that are on the Xbox 360 digital marketp
 * USB Flash Drive formatted to FAT32 with enough storage
 * [God2iso](https://github.com/raburton/god2iso/releases) 
 * [Velocity](https://github.com/hetelek/Velocity/releases)
-* Xiso creator program (qwix, extract-xiso, etc)
+* [Xiso Creation Software](https://xemu.app/docs/disc-images/#creating-xisos)
 
 **Note: Skip if you have external drive with backwards compatible titles already. But would be preferred if you use a fresh drive since it would be hard to tell between Xbox 360 titles and original Xbox titles at first.**
 
@@ -130,6 +130,6 @@ You can use backwards compatible titles that are on the Xbox 360 digital marketp
 
 6. Once you create the god2iso file, you open the new file you just made and extract it using Velocity.
 
-Now you can use `extract-xiso ` or similar program to create a xiso for xemu or you can transfer those files to a Xbox to boot from. 
+Now you can use `extract-xiso` or any similar program in [Creating XISOs Section](https://xemu.app/docs/disc-images/#creating-xisos) to create a xiso for xemu or you can transfer those files to a Xbox to boot from. 
 
-((Special thanks to the tutorial on how to convert backwards compatible original Xbox games from Xbox 360 to original Xbox that provided the basis for this guide: https://www.reddit.com/r/originalxbox/comments/f12psc/comment/fh26eiq/)
+**Special thanks to the tutorial on how to convert backwards compatible original Xbox games from Xbox 360 to original Xbox that provided the basis for this [guide](https://www.reddit.com/r/originalxbox/comments/f12psc/comment/fh26eiq/)**
