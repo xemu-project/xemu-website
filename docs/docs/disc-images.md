@@ -93,6 +93,7 @@ You can do this with utilities such as `xdvdfs`, `dd`, or `fallocate` on support
 You can use backwards compatible titles that are on the Xbox 360 digital marketplace. You cannot rip a physical original Xbox game without a mod on the Xbox 360 which won't be specified here. If you have digital versions of the original Xbox games then follow what’s below.
 
 (Windows Requirements) You will need:
+
 * Xbox 360 on version 17349 or later.
 * USB Flash Drive formatted to FAT32 with enough storage
 * [God2iso](https://github.com/raburton/god2iso/releases) 
