@@ -26,7 +26,7 @@ Install [VSCode](https://code.visualstudio.com/download){target=_blank} and the 
                 "args": [],
                 "stopAtEntry": false,
                 "cwd": "${workspaceFolder}\\dist",
-                "environment": [],
+                "environment": [{"name": "_NO_DEBUG_HEAP", "value": "1"}],
                 "externalConsole": true,
                 "MIMode": "gdb",
                 "miDebuggerPath": "C:\\msys64\\mingw64\\bin\\gdb.exe",
