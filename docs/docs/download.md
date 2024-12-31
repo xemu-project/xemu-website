@@ -1,6 +1,6 @@
 ## Download for Windows
 
-[Download for :fontawesome-brands-windows: Windows](https://github.com/xemu-project/xemu/releases/latest/download/xemu-win-release.zip){ .md-button .md-button--secondary }
+[Download for :fontawesome-brands-windows: Windows (x86-64)](https://github.com/xemu-project/xemu/releases/latest/download/xemu-win-x86_64-release.zip){ .md-button .md-button--secondary }
 
 ### Installation
 
