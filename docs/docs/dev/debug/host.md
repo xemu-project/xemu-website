@@ -42,6 +42,27 @@ Install [VSCode](https://code.visualstudio.com/download){target=_blank} and the 
     }
     ```
 
+    To build from within VS Code, create a file at `xemu\.vscode\tasks.json` with the following:
+
+    ```json
+    {
+        "version": "2.0.0",
+        "tasks": [
+            {
+                "label": "Build xemu",
+                "type": "shell",
+                "command": "bash.exe -c 'pushd /home/user/xemu; ./build_wrapper.sh'",
+                "options": {},
+                "group": {
+                    "kind": "build",
+                    "isDefault": true
+                },
+                "problemMatcher": []
+            }
+        ]
+    }
+    ```
+
 === "Ubuntu"
 
     Create a file at `xemu/.vscode/launch.json` with the following contents.
