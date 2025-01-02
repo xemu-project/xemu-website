@@ -29,3 +29,7 @@ cp fontawesome-free-5.15.3-web/webfonts/fa-solid-900.woff2 \
 
 docker run --rm -v ${PWD}/docs:/docs squidfunk/mkdocs-material build
 cp -r docs/site dist/docs
+
+# Flathub verification
+mkdir -p dist/.well-known
+echo "b2d8c647-95c2-459d-802b-2373894e32f9" > dist/.well-known/org.flathub.VerifiedApps.txt
