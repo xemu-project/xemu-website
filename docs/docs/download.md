@@ -8,11 +8,7 @@ Simply download the Zip archive release for Windows from the link above, extract
 
 ## Download for macOS
 
-[Download for :fontawesome-brands-apple: macOS](https://github.com/xemu-project/xemu/releases/latest/download/xemu-macos-universal-release.zip){ .md-button .md-button--secondary }
-
-!!! success ":fontawesome-brands-apple: Apple Silicon Compatibility Note"
-
-	This release is a "Universal" binary, and will work on both Intel x86-64 and the new Apple Silicon (M1+) Mac computers.
+[Download for :fontawesome-brands-apple: macOS (Universal)](https://github.com/xemu-project/xemu/releases/latest/download/xemu-macos-universal-release.zip){ .md-button .md-button--secondary }
 
 ### Install Manually
 
