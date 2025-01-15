@@ -73,6 +73,35 @@ Install [VSCode](https://code.visualstudio.com/download){target=_blank} and the 
     }
     ```
 
+=== "macOS"
+
+    Create a file at `xemu/.vscode/launch.json` with the following contents.
+
+    ```json
+    {
+        "version": "0.2.0",
+        "configurations": [
+            {
+                "name": "(lldb) Launch",
+                "type": "cppdbg",
+                "request": "launch",
+                "program": "${workspaceFolder}/dist/xemu.app",
+                "args": [],
+                "stopAtEntry": false,
+                "cwd": "${workspaceFolder}/dist",
+                "externalConsole": false,
+                "MIMode": "lldb",
+                "setupCommands": [
+                    {
+                        "description": "Ignore SIGUSR2",
+                        "text": "process handle -p yes -s no -n no SIGUSR2"
+                    }
+                ],
+            }
+        ]
+    }
+    ```
+
 ## Build & Run
 
 Follow the [build](../building-from-source.md) instructions appending `--debug` to the CLI arguments, open the xemu project directory in VSCode via <kbd>File</kbd> &rarr; <kbd>Open folder...</kbd>, and press `F5` to start debugging.
