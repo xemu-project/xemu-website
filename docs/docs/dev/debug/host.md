@@ -93,8 +93,8 @@ Install [VSCode](https://code.visualstudio.com/download){target=_blank} and the 
                 "MIMode": "lldb",
                 "setupCommands": [
                     {
-                        "text": "process handle -p yes -s no -n no SIGUSR2",
                         "description": "Ignore SIGUSR2",
+                        "text": "process handle -p yes -s no -n no SIGUSR2"
                     }
                 ],
             }
