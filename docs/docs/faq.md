@@ -79,7 +79,7 @@ Just like on a real Xbox, they are stored on the E partition of the virtual hard
 Snapshot data is stored on the hard drive image, and is not easily extractible.
 
 #### Q: How do I use my computer's microphone in game?
-Xbox Live Communicator peripheral emulation is not officially supported yet, but it is in development and will be added soon.
+xemu has preliminary support for Xbox Live Communicator emulation to provide voice chat in-game. See how [here](xblc.md).
 
 #### Q: Can I play local multiplayer?
 Yes, you can connect multiple controllers just like a real Xbox.

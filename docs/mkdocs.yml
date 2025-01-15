@@ -98,6 +98,7 @@ nav:
     - EEPROM Settings: eeprom.md
     - Serial Port: serial-port.md
     - Memory Units (Cards): xmus.md
+    - Xbox Live Communicator: xblc.md
     - Development:
       - Welcome: dev/index.md
       - Building from Source: dev/building-from-source.md
