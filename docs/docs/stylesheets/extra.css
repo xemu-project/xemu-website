@@ -75,6 +75,10 @@
   background-color: transparent;
 }
 
+.md-nav__source {
+  background-color: var(--md-footer-bg-color);
+}
+
 .md-header__topic {
   visibility: hidden;
 }
