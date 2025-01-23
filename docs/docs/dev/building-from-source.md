@@ -53,7 +53,7 @@ open ./dist/xemu.app
     ```bash
     # Install dependencies
     sudo apt update
-    sudo apt install git build-essential libsdl2-dev libepoxy-dev libpixman-1-dev libgtk-3-dev libssl-dev libsamplerate0-dev libpcap-dev ninja-build python3-yaml libslirp-dev
+    sudo apt install git build-essential libsdl2-dev libepoxy-dev libpixman-1-dev libgtk-3-dev libssl-dev libsamplerate0-dev libpcap-dev ninja-build python3-yaml libslirp-dev libvulkan-dev
 
     # Clone and build
     git clone --recurse-submodules https://github.com/xemu-project/xemu.git
