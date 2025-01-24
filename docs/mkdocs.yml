@@ -29,8 +29,6 @@ extra:
   social:
   - icon: fontawesome/brands/github
     link: https://github.com/xemu-project/xemu
-  - icon: fontawesome/brands/twitter
-    link: https://twitter.com/xemu_project
   - icon: fontawesome/brands/patreon
     link: https://www.patreon.com/mborgerson
   - icon: fontawesome/brands/discord
