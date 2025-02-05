@@ -28,7 +28,8 @@ There are multiple options for running xemu on your Linux system.
 
 ### AppImage
 
-[Download AppImage for :fontawesome-brands-linux: Linux (x86_64)](https://github.com/xemu-project/xemu/releases/download/v{{xemu_version}}/xemu-v{{xemu_version}}-x86_64.AppImage){ .md-button .md-button--secondary }
+[Download AppImage for :fontawesome-brands-linux: Linux (x86_64)](https://github.com/xemu-project/xemu/releases/download/v{{xemu_version}}/xemu-v{{xemu_version}}-x86_64.AppImage){ .md-button .md-button--secondary } 
+[Download AppImage for :fontawesome-brands-linux: Linux (aarch64)](https://github.com/xemu-project/xemu/releases/download/v{{xemu_version}}/xemu-v{{xemu_version}}-aarch64.AppImage){ .md-button .md-button--secondary }
 
 !!! info "Running the AppImage"
 
