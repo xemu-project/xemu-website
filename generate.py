@@ -237,6 +237,7 @@ def main():
         'Intro'    : 0,
         'Starts'   : 0,
         'Playable' : 0,
+        'Almost Perfect' : 0,
         'Perfect'  : 0,
     }
 
