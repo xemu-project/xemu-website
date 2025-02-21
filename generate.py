@@ -36,10 +36,11 @@ title_status_descriptions = {
     'Unknown'  : 'A compatibility test has not been recorded for this title.',
     'Broken'   : 'This title crashes very soon after launching, or displays nothing at all.',
     'Intro'    : 'This title displays an intro sequence, but fails to make it to gameplay.',
-    'Starts'   : 'This title starts, but may crash or have significant issues.',
-    'Playable' : 'This title is playable, with minor issues.',
-    'Perfect'  : 'This title is playable from start to finish with no noticable issues.'
-    }
+    'Starts'   : 'This title starts, but may crash, have significant issues, or be unplayable.',
+    'Playable' : 'This title runs but has noticeable issues, graphical, audio, or performance issues that may affect gameplay.',
+    'Almost Perfect' : 'This title is playable with very minor graphical, audio, or performance issues.',
+    'Perfect'  : 'This title is playable from start to finish with no noticeable issues.'
+}
 
 def get_field(s,x):
     return s[x] if x in s else ''
