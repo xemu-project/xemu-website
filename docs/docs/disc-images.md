@@ -106,7 +106,7 @@ You can use backwards compatible titles that are on the Xbox 360 digital marketp
 
 1. Plug in your formatted flash drive or external hdd to the Xbox 360.
 
-2. Copy the game from the dashboard under stoarge in settings or go to the Xbox Marketplace/Purchae History to install the game and select install.
+2. Copy the game from the dashboard under stoarge in settings or go to the Xbox Marketplace/Purchase History to install the game and select install.
 
 3. Select your formatted storage device and wait until its finished.
 
