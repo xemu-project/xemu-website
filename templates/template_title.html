@@ -18,6 +18,13 @@
   line-height: 1.5;
   border-radius: .25rem;
 }
+pre {
+  text-wrap: auto;
+  word-wrap: break-word;
+}
+pre > strong {
+  color: #62CA13;
+}
 </style>
 
 {% endblock %}
@@ -90,7 +97,7 @@
             {% endif %}
             </summary>
             <pre>
-{% for k in title.most_recent_test.info %}{{ k }}: {{ title.most_recent_test.info[k]|e }}
+{% for k in title.most_recent_test.info %}<strong>{{ k }}:</strong> {{ title.most_recent_test.info[k]|e }}
 {% endfor %}</pre>
           </details>
         </div>
