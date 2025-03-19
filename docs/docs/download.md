@@ -58,7 +58,7 @@ Supported architectures: x86_64 and aarch64
 
 Supported architectures: x86_64 and aarch64
 
-Users running recent versions of Ubuntu (22.04 and newer) are recommended to install through the daily build PPA repository. At the command line, run the following:
+Users running recent versions of Ubuntu (22.04 and newer) are recommended to install through the daily build [PPA repository](https://launchpad.net/~mborgerson/+archive/ubuntu/xemu). At the command line, run the following:
 
 ```sh
 sudo add-apt-repository ppa:mborgerson/xemu
