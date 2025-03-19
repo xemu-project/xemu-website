@@ -84,7 +84,10 @@ nav:
     - Download: download.md
     - Required Files: required-files.md
     - Disc Images: disc-images.md
-    - Input Devices: input.md
+    - Input Devices:
+      - Controller: controller.md
+      - Memory Unit: xmus.md
+      - Xbox Live Communicator: xblc.md
     - Networking: networking.md
     - Dashboard: dashboard.md
     - Troubleshooting: troubleshooting.md
@@ -95,8 +98,6 @@ nav:
   - Advanced Topics:
     - EEPROM Settings: eeprom.md
     - Serial Port: serial-port.md
-    - Memory Units (Cards): xmus.md
-    - Xbox Live Communicator: xblc.md
     - Development:
       - Welcome: dev/index.md
       - Building from Source: dev/building-from-source.md
