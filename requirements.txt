@@ -2,4 +2,4 @@ MarkupSafe==2.0.1
 tqdm
 jinja2==3.1.6
 PyGithub
-minify-html
+minify-html==0.15.0
