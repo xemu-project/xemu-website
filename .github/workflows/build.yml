@@ -13,9 +13,6 @@ jobs:
       with:
         submodules: true
     - name: Install dependencies
-      env:
-        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        DEV: ${{ github.ref == 'refs/heads/master' && '0' || '1' }}
       run: |
         sudo apt-get update
         sudo apt-get install cssmin
@@ -24,6 +21,9 @@ jobs:
       with:
         python-version: "3.12"
     - name: Build
+      env:
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        DEV: ${{ github.ref == 'refs/heads/master' && '0' || '1' }}
       run: |
         uv pip install -r requirements.txt
         ./build.sh
