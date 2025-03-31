@@ -8,7 +8,7 @@ jobs:
   Build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4.1.7
+    - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
       with:
         submodules: true
     - name: Build
@@ -25,7 +25,7 @@ jobs:
         cssmin > dist/theme.css.min < dist/theme.css
         mv dist/theme.css.min dist/theme.css
         echo "xemu.app" > dist/CNAME
-    - uses: actions/upload-pages-artifact@v3.0.1
+    - uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa # v3.0.1
       with:
         path: dist
   Deploy:
@@ -39,4 +39,4 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - id: deployment
-        uses: actions/deploy-pages@v4.0.5
+        uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e # v4.0.5
