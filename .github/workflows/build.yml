@@ -12,16 +12,19 @@ jobs:
     - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
       with:
         submodules: true
-    - name: Build
+    - name: Install dependencies
       env:
         GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         sudo apt-get update
-        sudo apt-get install python3-venv cssmin
-        mkdir env
-        python3 -m venv env
-        source env/bin/activate
-        python -m pip install -r requirements.txt
+        sudo apt-get install cssmin
+    - name: Set up Python, uv
+      uses: astral-sh/setup-uv@0c5e2b8115b80b4c7c5ddf6ffdd634974642d182 # v5
+      with:
+        python-version: "3.12"
+    - name: Build
+      run: |
+        uv pip install -r requirements.txt
         ./build.sh
         cssmin > dist/theme.css.min < dist/theme.css
         mv dist/theme.css.min dist/theme.css
