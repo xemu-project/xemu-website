@@ -454,6 +454,15 @@ var xbox_material = new THREE.MeshStandardMaterial( {
   roughness: 0,
 });
 
+var xbox_ring_material = new THREE.MeshStandardMaterial( {
+  color: xbox_base_color,
+  depthTest: false,
+  roughness: 0,
+});
+
+const date = new Date();
+const frag = date.getMonth() === 3 && date.getDate() === 1;
+
 gltf_loader.load('xbox.glb', function ( gltf ) {
   xbox = gltf.scene;
   xbox.renderOrder = 10;
@@ -464,7 +473,11 @@ gltf_loader.load('xbox.glb', function ( gltf ) {
   var order = 0;
   xbox.traverse((o) => {
     if (o.isMesh) {
-      o.material = xbox_material;
+      if (o.name == "Eject_Button_Ring_Light" && frag) {
+        o.material = xbox_ring_material;
+      } else {
+        o.material = xbox_material;
+      }
       o.renderOrder = order;
       order += 1;
     }
@@ -519,6 +532,9 @@ var xbox_render = function () {
     var new_color = new THREE.Color(xbox_base_color);
     new_color.lerp(xbox_bright_color, Math.abs(Math.sin(t * Math.PI / 4 )));
     xbox_material.color.set(new_color);
+    if (frag) {
+      xbox_ring_material.color.set((Math.floor(t * 5) % 2 == 0) ? 0xff2200 : 0x22ff00);
+    }
   }
   xbox_renderer.render(xbox_scene, xbox_camera);
 };
