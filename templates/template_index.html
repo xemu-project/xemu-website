@@ -133,22 +133,48 @@
 }
 
 .title-card-container {
-  width: 10rem;
+  width: 160px;
   background-color: #373737;
   border-radius: 0.25rem;
   overflow: hidden;
 }
 
 .title-card-image-container {
+  width: 100%;
+  height: 230px;
+  background-image: url('{{ thumbnail_atlas_filename }}');
+  background-repeat: no-repeat;
+  background-size: calc({{ thumbnail_atlas_columns }} * 160px) auto;
+  filter: blur(12px);
+  image-rendering: pixelated;
+  transition: filter 0.4s ease;
+  position: relative;
+}
+
+.title-card-image-container-default {
   background-image: url('cover_front_default.png');
   background-size: cover;
   width: 100%;
-  height: 14.18rem;
+  height: 230px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .title-card-image-container img {
-  height: 100%;
+  position: absolute;
   width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.title-card-image-container img.loaded {
+  opacity: 1;
 }
 
 /* https://www.gungorbudak.com/blog/2018/12/12/bootstrap-4-search-box-with-search-icon/ */
@@ -237,7 +263,7 @@
       <div class="carousel-inner">
         {% for i in range(7) %}
         <div class="carousel-item {% if i<1 %}active{% endif %}">
-          <img src="/screenshots/{{ i }}.jpg" class="img-fluid lazy" />
+          <img src="/screenshots/{{ i }}.jpg" class="img-fluid" />
         </div>
         {% endfor %}
       </div>
@@ -320,24 +346,7 @@
       <input class="form-control" type="text" placeholder="Search" id="filter">
     </div>
     <div class="row" id="results">
-    {% for title in titles %}
-      <div class="col px-1 mb-4 title-card" data-title-name="{{ title.title_name }}" data-title-status="{{ title.status }}">
-        <a href="{{ title.title_url }}">
-          <div class="mx-auto title-card-container">
-            <div class="title-card-image-container">
-              {% if not title.have_cover %}
-              <div class="card-body text-center">{{ title.title_name }}</div>
-              {% else %}
-              <img data-src="{{ title.cover_thumbnail_url }}" class="img-fluid lazy" title="{{ title.title_name }}">
-              {% endif %}
-            </div>
-            <div class="fill-color-{{ title.status }} card-body text-center py-1 my-0">
-              <small><strong>{{ title.status }}</strong></small>
-            </div>
-          </div>
-        </a>
-      </div> 
-    {% endfor %}
+
     </div>
   </div>
 </div>
@@ -576,20 +585,59 @@ updateNavbarTransparency();
 </script>
 
 <script type="text/javascript" src="/apexcharts.js"></script>
-<script type="text/javascript" src="/jquery.lazy-1.7.10.min.js"></script>
-<script type="text/javascript" src="/jquery.lazy.plugins-1.7.10.min.js"></script>
 
 <script type="text/javascript">
-// Lazy-load images
-var lazyInstance = $('img.lazy').Lazy({
-  scrollDirection: 'vertical',
-  visibleOnly: true,
-  chainable: false,
-  effect: "fadeIn",
-  effectTime: 333,
-  onError: function(element) {
-      console.log('error loading ' + element.data('src'));
-  }
+var tinyImageWidth = {{ thumbnail_atlas_tiny_width }};
+var tinyImageHeight = {{ thumbnail_atlas_tiny_height }};
+var tinyImagesPerRow = {{ thumbnail_atlas_columns }};
+const scale = 160/tinyImageWidth;
+
+$.getJSON('compat.json', function(data) {
+  $.each(data, function(index, title) {
+    var per_row = 50;
+    var col = title.thumbnail_atlas_index % per_row;
+    var row = Math.floor(index / tinyImagesPerRow);
+    var x = col * tinyImageWidth;
+    var y = row * tinyImageHeight;
+
+    var userHtml = `
+      <div class="col px-1 mb-4 title-card" data-title-name="${title.name}" data-title-status="${title.status}">
+        <a href="${title.url}">
+          <div class="mx-auto title-card-container">
+    `;
+    if ('thumbnail_url' in title) {
+        userHtml += `
+            <div class="title-card-image-container" style="background-position: -${x * scale}px -${y * scale}px">
+              <img data-src="${title.thumbnail_url}" class="img-fluid" loading="lazy" title="${title.name}">
+            </div>
+        `;
+    } else {
+        userHtml += `
+          <div class="title-card-image-container-default">
+            <div class="card-body text-center">${title.name}</div>
+          </div>
+          `;
+    }
+    userHtml += `
+            <div class="fill-color-${title.status} card-body text-center py-1 my-0">
+              <small><strong>${title.status}</strong></small>
+            </div>
+          </div>
+        </a>
+      </div>
+    `;
+    $('#results').append(userHtml);
+  });
+
+  $('.title-card-image-container img').each(function() {
+    this.src = this.dataset.src;
+    $(this).on('load', function() {
+      this.classList.add('loaded');
+      this.style.opacity = '1';
+      this.parentNode.style.filter = 'none';
+    });
+  });
+
 });
 
 // https://stackoverflow.com/a/1909508
@@ -645,7 +693,6 @@ function filter_titles()
       $(this).show();
     }
   });
-  lazyInstance.update();
 }
 
 var options = {
