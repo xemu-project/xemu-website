@@ -3,3 +3,4 @@ tqdm
 jinja2==3.1.6
 PyGithub
 minify-html==0.15.0
+pillow

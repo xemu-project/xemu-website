@@ -15,7 +15,7 @@ from functools import reduce
 from github import Github
 from jinja2 import Environment, FileSystemLoader
 from tqdm import tqdm
-from minify_html import minify as minify_html
+from PIL import Image
 
 gh_token = os.getenv('GH_TOKEN')
 
@@ -40,6 +40,21 @@ title_status_descriptions = {
     'Playable' : 'This title is playable, with minor issues.',
     'Perfect'  : 'This title is playable from start to finish with no noticable issues.'
     }
+
+THUMBNAIL_WIDTH = 256
+THUMBNAIL_HEIGHT = 366
+THUMBNAIL_ATLAS_FILENAME = 'title_thumbnail_atlas.jpg'
+THUMBNAIL_ATLAS_TINY_WIDTH = 16
+THUMBNAIL_ATLAS_TINY_HEIGHT = int(THUMBNAIL_ATLAS_TINY_WIDTH/(THUMBNAIL_WIDTH/THUMBNAIL_HEIGHT)+0.5)
+THUMBNAIL_ATLAS_COLUMNS = 50
+
+
+if develop_mode:
+    def minify_html(s, **kwargs):
+        return s
+else:
+    from minify_html import minify as minify_html
+
 
 def get_field(s,x):
     return s[x] if x in s else ''
@@ -144,6 +159,8 @@ class Title:
         self.full_title_id_text = '%s-%s' % (self.pubid, self.tid)
         self.full_title_id_hex = self.info['title_id']
         self.full_title_id_num = int(self.info['title_id'], 16)
+        self.thumbnail_atlas_index = -1
+        self.status = 'Unknown'
 
         # Determine cover paths
         self.have_cover = True
@@ -183,7 +200,7 @@ class Title:
             self.cover_url = xdb_repo_url_base + self.title_xdb_path + '/' + self.cover_path
         else:
             print('Note: Missing artwork for %s' % self.title_name)
-            self.cover_url = xdb_repo_url_base + '/resources/cover_front_defxdb_ault.png'
+            self.cover_url = xdb_repo_url_base + '/resources/cover_front_default.png'
 
         if self.have_thumbnail:
             self.cover_thumbnail_url = xdb_repo_url_base + self.title_xdb_path + '/' + self.cover_thumbnail_path
@@ -226,6 +243,56 @@ class Title:
             return []
         return [i for i in Issue.issues_by_title[self.info['title_id']]
                 if i.state != 'open' and self.most_recent_test.created_at < i.closed_at]
+
+    def serialize(self):
+        s = {
+            "name": self.title_name,
+            "url": self.title_url,
+            "status": self.status,
+        }
+
+        if self.have_cover:
+            s.update({
+                "thumbnail_atlas_index": self.thumbnail_atlas_index,
+                "thumbnail_url": self.cover_thumbnail_url,
+            })
+
+        return s
+
+
+def build_title_thumbnail_atlas(titles):
+    titles_in_atlas = [t for t in titles if t.have_thumbnail]
+
+    # Calculate atlas size
+    rows = (len(titles_in_atlas) + THUMBNAIL_ATLAS_COLUMNS - 1) // THUMBNAIL_ATLAS_COLUMNS
+    atlas_width = THUMBNAIL_ATLAS_COLUMNS * THUMBNAIL_ATLAS_TINY_WIDTH
+    atlas_height = rows * THUMBNAIL_ATLAS_TINY_HEIGHT
+
+    # Create empty atlas
+    atlas = Image.new('RGB', (atlas_width, atlas_height))
+    mapping = {}
+
+    for index, title in enumerate(titles_in_atlas):
+        thumbnail_path = os.path.join(title.title_path, title.cover_thumbnail_path)
+        img = Image.open(thumbnail_path).convert('RGB')
+        img = img.resize((THUMBNAIL_ATLAS_TINY_WIDTH, THUMBNAIL_ATLAS_TINY_HEIGHT), Image.LANCZOS)
+
+        col = index % THUMBNAIL_ATLAS_COLUMNS
+        row = index // THUMBNAIL_ATLAS_COLUMNS
+        x = col * THUMBNAIL_ATLAS_TINY_WIDTH
+        y = row * THUMBNAIL_ATLAS_TINY_HEIGHT
+
+        atlas.paste(img, (x, y))
+        mapping[thumbnail_path] = {"x": x, "y": y}
+        title.thumbnail_atlas_index = index
+
+    atlas.save(os.path.join("dist", THUMBNAIL_ATLAS_FILENAME), quality=50)
+
+
+def build_compat_json(titles):
+    print("Building compat.json")
+    with open("dist/compat.json", 'w') as file:
+        json.dump([t.serialize() for t in titles], file, indent=2)
 
 
 def main():
@@ -315,6 +382,9 @@ def main():
     dorder = [tmap.pop(k) for k in rank]
     dorder.extend(sorted(tmap.values(),key=lambda title:title.title_name))
 
+    build_title_thumbnail_atlas(dorder)
+    build_compat_json(dorder)
+
     with open(os.path.join(output_dir, 'index.html'), 'w') as f:
         f.write(minify_html(template.render(
             titles=dorder,
@@ -322,7 +392,13 @@ def main():
             game_status_counts=game_status_counts,
             xemu_build_version=xemu_build_version,
             xemu_build_date=xemu_build_date,
-            main_url_base=main_url_base
+            main_url_base=main_url_base,
+
+            thumbnail_atlas_filename=THUMBNAIL_ATLAS_FILENAME,
+            thumbnail_atlas_tiny_width=THUMBNAIL_ATLAS_TINY_WIDTH,
+            thumbnail_atlas_tiny_height=THUMBNAIL_ATLAS_TINY_HEIGHT,
+            thumbnail_atlas_columns=THUMBNAIL_ATLAS_COLUMNS,
+
             ), minify_js=True, minify_css=True))
     print('  - Ok')
 
