@@ -15,7 +15,7 @@
   * If the issue was not reported yet (not shown on the Known Issues section of the compatibility page), create a [new issue](https://github.com/xemu-project/xemu/issues/new/choose).
     * Select the Title Issue template if you're reporting an issue with a game.
     * Issues should be about one specific thing. If you find multiple problems, you can file multiple issues.
-    * Maybe this behavior looks like a bug but happens on real hardware. In this case, still file the bug and we'll tag it with `not-an-emulator-issue` so we don't waste time looking into it again in the future.
+    * Maybe this behavior looks like a bug but happens on real hardware. In this case, still file the bug and we'll tag it with `not-an-emulation-bug` so we don't waste time looking into it again in the future.
     * Your new issue will appear on the game's compatibility page within an hour.
   * If you see bugs listed on the report page that are fixed, help update them.
 * If your experience is worse than the last reported status, try to figure out why:
