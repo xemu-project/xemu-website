@@ -11,7 +11,7 @@
 ### Testing guide
 * Look at last report on the game's [compatibility page](https://xemu.app/#compatibility) for context. Take note of Known Issues section and last tester's description.
 * Play the game for a while.
-* If you find bugs,
+* If you find bugs:
   * If the issue was not reported yet (not shown on the Known Issues section of the compatibility page), create a [new issue](https://github.com/xemu-project/xemu/issues/new/choose).
     * Select the Title Issue template if you're reporting an issue with a game.
     * Issues should be about one specific thing. If you find multiple problems, you can file multiple issues.
