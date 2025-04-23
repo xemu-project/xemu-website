@@ -19,7 +19,7 @@ Your MCPX and BIOS dump should be for a 1.0 Xbox. It's suggested that your MCPX 
 A default one will be created if you do not provide one.
 
 #### Q: How do I run xemu in portable mode?
-Create a file named `xemu.toml` in the same directory as the executable (i.e. next to `xemu.exe` on Windows or `xemu` on Linux).
+Create a file named `xemu.toml` in the same directory as the executable (i.e. next to `xemu.exe` on Windows or `xemu` on Linux). On macOS this file should be placed within the `xemu.app` bundle's `Contents/Resources` directory or you may use `open`'s `--args` parameter to pass an explicit path via xemu's `-config_path` argument from a command line.
 
 #### Q: Why am I getting `The guest has not initialized the display`
 This is likely due to missing, mismatched, or corrupt MCPX and BIOS images. See [this page](required-files.md) for details about required files.
