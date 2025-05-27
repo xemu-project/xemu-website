@@ -24,6 +24,14 @@ With this mode you can easily set up a System Link session with a real Xbox by
 just connecting the Xbox to your computer with an Ethernet cable. Additionally,
 this mode can be used to connect with tunneling services.
 
+!!! warning "Bridging to WiFi interfaces"
+
+    Bridging is inteded for wired interfaces. Bridging to a wireless
+    interface may not work as expected because most WiFi access points and
+    clients do not support multiple MAC addresses per connection. You can try
+    setting the Xbox MAC address in xemu to match your host's MAC address, but
+    this approach is not guaranteed to succeed.
+
 ### UDP Tunnel
 
 !!! info "Useful for..."
