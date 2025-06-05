@@ -63,3 +63,17 @@ The keyboard layout for the gamepad is:
     S     F               J     L
        D                     K
 ```
+
+### Remapping keyboard buttons (advanced)
+
+The keyboard layout may be changed by editing the `xemu.toml` configuration file.
+
+SDL scancodes are used to define each key. They are defined [in the SDL project here](https://github.com/libsdl-org/SDL/blob/2ef79441701c87c801fe0e1456321a791f4b2faf/include/SDL3/SDL_scancode.h#L52)
+
+The names of the buttons in the config file may be found [in the xemu config spec here](https://github.com/xemu-project/xemu/blob/e02e41ccaaceffcad816cfb554dd1195767e952d/config_spec.yml#L61)
+
+For example, this changes the `A` button from `A` (scancode `4`) to `Q` (scancode `20`)
+```
+[input.keyboard_controller_scancode_map]
+a = 20
+```
