@@ -10,7 +10,7 @@ skills to improve the project.
 
 The xemu project generally (but not exclusively) follows the patch submission guidelines [established by the QEMU project](https://github.com/xemu-project/xemu/blob/master/docs/devel/submitting-a-patch.rst).
 
-By following these guidelines, your patches will be easier to review and increases the speed at which your work can be incorporated into the project.
+By following these guidelines, your patches will be easier to review and this increases the speed at which your work can be incorporated into the project.
 
 1. Patches must be submitted as Pull Requests on the xemu GitHub project at https://github.com/xemu-project/xemu.
 1. Patch authors should check to see if there is an open PR that addresses the same goal.
@@ -24,8 +24,8 @@ By following these guidelines, your patches will be easier to review and increas
 1. Patch authors must do some basic due diligence in testing of their patches, or organize with other people to get the patch tested.
     1. Providing test cases, for example as unit tests in xemu or as hardware tests in the [PGRAPH test suite](https://github.com/abaire/nxdk_pgraph_tests), greatly increases the confidence in merging your patch and builds lasting quality assurance for the project.
 1. Patches should be split up into multiple commits when necessary.
-1. Patches should avoid unrelated changes.
-1. Patches should avoid unnecessary formatting changes mixed with logical changes.
+1. Patches should not include unrelated changes.
+1. Patches should not include unnecessary formatting changes mixed with logical changes.
 1. Patches must have good commit messages. More on this below.
 1. Patches that partially solve a problem *may* be accepted. In this case, the patch should include `FIXME` or `TODO` messages indicating points for improvement.
 1. Submission of work in progress as a Pull Request Draft is encouraged for visibility.
