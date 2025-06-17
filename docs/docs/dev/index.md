@@ -43,7 +43,7 @@ Quality commit messages are essential for reviewing patches, navigating history,
 1. Do not use lines longer than 76 characters.
 1. If a patch requires a more detailed explanation of the motivation behind the change, the first line should be followed by a blank line, then followed by a detailed description of why the change is necessary.
 
-When in doubt, check the log of the files you're changing for general examples of acceptable commit messages.
+When in doubt, check the `git log` of the files you're changing for general examples of acceptable commit messages.
 
 ### Review process
 
