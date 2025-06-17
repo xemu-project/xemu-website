@@ -39,7 +39,7 @@ If you have questions about the process, feel free to ask questions in the xemu 
 Quality commit messages are essential for reviewing patches, navigating history, investigating issues, etc. Therefore, please follow these best practices when writing your commit messages:
 
 1. Commit messages should be meaningful and should stand on their own as a historical record of why the changes you applied were necessary or useful.
-1. The first line of the commit message should start with a `subsystem: ` prefix followed by a brief description of the change that begins with a capital letter and does not end with a period. The first line of a commit message will generally complete the sentence *This commit will...*
+1. The first line of the commit message should start with a `subsystem: ` prefix followed by a brief description of the change that begins with a capital letter and does not end with a period. The first line of a commit message will generally complete the sentence *This commit will...*. For example: `lpc47m157: Drop call to serial_set_frequency`
 1. Do not use lines longer than 76 characters.
 1. If a patch requires a more detailed explanation of the motivation behind the change, the first line should be followed by a blank line, then followed by a detailed description of why the change is necessary.
 
