@@ -32,7 +32,7 @@
     * Once your report is filed, it should appear on the site within an hour.
 
 ### Reachability
-There may be follow up questions about your compatibility report on the Discord server, or on GitHub if you've filed an issue. It's important for reporters to be reachable in order to help get to the bottom of issues. If a tester cannot be reached, the tester role may be removed from the associated account.
+There may be follow-up questions about your compatibility report, either on the Discord server or GitHub if you've filed an issue. Staying reachable helps us resolve issues more effectively. If we're unable to get in touch after reasonable attempts, the associated tester role may be removed to ensure active participation.
 
 ### On playing "100%" of a game
 While thorough testing is appreciated, it's not practical to demand volunteer testers play a game entirely every time a new version of xemu is released. Therefore, for Playable status we do not require a complete playthrough of the game. Instead, we request that people report issues as they run into them and we will operate with available knowledge. If there are severe issues with a game, it will recieve a different label. If you do complete a game, we would like to know about it. Let us know on Discord.
