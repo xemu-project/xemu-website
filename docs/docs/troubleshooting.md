@@ -7,6 +7,7 @@ Please check the [list of frequently asked questions](faq.md).
 * Check your disc backup and verify that your backup is correct.
 * Some games are susceptible to cache problems. Try clearing your cache, or
   simply try with a blank HDD image.
+    * You can use the `Flush Cache Partitions` utility in [LithiumX](https://github.com/Ryzee119/LithiumX/) to clear your cache.
 
 ## Enabling Surround Sound in your EEPROM
 
