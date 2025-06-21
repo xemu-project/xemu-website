@@ -72,6 +72,33 @@ Examine the console where you launched xemu; trace messages will be written to `
 
 The [nv2a events](https://github.com/xemu-project/xemu/blob/master/hw/xbox/nv2a/trace-events){target=_blank} are particularly interesting when debugging graphics issues, specifically the `nv2a_pgraph_*` subset. These may be toggled all at once using a wildcard. For example, `trace-event nv2a_pgraph_* on` will turn them all on.
 
+### Writing Outputs of Traces to Files
+
+Most shells have functions that allow you to control where the output streams `STDERR` or `STDOUT` are written to. Normally, they're written to the shell window, but by using certain flags, we're able to write them to files. Doing this can allow you to easily share `trace-event` logs with other developers or testers. 
+
+    !!! tip "Note regarding examples"
+    
+        The following examples will show you how to route both `STDERR` **and** `STDOUT` to a file; 
+        if you wish to write just one of the streams to a file, we recommend you reference 
+        Output Redirection within your shell's documentation.
+
+=== "Windows"
+
+    Powershell:
+    `Start-Process -FilePath ".\xemu.exe" -Wait *> output.log`
+    Command executes (`.\`) xemu.exe and route all output streams (`*>`) to output.log.
+
+    cmd.exe:
+    `start xemu.exe > output.log 2>&1`
+    Command starts xemu.exe and routes `STDOUT` (`>`) to output.log; `STDERR` is redirected to `STDOUT` (`2>&1`)
+
+=== "macOS/Linux"
+
+    macOS uses zsh by default since 2019. Linux distributions usually use bash.
+    zsh/bash/fish:
+    `./xemu.AppImage &> output.log`
+    Command executes the AppImage (`./) and routes all output streams (`&>`) to output.log
+
 #### Compile-Time Usage (alternate)
 
 Append `--debug --enable-trace-backends=simple` to the xemu build args to enable.
