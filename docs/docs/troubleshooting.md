@@ -113,3 +113,11 @@ sudo make install
 ```
 
 Then launch xemu `LD_LIBRARY_PATH=/usr/local/lib xemu`
+
+## macOS
+
+### Gatekeeper prevents opening xemu.app
+
+As of June 2025, the xemu app bundle is not signed. In recent macOS versions, Apple has tightened the security settings of Gatekeeper such that it may not let you launch the xemu app. If you see a message like `"xemu" can't be opened because Apple cannot check it for malicious software.` you may selectively allow the app to run by going to `System settings...` > `Privacy & Security` and scrolling to the bottom of the page after attempting to open xemu. There should be an indication that macOS blocked opening the app with an option to allow it to open in the future.
+
+You may also be able to use `xattr` from Terminal to clear the attributes on the bundle.
