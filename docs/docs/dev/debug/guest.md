@@ -90,14 +90,20 @@ Most shells have functions that allow you to control where the output streams `S
 
     cmd.exe:
     `start xemu.exe > output.log 2>&1`
-    Command starts xemu.exe and routes `STDOUT` (`>`) to output.log; `STDERR` is redirected to `STDOUT` (`2>&1`)
+    Command starts xemu.exe and routes `STDOUT` (`>`) to output.log; `STDERR` is redirected to `STDOUT` (`2>&1`).
 
-=== "macOS/Linux"
+=== "macOS"
 
-    macOS uses zsh by default since 2019. Linux distributions usually use bash.
+    macOS uses zsh by default since 2019.
+    `./xemu.app/Contents/MacOS/xemu &> output.log`
+    Command executes the binary inside of the package (`./xemu.app/Contents/MacOS/xemu`) and routes all output streams (`&>`) to output.log.
+
+=== "Linux"
+
+    Linux distributions usually use bash.
     zsh/bash/fish:
     `./xemu.AppImage &> output.log`
-    Command executes the AppImage (`./) and routes all output streams (`&>`) to output.log
+    Command executes the AppImage (`./`) and routes all output streams (`&>`) to output.log.
 
 #### Compile-Time Usage (alternate)
 
