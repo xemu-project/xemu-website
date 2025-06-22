@@ -84,13 +84,13 @@ Most shells have functions that allow you to control where the output streams `S
 
 === "Windows"
 
-    Powershell:
-    `Start-Process -FilePath ".\xemu.exe" -Wait *> output.log`
-    Command executes (`.\`) xemu.exe and route all output streams (`*>`) to output.log.
-
     cmd.exe:
-    `start xemu.exe > output.log 2>&1`
+    `xemu.exe>output.log 2>&1`
     Command starts xemu.exe and routes `STDOUT` (`>`) to output.log; `STDERR` is redirected to `STDOUT` (`2>&1`).
+
+    Powershell:
+    `Start-Process -FilePath ".\xemu.exe" -RedirectStandardOutput "output_std.log" -RedirectStandardError "output_err.log"`
+    Command starts xemu.exe and routes output streams separately.
 
 === "macOS"
 
