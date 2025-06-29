@@ -34,13 +34,13 @@ People have reported most success using the modified retail "COMPLEX 4627" BIOS.
 ## Hard Disk Image
 
 You can use a pre-built 8G Xbox HDD image, free of any copyrighted content, and
-only containing a dummy dashboard.
+only containing a dashboard with basic functionality.
 
-[Download Pre-formatted Xbox Hard Disk Image ](https://github.com/xemu-project/xemu-hdd-image/releases/latest/download/xbox_hdd.qcow2.zip){ .md-button .md-button--secondary }
+[Download Pre-formatted Xbox Hard Disk Image ](https://github.com/xemu-project/xemu-dashboard/releases/latest/download/xbox_hdd.qcow2){ .md-button .md-button--secondary }
 
 !!! note
     By design, this particular drive image does not contain the official Xbox
-    dashboard, but instead contains only an **unsigned** dummy dashboard. [More
+    dashboard, but instead contains only an **unsigned** dashboard with basic functionality to get started with xemu. [More
     information](dashboard.md)
 
 ??? "Alternative Options"
