@@ -379,7 +379,7 @@ def main():
 
     tmap = {t.full_title_id_num : t for t in titles}
     from rank import rank
-    dorder = [tmap.pop(k) for k in rank]
+    dorder = [tmap.pop(k) for k in rank if k in tmap]
     dorder.extend(sorted(tmap.values(),key=lambda title:title.title_name))
 
     build_title_thumbnail_atlas(dorder)
