@@ -76,33 +76,41 @@ The [nv2a events](https://github.com/xemu-project/xemu/blob/master/hw/xbox/nv2a/
 
 Most shells have functions that allow you to control where the output streams `STDERR` or `STDOUT` are written to. Normally, they're written to the shell window, but by using certain flags, we're able to write them to files. Doing this can allow you to easily share `trace-event` logs with other developers or testers. 
 
-    !!! tip "Note regarding examples"
+!!! info "Info: Regarding examples"
     
-        The following examples will show you how to route both `STDERR` **and** `STDOUT` to a file; 
-        if you wish to write just one of the streams to a file, we recommend you reference 
-        Output Redirection within your shell's documentation.
+    The following examples will show you how to route both `STDERR` **and** `STDOUT` to a file; 
+    if you wish to write just one of the streams to a file, we recommend you reference 
+    Output Redirection within your shell's documentation.
 
 === "Windows"
 
-    cmd.exe:
+    With `cmd.exe`...
+
     `xemu.exe>output.log 2>&1`
+
     Command starts xemu.exe and routes `STDOUT` (`>`) to output.log; `STDERR` is redirected to `STDOUT` (`2>&1`).
 
-    Powershell:
+
+    With `Powershell`...
+
     `Start-Process -FilePath ".\xemu.exe" -RedirectStandardOutput "output_std.log" -RedirectStandardError "output_err.log"`
+    
     Command starts xemu.exe and routes output streams separately.
 
 === "macOS"
 
-    macOS uses zsh by default since 2019.
+    With `zsh` (macOS default since 2019)...
+
     `./xemu.app/Contents/MacOS/xemu &> output.log`
+
     Command executes the binary inside of the package (`./xemu.app/Contents/MacOS/xemu`) and routes all output streams (`&>`) to output.log.
 
 === "Linux"
 
-    Linux distributions usually use bash.
-    zsh/bash/fish:
+    With `zsh`/`bash`/`fish`...
+
     `./xemu.AppImage &> output.log`
+    
     Command executes the AppImage (`./`) and routes all output streams (`&>`) to output.log.
 
 #### Compile-Time Usage (alternate)
