@@ -24,6 +24,13 @@ To serve the built site, run in the `dist` directory: `python -m http.server`.
     $ sudo apt install wget unzip git python3 pip
     $ pip install -r requirements.txt
 
+#### Arch Linux
+
+    $ sudo pacman -S wget unzip git python python-tqdm python-jinja python-pygithub python-pilkit docker
+    $ systemctl start docker
+    $ rm -rf dist/
+    $ sudo DEV=1 ./build.sh
+
 #### Windows
 
 Follow the Ubuntu instructions above for [WSL2](https://docs.microsoft.com/en-us/windows/wsl/install) paired with [Docker Desktop](https://docs.docker.com/desktop/windows/wsl/)
