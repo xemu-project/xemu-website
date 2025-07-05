@@ -63,7 +63,7 @@ class Issue:
     issues_by_title = defaultdict(list)
     all_issues = []
 
-    def __init__(self, number, url, title, affected_titles, created_at, updated_at, closed_at, state):
+    def __init__(self, number, url, title, affected_titles, created_at, updated_at, closed_at, state, state_reason):
         self.number = number
         self.url = url
         self.title = title
@@ -72,6 +72,7 @@ class Issue:
         self.updated_at = updated_at
         self.closed_at = closed_at
         self.state = state
+        self.state_reason = state_reason
 
     def __repr__(self):
         return self.title
@@ -105,7 +106,8 @@ class Issue:
                 issue.created_at.replace(tzinfo=timezone.utc),
                 issue.updated_at.replace(tzinfo=timezone.utc),
                 issue.closed_at.replace(tzinfo=timezone.utc) if issue.state == 'closed' else None,
-                issue.state)
+                issue.state,
+                issue.state_reason)
 
             cls.all_issues.append(issue)
 
@@ -242,7 +244,7 @@ class Title:
         if self.most_recent_test is None:
             return []
         return [i for i in Issue.issues_by_title[self.info['title_id']]
-                if i.state != 'open' and self.most_recent_test.created_at < i.closed_at]
+                if i.state != 'open' and i.state_reason == 'completed' and self.most_recent_test.created_at < i.closed_at]
 
     def serialize(self):
         s = {
