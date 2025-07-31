@@ -138,6 +138,6 @@ If xemu is crashing and the reason is not clear, you can create a core dump to p
 
 First, apply the registry edit script found in this Zip file: [xemu_dump_registry_config.zip](https://xemu.app/xemu_dump_registry_config.zip). This registry edit will configure Windows to create a dump whenever xemu crashes.
 
-Then, download and run the debug build of xemu found at: [https://github.com/xemu-project/xemu/releases/latest/download/xemu-win-debug.zip](https://github.com/xemu-project/xemu/releases/download/v0.8.96/xemu-win-x86_64-debug.zip)
+Then, download and run the debug build of xemu here: [xemu-win-x86_64-debug.zip](https://github.com/xemu-project/xemu/releases/latest/download/xemu-win-x86_64-debug.zip)
 
 The dump will be stored at `%LOCALAPPDATA%\CrashDumps`. You may notice a delay after xemu crashes while this file is saved.
