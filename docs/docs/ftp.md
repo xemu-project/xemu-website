@@ -30,7 +30,7 @@ image, load the disc image. You may need to reset the system to get it to
 load. Double check the networking settings for your dashboard to make sure
 that it is configured to use DHCP.
 
-See NevolutionX for a FOSS alternative dashboard that supports FTP [here](https://github.com/dracc/NevolutionX).
+The [xemu dashboard](https://github.com/xemu-project/xemu-dashboard/releases) is recommended.
 
 ## Step 4: Connect using your FTP client
 The [Filezilla FTP client](https://filezilla-project.org/) is recommended. It
