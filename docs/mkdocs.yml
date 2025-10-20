@@ -90,6 +90,8 @@ nav:
       - Xbox Live Communicator: xblc.md
     - Networking: networking.md
     - Dashboard: dashboard.md
+    - Miscellaneous:
+      - Games directory: games-directory.md  
     - Troubleshooting: troubleshooting.md
   - Reference:
     - Command Line Arguments: cli.md
