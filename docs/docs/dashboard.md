@@ -7,13 +7,13 @@ storage management.
 ## Default xemu Dashboard
 
 The [pre-formatted Xbox HDD image](required-files.md#hard-disk-image),
-does not contain the official Xbox dashboard. Instead it contains only an
-**unsigned** "dummy" dashboard, intended to be replaced.
+does not contain the official Xbox dashboard. Instead it contains a lightweight,
+open source dashboard with basic functionality: [xemu-dashboard](https://github.com/xemu-project/xemu-dashboard).
 
-It is not strictly required to replace the dummy dashboard. Games can still be
-launched with the dummy dashboard installed.
+It is not strictly required to replace xemu-dashboard with the official Xbox dashboard.
+Games can still be launched with xemu-dashboard.
 
-Because the dummy dashboard is unsigned, you may see an error message when
+Because xemu-dashboard is unsigned, you may see an error message when
 starting xemu with an unmodified retail BIOS image due to the system failing to
 find a properly signed dashboard.
 
@@ -23,11 +23,7 @@ If you would like to install use the official Xbox dashboard, you will first
 need to download the dashboard files from your real Xbox, then transfer them to
 the xemu hard disk image.
 
-This can easily be done by running an alternative dashboard which exposes
-an FTP server. [See here for more details](ftp.md).
-
-## Alternative Dashboards
-
-It is not required to use the official Xbox dashboard. There are alternatives
-available, such as the open-source dashboard
-[NevolutionX](https://github.com/dracc/nevolutionx).
+Because xemu-dashboard provides an FTP server out of the box, this can easily be
+done by connecting to xemu-dashboard over FTP to store the desired dashboard files
+on the virtual HDD. [See here for more details](ftp.md). Once installed, rebooting
+the the desired dashboard should launch.
