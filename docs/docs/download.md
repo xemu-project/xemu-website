@@ -14,8 +14,6 @@ Simply download the Zip archive release for Windows from the link above, extract
 
 Simply download the Zip archive release for macOS from the link above, extract the archive, then run the application. Optionally drag the xemu app bundle to your Applications folder.
 
-Because the app is not signed, you will need to right-click, or hold the <kbd>control</kbd> key and click, on the app and in the context menu that appears select <kbd>Open</kbd> on first launch.
-
 ### Install via Homebrew
 
 If you have the [Homebrew package manager](https://brew.sh) installed, you can install xemu with:
