@@ -220,13 +220,13 @@
           <a class="btn btn-green btn-lg" role="button" id="download-gen" href="/docs/download">
             <i class="fa fa-laptop button-icon" aria-hidden="true"></i>View Download Options
           </a>
-          <a class="btn btn-green btn-lg" role="button" id="download-win-x86_64" style="display: none" href="https://github.com/xemu-project/xemu/releases/latest/download/xemu-win-x86_64-release.zip">
+          <a class="btn btn-green btn-lg" role="button" id="download-win-x86_64" style="display: none" href="https://github.com/xemu-project/xemu/releases/latest/download/xemu-{{xemu_build_version}}-windows-x86_64.zip">
             <i class="fab fa-windows button-icon" aria-hidden="true"></i>Download for Windows (x86_64)
           </a>
-          <a class="btn btn-green btn-lg" role="button" id="download-win-aarch64" style="display: none" href="https://github.com/xemu-project/xemu/releases/latest/download/xemu-win-aarch64-release.zip">
+          <a class="btn btn-green btn-lg" role="button" id="download-win-arm64" style="display: none" href="https://github.com/xemu-project/xemu/releases/latest/download/xemu-{{xemu_build_version}}-windows-arm64.zip">
             <i class="fab fa-windows button-icon" aria-hidden="true"></i>Download for Windows (arm64)
           </a>
-          <a class="btn btn-green btn-lg" role="button" id="download-mac" style="display: none" href="https://github.com/xemu-project/xemu/releases/latest/download/xemu-macos-universal-release.zip">
+          <a class="btn btn-green btn-lg" role="button" id="download-mac" style="display: none" href="https://github.com/xemu-project/xemu/releases/latest/download/xemu-{{xemu_build_version}}-macos-universal.zip">
             <i class="fab fa-apple button-icon" aria-hidden="true"></i>Download for macOS
           </a>
           <a class="btn btn-green btn-lg" role="button" id="download-linux" style="display: none" href="/docs/download/#download-for-linux">
@@ -359,7 +359,7 @@
 var platform = undefined;
 if (navigator.userAgent.indexOf("Win") != -1) {
   if (navigator.userAgent.includes("ARM64")) {
-      platform = "win-aarch64";
+      platform = "win-arm64";
   } else if (navigator.userAgent.includes("x64") || navigator.userAgent.includes("WOW64")) {
       platform = "win-x86_64";
   }
