@@ -1,6 +1,6 @@
 ## Download for Windows
 
-[Download for :fontawesome-brands-windows: Windows (x86_64)](https://github.com/xemu-project/xemu/releases/latest/download/xemu-win-x86_64-release.zip){ .md-button .md-button--secondary } [Download for :fontawesome-brands-windows: Windows (arm64)](https://github.com/xemu-project/xemu/releases/latest/download/xemu-win-aarch64-release.zip){ .md-button .md-button--secondary }
+[Download for :fontawesome-brands-windows: Windows (x86_64)](https://github.com/xemu-project/xemu/releases/latest/download/xemu-{{xemu_version}}-windows-x86_64.zip){ .md-button .md-button--secondary } [Download for :fontawesome-brands-windows: Windows (arm64)](https://github.com/xemu-project/xemu/releases/latest/download/xemu-{{xemu_version}}-windows-arm64.zip){ .md-button .md-button--secondary }
 
 ### Installation
 
@@ -8,7 +8,7 @@ Simply download the Zip archive release for Windows from the link above, extract
 
 ## Download for macOS
 
-[Download for :fontawesome-brands-apple: macOS (Universal)](https://github.com/xemu-project/xemu/releases/latest/download/xemu-macos-universal-release.zip){ .md-button .md-button--secondary }
+[Download for :fontawesome-brands-apple: macOS (Universal)](https://github.com/xemu-project/xemu/releases/latest/download/xemu-{{xemu_version}}-macos-universal.zip){ .md-button .md-button--secondary }
 
 ### Install Manually
 
@@ -26,8 +26,8 @@ There are multiple options for running xemu on your Linux system.
 
 ### AppImage
 
-[Download AppImage for :fontawesome-brands-linux: Linux (x86_64)](https://github.com/xemu-project/xemu/releases/download/v{{xemu_version}}/xemu-v{{xemu_version}}-x86_64.AppImage){ .md-button .md-button--secondary } 
-[Download AppImage for :fontawesome-brands-linux: Linux (aarch64)](https://github.com/xemu-project/xemu/releases/download/v{{xemu_version}}/xemu-v{{xemu_version}}-aarch64.AppImage){ .md-button .md-button--secondary }
+[Download AppImage for :fontawesome-brands-linux: Linux (x86_64)](https://github.com/xemu-project/xemu/releases/download/v{{xemu_version}}/xemu-{{xemu_version}}-x86_64.AppImage){ .md-button .md-button--secondary }
+[Download AppImage for :fontawesome-brands-linux: Linux (aarch64)](https://github.com/xemu-project/xemu/releases/download/v{{xemu_version}}/xemu-{{xemu_version}}-aarch64.AppImage){ .md-button .md-button--secondary }
 
 !!! info "Running the AppImage"
 
