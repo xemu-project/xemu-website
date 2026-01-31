@@ -1,4 +1,4 @@
-Built with SDL2, xemu supports virtually all gamepads. Connect up to 4
+Built with SDL3, xemu supports virtually all gamepads. Connect up to 4
 controllers at any time, just like a real Xbox.
 
 !!! note "Notes & FAQ"
