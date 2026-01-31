@@ -24,6 +24,9 @@ Create a file named `xemu.toml` in the same directory as the executable (i.e. ne
 #### Q: Why am I getting `The guest has not initialized the display`
 This is likely due to missing, mismatched, or corrupt MCPX and BIOS images. See [this page](required-files.md) for details about required files.
 
+#### Q: How can I prevent a failing HDD file from blocking Xemu from starting?
+We don't know how to repair a damaged HDD file of unspecified corruption. Xemu can crash the HDD if it is not shut down properly. Replace xbox_hdd.qcow2 with a [fresh copy](https://github.com/xemu-project/xemu-dashboard/releases/latest/download/xbox_hdd.qcow2). If your HDD contains many game saves, you may want to archive it and test it later, as it has been [reported](https://github.com/xemu-project/xemu/issues/2593#issuecomment-3657464782) that saved data can sometimes become accessible again.
+
 #### Q: Why am I getting `Please insert an Xbox disc...`? Where's the classic Xbox menu?
 Unfortunately we can't legally ship the original Xbox dashboard, so what you're seeing is the placeholder. See [this page](dashboard.md) for more information about dashboards, including details on how to install the one you want.
 
