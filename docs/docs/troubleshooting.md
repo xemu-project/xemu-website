@@ -8,6 +8,7 @@ Please check the [list of frequently asked questions](faq.md).
 * Some games are susceptible to cache problems. Try clearing your cache, or
   simply try with a blank HDD image.
     * You can use the `Flush Cache Partitions` utility in [LithiumX](https://github.com/Ryzee119/LithiumX/) to clear your cache.
+    * You can also use the `Clear Cache` function in the [xemu-dashboard](https://github.com/xemu-project/xemu-dashboard) included with the default xemu harddrive image.
 
 ## Enabling Surround Sound in your EEPROM
 
