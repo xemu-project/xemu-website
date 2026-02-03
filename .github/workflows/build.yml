@@ -17,7 +17,7 @@ jobs:
         sudo apt-get update
         sudo apt-get install cssmin
     - name: Set up Python, uv
-      uses: astral-sh/setup-uv@61cb8a9741eeb8a550a1b8544337180c0fc8476b # v5
+      uses: astral-sh/setup-uv@803947b9bd8e9f986429fa0c5a41c367cd732b41 # v5
       with:
         python-version: "3.12"
         activate-environment: "true"
