@@ -1,7 +1,7 @@
 # Networking
 
 Xbox networking is fully supported. Connect to other instances of xemu and even
-real Xboxes, locally or over the Internet.
+to real Xboxes, locally or over the Internet.
 
 There are three network backends available to choose from in the xemu Network
 configuration dialog: NAT, UDP Tunnel, and Bridged Adapter. Which one
@@ -16,18 +16,18 @@ you should select depends on what you'd like to do.
     * Connecting to a popular tunneling service such as Xlink Kai
 
 In this networking mode, the emulated network device is bridged to one of the
-network interfaces on your machine. This means that all traffic sent from the
+network interfaces on your computer. This means that all traffic sent from the
 emulated network controller will be forwarded to your selected network
 interface, and xemu can receive traffic incoming on this interface.
 
 With this mode you can easily set up a System Link session with a real Xbox by
 just connecting the Xbox to your computer with an Ethernet cable. Additionally,
-this mode can be used to connect with tunneling services.
+this mode can be used to connect with tunneling services such as Xlink Kai.
 
-!!! warning "Bridging to WiFi interfaces"
+!!! warning "Bridging to Wi-Fi interfaces"
 
-    Bridging is inteded for wired interfaces. Bridging to a wireless
-    interface may not work as expected because most WiFi access points and
+    Bridging is intended for wired interfaces. Bridging to a wireless
+    interface may not work as expected because most Wi-Fi access points and
     clients do not support multiple MAC addresses per connection. You can try
     setting the Xbox MAC address in xemu to match your host's MAC address, but
     this approach is not guaranteed to succeed.
@@ -58,16 +58,16 @@ the outside world.
 
 Like a router you may have at home, you can have xemu listen on specific ports
 and perform 'port forwarding' to the virtual Xbox. This can be used for example
-to connect to the virtual Xbox's FTP server. Find more info about port
-forwarding and FTP access [here](ftp.md).
+to connect to the virtual Xbox's FTP server. Read our documentation for more
+details about [port forwarding and FTP access](ftp.md).
 
 
 ## Troubleshooting
 
 ### System Link session is not joinable
 
-* Ensure all MAC addresses are unique. If you are using an EEPROM dumped from your real Xbox, xemu and your Xbox will have the same MAC address. You'll need to change one of them. You can blank the EEPROM line in xemu's Settings window to have it generate a new one for you, or you can use the [EEPROM editor](https://github.com/Ernegien/XboxEepromEditor) to change it.
-* Ensure the game versions/regions/updates between the people playing are the same.
+* Ensure all MAC addresses are unique. If you are using an EEPROM dumped from the same Xbox that you are trying to connect to, xemu and your Xbox will have the same MAC address. You'll need to change one of them. You can blank the EEPROM line in xemu's Settings window to have it generate a new one for you, or you can use the [EEPROM editor](https://github.com/Ernegien/XboxEepromEditor) to change it.
+* Ensure the game versions/regions/updates are the same on all Xboxes, real or emulated.
 * If you are on Windows, ensure you're using the new [npcap](https://nmap.org/npcap/) with WinPcap API-compatible mode, not the older WinPcap.
 * Some Realtek cards have been known to be problematic. Try reinstalling your driver or use an alternative adapter.
 
@@ -82,7 +82,7 @@ forwarding and FTP access [here](ftp.md).
 
 If you get a permission error when attempting to enable Bridged Adapter,
 you may need to update the `/dev/bpfX` permissions on your system. You can
-work around this by opening a terminal and executing the following command:
+do this by opening a terminal and executing the following command:
 
 ```bash
 sudo chown $(whoami):admin /dev/bpf*
@@ -92,7 +92,7 @@ sudo chown $(whoami):admin /dev/bpf*
 
 If you get a permission error when attempting to enable Bridged Adapter,
 you may need to update the executable capabilities to provide raw access
-to your network interface. You can do so with the following command:
+to your network interface. You can do this with the following command:
 
 ```bash
 sudo setcap cap_net_raw,cap_net_admin=eip `which xemu`
