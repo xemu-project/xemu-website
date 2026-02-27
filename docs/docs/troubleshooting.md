@@ -68,7 +68,7 @@ file.
 
 ### Nvidia Settings
 
-It is recommended to **disable** "Multi-threaded Optimizations" in the nVidia
+It is recommended to **disable** "Multi-threaded Optimizations" in the Nvidia
 Control Panel. This feature has been known to negatively impact xemu
 performance.
 
@@ -90,28 +90,25 @@ profile. To select the `performance` profile:
 echo performance | sudo tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor
 ```
 
-## Switchroot
+## Switchroot/Jetson setup
 
-If you are running switchroot Linux on your Nintendo Switch, you can install
-xemu from the PPA as described in in the [Download](download.md) page. However,
-when running xemu you may see the following error:
-
+If you are running Switchroot/L4T Ubuntu on your Nintendo Switch or Jetson device, you have two options:
+- Install xemu using the [official PPA](https://launchpad.net/~mborgerson/+archive/ubuntu/xemu). This gives you the option to quickly install and update xemu like any other package on your device. To do so, run the following:
+```bash
+sudo add-apt-repository ppa:mborgerson/xemu
+sudo apt-get update
+sudo apt install xemu
 ```
+- Install xemu via the [L4T Megascript](https://github.com/cobalt2727/L4T-Megascript/wiki/)'s build script (check the `Initial Setup` page in their wiki to get started).
+During their "initial setup" script, you'll be prompted to install SDL2 - choose yes to upgrade to newer SDL2 binaries. Afterwards, you can install xemu itself from the menu. **Skip the "initial setup" script if you're not on a Switch or other Tegra hardware!**
+The Megascript's [build script](https://github.com/cobalt2727/L4T-Megascript/blob/master/scripts/games_and_emulators/xemu.sh) gets you the newest updates sooner and has been confirmed to result in a performance boost over the PPA, but it is not packaged by the xemu developers. Use at your own discretion. To update xemu, simply run the Megascript's `Auto Updater` script.
+
+If you see the following error, this is a bug from older releases of Switchroot's L4T Ubuntu:
+```bash
 dbus[12047]: arguments to dbus_message_new_method_call() were incorrect, assertion "path != NULL" failed in file ../../../dbus/dbus-message.c line 1362.
 This is normally a bug in some application using the D-Bus library.
 
   D-Bus not built with -rdynamic so unable to print a backtrace
 ```
 
-To fix this you can build and install SDL from source:
-
-```bash
-sudo apt install cmake build-essential
-git clone https://github.com/libsdl-org/SDL && cd SDL
-mkdir build && cd build
-cmake ..
-make -j4
-sudo make install
-```
-
-Then launch xemu `LD_LIBRARY_PATH=/usr/local/lib xemu`
+This can be fixed by [updating to the newest Switchroot L4T Ubuntu release following this guide](https://wiki.switchroot.org/en/Linux/Ubuntu-Install-Guide#updates-for-previous-30-installs).
