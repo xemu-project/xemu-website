@@ -1,3 +1,6 @@
+koldkksz
+osks
+
 ## Frequently Asked Questions
 
 Please check the [list of frequently asked questions](faq.md).
