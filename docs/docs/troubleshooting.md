@@ -12,7 +12,7 @@ Here is the updated section with the quote included:
 
 ## Black Screen / Failed Load / Dirty Disc
 
-* Save state error (`error while loading state from instance 0x0 of device 'pci.0:05.0/mcpx-apu'`) occurs when trying to load a save state created in an older version of xemu. Because xemu updates may change how hardware is emulated, save states are generally not forward-compatible. To fix this, please load your game using the in-game save system (e.g., memory card/hard drive save) rather than emulator snapshots.
+* Save state load failure (`error while loading state from instance 0x0 of device 'pci.0:05.0/mcpx-apu'`) occurs when trying to load a save state created in an older version of xemu. Because xemu updates may change how hardware is emulated, save states are generally not forward-compatible. To fix this, please load your game using the in-game save system (e.g., memory card/hard drive save) rather than emulator snapshots.
 * Check your disc backup and verify that your backup is correct and in xiso format (see [here](https://www.google.com/search?q=disc-images.md/%23creating-xisos)).
 * Check your disc backup and verify that your backup is correct and in xiso format (see [here](disc-images.md/#creating-xisos)).
 * Some games are susceptible to cache problems. Try clearing your cache, or
