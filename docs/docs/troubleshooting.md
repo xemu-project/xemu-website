@@ -9,7 +9,7 @@ Please check the [list of frequently asked questions](faq.md).
   simply try with a blank HDD image.
     * You can use the `Flush Cache Partitions` utility in [LithiumX](https://github.com/Ryzee119/LithiumX/) to clear your cache.
     * You can also use the `Clear Cache` function in the [xemu-dashboard](https://github.com/xemu-project/xemu-dashboard) included with the default xemu harddrive image.
-* Corrupt or failing hard drive images can cause xemu to crash or fail to start up entirely if your `xbox_hdd.qcow2` file has been damaged, which is often caused by improper shutdowns. It is recommended to create a copy of your current hard drive image before testing it with a [fresh copy](https://github.com/xemu-project/xemu-dashboard/releases/latest/download/xbox_hdd.qcow2). While extracting data from it isn't easy, you should keep your old hard drive image copy archived rather than deleting it outright, as the drive may become accessible in Xemu later ([reference](https://github.com/xemu-project/xemu/issues/2593#issuecomment-3657464782)).
+* Corrupt or failing hard drive images can cause xemu to crash or fail to start up entirely if your `xbox_hdd.qcow2` file has been damaged, which is often caused by improper shutdowns. It is recommended to create a copy of your current hard drive image before testing it with a [fresh copy](https://github.com/xemu-project/xemu-dashboard/releases/latest/download/xbox_hdd.qcow2). While extracting data from it isn't easy, you should keep your old hard drive image copy archived rather than deleting it outright, as the drive may become accessible in xemu later ([reference](https://github.com/xemu-project/xemu/issues/2593#issuecomment-3657464782)).
 
 ## Enabling Surround Sound in your EEPROM
 
