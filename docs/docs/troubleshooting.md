@@ -4,14 +4,6 @@ Please check the [list of frequently asked questions](faq.md).
 
 ## Black Screen / Failed Load / Dirty Disc
 
-* Yes, including the exact error message makes the troubleshooting entry much easier for users to find when they search or scan the page for their specific problem.
-
-Here is the updated section with the quote included:
-
----
-
-## Black Screen / Failed Load / Dirty Disc
-
 * Save state load failure (`error while loading state from instance 0x0 of device 'pci.0:05.0/mcpx-apu'`) occurs when attempting to load a save state created in a different version of xemu. Because xemu updates frequently change hardware emulation, save states are eventually not compatible between versions. This can happen when trying to load an older save state on a newer build, or occasionally when version discrepancies occur. For example, this might happen if you create a save state in the official AppImage release and try to load it in the official Flathub release that is less frequently updated. To resolve this issue, make sure that games are saved when possible in-game, and load your progress using the native in-game save system instead of relying on emulator snapshots.
 * Check your disc backup and verify that your backup is correct and in xiso format (see [here](disc-images.md/#creating-xisos)).
 * Some games are susceptible to cache problems. Try clearing your cache, or
