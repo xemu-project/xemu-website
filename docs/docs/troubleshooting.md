@@ -4,11 +4,13 @@ Please check the [list of frequently asked questions](faq.md).
 
 ## Black Screen / Failed Load / Dirty Disc
 
+* Save state load failure (`error while loading state from instance 0x0 of device 'pci.0:05.0/mcpx-apu'`) occurs when attempting to load a save state created in a different version of xemu. Because xemu updates frequently change hardware emulation, save states are eventually not compatible between versions. This can happen when trying to load an older save state on a newer build, or occasionally when version discrepancies occur. For example, this might happen if you create a save state in the official AppImage release and try to load it in the official Flathub release that is less frequently updated. To resolve this issue, make sure that games are saved when possible in-game, and load your progress using the native in-game save system instead of relying on emulator snapshots.
 * Check your disc backup and verify that your backup is correct and in xiso format (see [here](disc-images.md/#creating-xisos)).
 * Some games are susceptible to cache problems. Try clearing your cache, or
   simply try with a blank HDD image.
     * You can use the `Flush Cache Partitions` utility in [LithiumX](https://github.com/Ryzee119/LithiumX/) to clear your cache.
     * You can also use the `Clear Cache` function in the [xemu-dashboard](https://github.com/xemu-project/xemu-dashboard) included with the default xemu harddrive image.
+* Corrupt or failing hard drive images (`xbox_hdd.qcow2`) can cause xemu to crash or fail to start up entirely, which is often caused by improper shutdowns. It is recommended to back up your current hard drive image before replacing it with a [fresh copy](https://github.com/xemu-project/xemu-dashboard/releases/latest/download/xbox_hdd.qcow2). While extracting data from it isn't easy, you should keep your old hard drive image copy archived rather than deleting it outright, as the drive may become accessible in xemu later ([reference](https://github.com/xemu-project/xemu/issues/2593#issuecomment-3657464782)).
 
 ## Enabling Surround Sound in your EEPROM
 
