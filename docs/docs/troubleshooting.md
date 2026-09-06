@@ -14,6 +14,23 @@ Please check the [list of frequently asked questions](faq.md).
 
 * Surround Sound isn't supported in xemu yet, you should disable this in your [EEPROM](eeprom.md) if you have enabled it.
 
+## Controller Not Detected
+
+If your controller is connected to your computer and works in other games but does not show up in the controller dropdown in xemu (<kbd>Machine</kbd> &rarr; <kbd>Input</kbd>) menu:
+
+### 1. Check for Unmapped Joystick in Log Output
+
+xemu uses SDL3 for controller input. SDL differentiates between generic "joystick" devices and standardized "gamepads". Only devices that SDL recognizes as gamepads (devices with an established mapping of buttons, sticks, and triggers) appear in xemu's controller selection menu.
+
+When you connect a controller that lacks an SDL gamepad mapping, xemu detects the raw joystick but cannot treat it as a gamepad. xemu logs a message when this happens:
+
+```
+Input: Detected unmapped joystick '<Device Name>' (GUID: <GUID>, ID: <ID>). This device is not recognized as a gamepad by SDL and requires an SDL gamepad mapping to work with xemu.
+```
+
+**Solution:** If you see the unmapped joystick message, your device is connected properly, but requires a mapping. Follow the 
+[SDL GameControllerDB instructions](controller.md#custom-controllers-and-sdl-gamecontrollerdb) to download or generate a mapping string and configure `gamecontrollerdb_path` in `xemu.toml`.
+
 ## Flatpak release will not load the Hard Drive
 
 As explained in the [readme](https://github.com/flathub/app.xemu.Xemu?tab=readme-ov-file#usage): Only `$HOME/.var/app/app.xemu.xemu/data/xemu/xemu` can be written by xemu. The Hard Disk image has to be placed there, for example, at `$HOME/.var/app/app.xemu.xemu/data/xemu/xemu/xbox_hdd.qcow2`. To enable write permissions for the xbox_hdd.qcow2 hard drive file located outside xemu's flatpak system directory, you must grant xemu access to write in an alternative directory. This can be accomplished using either flatpak or flatseal.

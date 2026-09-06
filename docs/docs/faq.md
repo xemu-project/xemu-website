@@ -84,6 +84,11 @@ xemu has preliminary support for [Xbox Live Communicator emulation](xblc.md) to 
 #### Q: Can I play local multiplayer?
 Yes, you can connect multiple controllers just like a real Xbox.
 
+#### Q: My controller is connected, but xemu does not detect it. What should I do?
+If your controller works in your operating system but does not appear in xemu's controller settings, it may be recognized as an unmapped joystick that lacks an SDL gamepad mapping, or another application (such as Steam Input) may have exclusive access.
+
+See [Controller Troubleshooting Guide](troubleshooting.md#controller-not-detected) to check your logs and resolve the issue, or refer to [SDL GameControllerDB](controller.md#custom-controllers-and-sdl-gamecontrollerdb) to add a custom controller mapping.
+
 #### Q: Can I play local multiplayer with my friends over the Internet?
 If you're looking for split-screen play over the internet, xemu itself does not support this feature. However, there are 3rd party solutions like [Parsec](https://parsec.app/local-co-op-online) which can do this.
 
