@@ -26,9 +26,10 @@
 * To create the report in xemu select <kbd>Help</kbd> &rarr; <kbd>Report Compatibility</kbd>.
     * Briefly describe your experience.
     * When selecting playability level:
-          * Recall open issues for the game. If there's something that causes the game to crash in xemu, it should probably not be classified as Playable.
-          * Playable is most likely the status you should pick unless the experience is very bad (Broken-Starts) or you completed the game and you believe the experience matches hardware (Perfect).
-          * If the game is not in Playable/Perfect status, there should be at least one issue filed tracking whatever the problems are with the game.
+        * Recall open issues for the game. If there's something that causes the game to crash in xemu, it should probably not be classified as Playable.
+        * `Playable` is most likely the status you should pick unless the experience is very bad (use `Broken`, `Intro` or `Starts` depending on how far into the title you can get without issues) or you completed the game and you believe the experience matches hardware (`Perfect`).
+            * Note that a game is eligible for `Perfect` rating even if enhancements like surface scaling > 1x do not work. We wish to have enhancements work on all games, so feel free to file GitHub Title issues if these bonus enhancements do not work.
+        * If the game is not in `Playable`/`Perfect` status, there should be at least one issue filed tracking whatever the problems are with the game.
     * Once your report is filed, it should appear on the site within an hour.
 
 ### Reachability
