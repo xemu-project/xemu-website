@@ -55,7 +55,7 @@ No, not directly. xemu emulates the hardware of the system, so you'll need to ha
 When a game tries to execute a piece of code in xemu that has not yet been implemented or verified, xemu will `assert`,  which forces execution to stop. The reason for this is that anything happening beyond that point may be unpredictable and significantly increase the debugging burden.
 
 #### Q: How do I enable widescreen mode?
-You can change the setting in your [dashboard](dashboard.md) or use the [EEPROM editor](eeprom.md) to enable widescreen. Then select 'Scale (Widescreen 16:9)' in xemu View scaling mode. Note: not all games support widescreen.
+You can change the setting in your [dashboard](dashboard.md) or use the [EEPROM editor](eeprom.md) to enable widescreen. Then select '16:9' as the `Aspect ratio` in Machine > Settings > Display. Note: not all games support widescreen.
 
 #### Q: How can I increase the resolution?
 For all titles the rendering resolution can be easily scaled by navigating to View&rarr;Int. Resolution Scale. For titles that natively support higher resolutions, you can enable the associated mode in your dashboard or by using the [EEPROM editor](eeprom.md).
