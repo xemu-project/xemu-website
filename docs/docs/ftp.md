@@ -1,8 +1,9 @@
 # HDD Access via FTP
 
 If you have an alternative dashboard that runs an FTP server (as almost all
-replacement dashboards do), you can easily connect to that FTP server to read
-or write files on the virtual hard disk.
+replacement dashboards do, including the [xemu-dashboard](https://github.com/xemu-project/xemu-dashboard)
+bundled with the [xemu HDD image](https://github.com/xemu-project/xemu-dashboard/releases/latest/download/xbox_hdd.qcow2)),
+you can easily connect to that FTP server to read or write files on the virtual hard disk.
 
 ## Step 1: Enable user networking
 
