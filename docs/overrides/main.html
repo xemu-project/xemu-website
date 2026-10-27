@@ -19,12 +19,12 @@
   <meta name="twitter:title" content="{{ title }}">
   <meta name="twitter:description" content="{{ config.site_description }}">
   <meta name="twitter:image" content="{{ image | url }}">
-  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;700&display=swap" rel="stylesheet">
 {% endblock %}
 {% block htmltitle %}
-  {% if page and page.meta and page.meta.title %}
+  {% if page.meta and page.meta.title %}
     <title>{{ page.meta.title }} | {{ config.site_name }}</title>
-  {% elif page and page.title and not page.is_homepage %}
+  {% elif page.title and not page.is_homepage %}
     <title>{{ page.title | striptags }} | {{ config.site_name }}</title>
   {% else %}
     <title>{{ config.site_name }}</title>
