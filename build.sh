@@ -27,7 +27,7 @@ cp fontawesome-free-5.15.3-web/webfonts/fa-solid-900.woff2 \
 	fontawesome-free-5.15.3-web/webfonts/fa-brands-400.woff2 \
    dist/webfonts
 
-docker run --rm -v ${PWD}/docs:/docs squidfunk/mkdocs-material build
+(cd docs && uv run zensical build)
 cp -r docs/site dist/docs
 
 # Flathub verification
