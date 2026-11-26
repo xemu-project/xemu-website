@@ -6,6 +6,10 @@ skills to improve the project.
 
 ## Contributing
 
+!!! warning "AI use in xemu development"
+    
+    The xemu doesn't discourage the use of AI in the furthering of the development of xemu, and already integrates it in our patch review processes, our guidelines for AI use are "own your output" which means do not blindly use what an AI outputs as an acceptable PR submission with no review or modification, as well as without proper testing, low-effort patches that are made with AI are subject to closure, without being reviewed.
+
 ### Patch submission guidelines
 
 The xemu project generally (but not exclusively) follows the patch submission guidelines [established by the QEMU project](https://github.com/xemu-project/xemu/blob/master/docs/devel/submitting-a-patch.rst).
